@@ -121,6 +121,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PaginatedModel\PaginatedInputDto.cs" />
+    <Compile Include="PaginatedModel\PaginatedResultDto.cs" />
+    <Compile Include="Users\Dto\ChangePasswordInput.cs" />
+    <Compile Include="Users\Dto\CurrentUserPermissionsOutput.cs" />
+    <Compile Include="Users\Dto\EditProfileInput.cs" />
+    <Compile Include="Users\Dto\SetUserRolesInput.cs" />
+    <Compile Include="Users\Dto\UpdateUserInput.cs" />
+    <Compile Include="Users\Dto\UserAssignedPermission.cs" />
     <Compile Include="ZeroApplicationModule.cs" />
     <Compile Include="ZeroAppServiceBase.cs" />
     <Compile Include="MultiTenancy\Dto\CreateTenantInput.cs" />

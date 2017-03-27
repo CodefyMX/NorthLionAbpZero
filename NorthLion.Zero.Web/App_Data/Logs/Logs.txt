@@ -175,3 +175,7 @@ DEBUG 2017-03-27 13:21:37,781 [38   ] Abp.Logging.LogHelper                    -
 DEBUG 2017-03-27 13:21:37,782 [38   ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'NorthLion.Zero.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
 DEBUG 2017-03-27 13:21:39,147 [23   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"882ad1ac-e9e7-4cbe-b5c9-cfd722fcc9ca","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-03-27T13:21:39.1441749-06:00","Properties":{}}
 DEBUG 2017-03-27 13:21:39,147 [26   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected (on reconnected event): {"ConnectionId":"d99f0d93-6591-44df-926f-5726e695b780","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-03-27T13:21:39.1211749-06:00","Properties":{}}
+DEBUG 2017-03-27 13:46:39,878 [110  ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2017-03-27 13:46:39,878 [110  ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-03-27 13:46:39,879 [110  ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-03-27 13:46:39,879 [110  ] Abp.Modules.AbpModuleManager             - Shutting down completed.

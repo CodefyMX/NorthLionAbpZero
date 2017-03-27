@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Abp.Web.Mvc.Authorization;
 using NorthLion.Zero.Authorization;
+using NorthLion.Zero.PaginatedModel;
 using NorthLion.Zero.Users;
 
 namespace NorthLion.Zero.Web.Controllers
@@ -16,9 +17,9 @@ namespace NorthLion.Zero.Web.Controllers
             _userAppService = userAppService;
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(PaginatedInputDto input)
         {
-            var output = await _userAppService.GetUsers();
+            var output = await _userAppService.GetUsers(input);
             return View(output);
         }
     }
