@@ -1,0 +1,43 @@
+DEBUG 2017-03-27 13:18:56,155 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-03-27 13:18:56,167 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2017-03-27 13:18:56,171 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: NorthLion.Zero.Web.ZeroWebModule, NorthLion.Zero.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,173 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: NorthLion.Zero.ZeroDataModule, NorthLion.Zero.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,173 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,173 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,173 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,174 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,174 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: NorthLion.Zero.ZeroCoreModule, NorthLion.Zero.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,174 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: NorthLion.Zero.ZeroApplicationModule, NorthLion.Zero.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,174 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,174 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: NorthLion.Zero.Api.ZeroWebApiModule, NorthLion.Zero.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,175 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=1.5.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:56,178 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2017-03-27 13:18:56,277 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-27 13:18:56,277 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-27 13:18:56,277 [1    ] o.Configuration.LanguageManagementConfig - Converted Zero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-27 13:18:56,277 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-03-27 13:18:56,551 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: NorthLion.Zero.EntityFramework.ZeroDbContext, NorthLion.Zero.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-03-27 13:18:57,329 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-03-27 13:18:57,335 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-03-27 13:18:57,337 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-03-27 13:18:57,339 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Zero
+DEBUG 2017-03-27 13:18:57,340 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-03-27 13:18:57,391 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-03-27 13:18:57,439 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 7 classes define auto mapping attributes
+DEBUG 2017-03-27 13:18:57,439 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - NorthLion.Zero.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-03-27 13:18:57,441 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - NorthLion.Zero.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-03-27 13:18:57,441 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - NorthLion.Zero.Users.Dto.CreateUserInput
+DEBUG 2017-03-27 13:18:57,442 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - NorthLion.Zero.Users.Dto.UserListDto
+DEBUG 2017-03-27 13:18:57,442 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - NorthLion.Zero.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-03-27 13:18:57,442 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - NorthLion.Zero.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-03-27 13:18:57,442 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - NorthLion.Zero.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-03-27 13:18:58,355 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'NorthLion.Zero.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-03-27 13:18:58,356 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'NorthLion.Zero.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-03-27 13:18:58,357 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'NorthLion.Zero.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-03-27 13:18:58,358 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'NorthLion.Zero.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-03-27 13:19:03,921 [11   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is connected: {"ConnectionId":"d99f0d93-6591-44df-926f-5726e695b780","IpAddress":"::1","TenantId":1,"UserId":2,"ConnectTime":"2017-03-27T13:19:03.9141749-06:00","Properties":{}}
+DEBUG 2017-03-27 13:19:03,962 [12   ] Abp.Web.SignalR.Hubs.AbpCommonHub        - A client is registered: d99f0d93-6591-44df-926f-5726e695b780

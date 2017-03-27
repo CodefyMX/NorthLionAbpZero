@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Abp.EntityFramework.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Abp.EntityFramework.AutoRepositoryTypesAttribute">
+            <summary>
+            Used to define auto-repository types for entities.
+            This can be used for DbContext types.
+            </summary>
+        </member>
+        <member name="T:Abp.EntityFramework.DefaultDbContextAttribute">
+            <summary>
+            Used to mark a DbContext as default for a multi db context project.
+            </summary>
+        </member>
+        <member name="P:Abp.EntityFramework.EntityTypeInfo.EntityType">
+            <summary>
+            Type of the entity.
+            </summary>
+        </member>
+        <member name="P:Abp.EntityFramework.EntityTypeInfo.DeclaringType">
+            <summary>
+            DbContext type that has DbSet property.
+            </summary>
+        </member>
+    </members>
+</doc>
