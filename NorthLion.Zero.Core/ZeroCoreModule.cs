@@ -25,7 +25,6 @@ namespace NorthLion.Zero
 
             //Remove the following line to disable multi-tenancy.
             Configuration.MultiTenancy.IsEnabled = ZeroConsts.MultiTenancyEnabled;
-
             //Add/remove localization sources here
             Configuration.Localization.Sources.Add(
                 new DictionaryBasedLocalizationSource(

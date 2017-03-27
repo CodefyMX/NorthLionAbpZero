@@ -413,6 +413,8 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="Areas\AdminSpa\Views\web.config" />
+    <Content Include="Areas\AdminMpa\Views\web.config" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -472,6 +474,8 @@
     <Compile Include="App_Start\ZeroWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\AdminMpa\AdminMpaAreaRegistration.cs" />
+    <Compile Include="Areas\AdminSpa\AdminSpaAreaRegistration.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -539,6 +543,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\AdminMpa\Controllers\" />
+    <Folder Include="Areas\AdminMpa\Models\" />
+    <Folder Include="Areas\AdminMpa\Views\Shared\" />
+    <Folder Include="Areas\AdminSpa\Controllers\" />
+    <Folder Include="Areas\AdminSpa\Models\" />
+    <Folder Include="Areas\AdminSpa\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
