@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Collections.Extensions;
@@ -43,19 +42,37 @@ namespace NorthLion.Zero.Users
             CheckErrors(await UserManager.RemoveFromRoleAsync(userId, roleName));
         }
 
-        public async Task<ListResultDto<UserListDto>> GetUsers(PaginatedInputDto input)
+        public async Task<UsersOutput> GetUsers(PaginatedInputDto input)
         {
-            var pagesToSkip = input.Page * input.RowsPerPage;
-            Func<User, bool> exp = a => a.UserName.Contains(input.SearchString);
             await Task.FromResult(0);
+            var pagesToSkip =PaginationHelpers.GetSkipTotal(input.Page,input.RowsPerPage);
+            //Might need perf tweaks
+            Func<User, bool> exp = a => a.UserName.Contains(input.SearchString);
             var users = _userRepository.GetAll()
-                .WhereIf(!input.SearchString.IsNullOrEmpty(), exp)
-                .OrderBy(a => a.UserName)
-                .Skip(pagesToSkip)
+                .WhereIf(!input.SearchString.IsNullOrEmpty(), exp);
+            switch (input.PropertyToOrder)
+            {
+                case "UserName":
+                    users = input.Direction == "Desc" ? users.OrderByDescending(a => a.UserName) : users.OrderBy(a => a.UserName);
+                    break;
+                default:
+                    users = input.Direction == "Desc" ? users.OrderByDescending(a => a.Name) : users.OrderBy(a => a.Name);
+                    break;
+            }
+
+            var usersListEnum = users as IList<User> ?? users.ToList();
+            var totalPages = PaginationHelpers.GetRemainingPages(usersListEnum.Count(), input.RowsPerPage);
+
+            var usersList = usersListEnum.Skip(pagesToSkip)
                 .Take(input.RowsPerPage).ToList();
-            return new ListResultDto<UserListDto>(
-                users.MapTo<List<UserListDto>>()
-                );
+            return new UsersOutput()
+            {
+                RemainingPages = totalPages,
+                Page = input.Page,
+                Rows = input.RowsPerPage,
+                SearchString = input.SearchString,
+                Users = usersList.Select(a=>a.MapTo<UserListDto>()).ToList()
+            };
         }
 
         public async Task CreateUser(CreateUserInput input)

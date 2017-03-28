@@ -13,7 +13,7 @@ namespace NorthLion.Zero.Users
         Task ProhibitPermission(ProhibitPermissionInput input);
         Task RemoveFromRole(long userId, string roleName);
         [HttpGet]
-        Task<ListResultDto<UserListDto>> GetUsers(PaginatedInputDto input);
+        Task<UsersOutput> GetUsers(PaginatedInputDto input);
         Task CreateUser(CreateUserInput input);
         [HttpPut]
         Task UpdateProfile(EditProfileInput input);

@@ -7,5 +7,6 @@
         public int RowsPerPage { get; set; } = 10;
         public string PropertyToOrder { get; set; }
         public string Direction { get; set; } //Desc, Asc
+        public string SearchProperty { get; set; }
     }
 }
