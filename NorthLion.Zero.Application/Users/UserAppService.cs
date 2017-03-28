@@ -47,7 +47,7 @@ namespace NorthLion.Zero.Users
             await Task.FromResult(0);
             var pagesToSkip =PaginationHelpers.GetSkipTotal(input.Page,input.RowsPerPage);
             //Might need perf tweaks
-            Func<User, bool> exp = a => a.UserName.Contains(input.SearchString);
+            Func<User, bool> exp = a => a.UserName.ToUpper().Contains(input.SearchString.ToUpper());
             var users = _userRepository.GetAll()
                 .WhereIf(!input.SearchString.IsNullOrEmpty(), exp);
             switch (input.PropertyToOrder)

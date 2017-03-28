@@ -15,7 +15,7 @@ namespace NorthLion.Zero.PaginatedModel
         /// <returns></returns>
         public static int GetRemainingPages(int records, int rows)
         {
-            return Convert.ToInt32(Math.Ceiling(rows / Convert.ToDouble(records)));
+            return Convert.ToInt32(Math.Ceiling(Convert.ToDouble(records) / rows));
         }
         /// <summary>
         /// Gets the number of rows that will be skiped for the next page

@@ -1,6 +1,6 @@
 ﻿@using Abp.Authorization.Users
 @using Abp.Web.Mvc.Extensions
-@model Abp.Application.Services.Dto.ListResultDto<NorthLion.Zero.Users.Dto.UserListDto>
+@model NorthLion.Zero.Users.Dto.UsersOutput
 @{
     ViewBag.ActiveMenu = "Users"; //The menu item will be active for this page.
 }
@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var user in Model.Items)
+                    @foreach (var user in Model.Users)
                     {
                         <tr>
                             <td>@user.UserName</td>
