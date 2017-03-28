@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Castle.Components.DictionaryAdapter;
+﻿using Castle.Components.DictionaryAdapter;
+using System.Collections.Generic;
 
 namespace NorthLion.Zero.Roles.Dto
 {

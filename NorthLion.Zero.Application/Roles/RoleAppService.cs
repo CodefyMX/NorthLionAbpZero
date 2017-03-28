@@ -3,6 +3,7 @@ using Abp.Authorization.Roles;
 using Abp.AutoMapper;
 using Abp.Localization;
 using NorthLion.Zero.Authorization.Roles;
+using NorthLion.Zero.PaginatedModel;
 using NorthLion.Zero.Roles.Dto;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,6 +74,44 @@ namespace NorthLion.Zero.Roles
             await _roleManager.DeleteAsync(role);
             //Notify role owners or something like that 
         }
+
+        public async Task<RolesOutput> GetRoles(PaginatedInputDto input)
+        {
+            await Task.FromResult(0); //WARN Fix
+            //Con esto paginamos 
+            //La pagina 1 es en realidad la pagina 2, (empezamos desde el indice 0)
+            //pagina 1  * 10 elementos por pagina = 10,
+            //osea nos saltamos los 10 primeros elementos que son los de la pagina 1
+            var toSkipElements = PaginationHelpers.GetSkipTotal(input.Page, input.RowsPerPage);
+
+            //Busqueda
+            var roles = _roleManager.Roles
+                .Where(a => a.Name.Contains(input.SearchString));
+
+            switch (input.PropertyToOrder)
+            {
+                case "Name":
+                    roles = input.Direction == "Desc" ? roles.OrderByDescending(a => a.Name) : roles.OrderBy(a => a.Name);
+                    break;
+                case "DisplayName":
+                    roles = input.Direction == "Desc" ? roles.OrderByDescending(a => a.DisplayName) : roles.OrderBy(a => a.DisplayName);
+                    break;
+                default:
+                    roles = roles.OrderBy(a => a.Id);
+                    break;
+            }
+            var remainingPages = PaginationHelpers.GetRemainingPages(roles.Count(), input.RowsPerPage); //Regresara un numero
+            roles = roles.Skip(toSkipElements); //El servidor nos enviara de los 10 primeros elementos en adelante
+            return new RolesOutput()
+            {
+                SearchString = input.SearchString,
+                Page = input.Page,
+                RemainingPages = remainingPages,
+                Rows = input.RowsPerPage,
+                Roles = roles.Select(a => a.MapTo<RoleDto>()).ToList()
+            };
+        }
+
         #region Helpers
 
         private List<AssignedPermission> CheckPermissions(IEnumerable<Permission> allPermissions, ICollection<RolePermissionSetting> rolePermissions)
