@@ -4,13 +4,17 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
+using Abp.Domain.Uow;
 using Abp.Extensions;
+using Abp.Linq.Extensions;
 using Abp.MultiTenancy;
 using Abp.Runtime.Security;
+using Abp.UI;
 using NorthLion.Zero.Authorization;
 using NorthLion.Zero.Authorization.Roles;
 using NorthLion.Zero.Editions;
 using NorthLion.Zero.MultiTenancy.Dto;
+using NorthLion.Zero.PaginatedModel;
 using NorthLion.Zero.Users;
 
 namespace NorthLion.Zero.MultiTenancy
@@ -24,25 +28,15 @@ namespace NorthLion.Zero.MultiTenancy
         private readonly IAbpZeroDbMigrator _abpZeroDbMigrator;
 
         public TenantAppService(
-            TenantManager tenantManager, 
-            RoleManager roleManager, 
-            EditionManager editionManager, 
+            TenantManager tenantManager,
+            RoleManager roleManager,
+            EditionManager editionManager,
             IAbpZeroDbMigrator abpZeroDbMigrator)
         {
             _tenantManager = tenantManager;
             _roleManager = roleManager;
             _editionManager = editionManager;
             _abpZeroDbMigrator = abpZeroDbMigrator;
-        }
-
-        public ListResultDto<TenantListDto> GetTenants()
-        {
-            return new ListResultDto<TenantListDto>(
-                _tenantManager.Tenants
-                    .OrderBy(t => t.TenancyName)
-                    .ToList()
-                    .MapTo<List<TenantListDto>>()
-                );
         }
 
         public async Task CreateTenant(CreateTenantInput input)
@@ -87,5 +81,153 @@ namespace NorthLion.Zero.MultiTenancy
                 await CurrentUnitOfWork.SaveChangesAsync();
             }
         }
+
+        public async Task<EditionsForTenantOutput> GetEditionsForTenant(int tenantId)
+        {
+            if (AbpSession.TenantId == null)
+            {
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MustHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.SoftDelete);
+            }
+            var allEditions = _editionManager.Editions.ToList();
+            var editionCList = new List<EditionDto>();
+            foreach (var allEdition in allEditions)
+            {
+                var mappedEdition = allEdition.MapTo<EditionDto>();
+
+                mappedEdition.IsEnabledForTenant = await IsThisEditionActive(tenantId, allEdition.Id);
+
+                editionCList.Add(mappedEdition);
+            }
+            return new EditionsForTenantOutput()
+            {
+                Editions = editionCList,
+                TenantId = tenantId
+            };
+        }
+
+        public async Task SetFeatureValuesForTenant(SetTenantValuesForTenantInput input)
+        {
+            if (AbpSession.TenantId == null)
+            {
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MustHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.SoftDelete);
+            }
+            var tenant = await TenantManager.GetByIdAsync(input.TenantId);
+
+            foreach (var inputFeature in input.Features)
+            {
+                await TenantManager.SetFeatureValueAsync(tenant, inputFeature.Name, inputFeature.DefaultValue);
+            }
+            await CurrentUnitOfWork.SaveChangesAsync();
+        }
+
+        public async Task SetTenantEdition(SetTenantEditionInput input)
+        {
+            if (AbpSession.TenantId == null)
+            {
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MustHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.SoftDelete);
+            }
+            var tenant = await TenantManager.GetByIdAsync(input.TenantId);
+            var edition = await _editionManager.FindByIdAsync(input.EditionId);
+            if (edition != null)
+            {
+                tenant.EditionId = edition.Id;
+            }
+            await CurrentUnitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<FeaturesForTenant> GetFeaturesForTenant(int tenantId)
+        {
+            if (AbpSession.TenantId == null)
+            {
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MustHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.SoftDelete);
+            }
+            var tenant = await TenantManager.GetByIdAsync(tenantId);
+
+            if (tenant.EditionId == null) throw new UserFriendlyException(L("NoEditionIsSetForTenant"));
+
+            var edition = await _editionManager.FindByIdAsync(tenant.EditionId.Value);
+            return new FeaturesForTenant();
+        }
+
+        public async Task ResetFeatures(int tenantId)
+        {
+            if (AbpSession.TenantId == null)
+            {
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MustHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.SoftDelete);
+            }
+            var tenant = await TenantManager.GetByIdAsync(tenantId);
+
+            if (tenant.EditionId == null) throw new UserFriendlyException(L("NoEditionIsSetForTenant"));
+
+            var editionFeatures = await _editionManager.GetFeatureValuesAsync(tenant.EditionId.Value);
+
+            await TenantManager.SetFeatureValuesAsync(tenantId, editionFeatures.ToArray());
+        }
+
+        public async Task<TenantsOutput> GetTenants(PaginatedInputDto input)
+        {
+            await Task.FromResult(0);
+            var tenants = _tenantManager.Tenants.WhereIf(!input.SearchString.IsNullOrEmpty(),
+                a => a.Name.ToUpper().Contains(input.SearchString.ToUpper())).ToList();
+            return new TenantsOutput()
+            {
+                Tenants = tenants.Select(a=>a.MapTo<TenantListDto>())
+            };
+        }
+
+        public async Task<EditTenantInput> GetTenantForEdit(int tenantId)
+        {
+            if (AbpSession.TenantId == null)
+            {
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MustHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.SoftDelete);
+            }
+            var tenant = await TenantManager.GetByIdAsync(tenantId);
+
+            return tenant.MapTo<EditTenantInput>();
+        }
+
+        public async Task DeleteTenant(int tenantId)
+        {
+            var tenant = await TenantManager.FindByIdAsync(tenantId);
+            await TenantManager.DeleteAsync(tenant);
+
+        }
+
+        public async Task RestoreTenant(int tenantId)
+        {
+            if (AbpSession.TenantId == null)
+            {
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MustHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.SoftDelete);
+            }
+            var tenant = await TenantManager.FindByIdAsync(tenantId);
+
+            tenant.IsDeleted = false;
+
+            await TenantManager.UpdateAsync(tenant);
+        }
+        #region Helpers
+        private async Task<bool> IsThisEditionActive(int tenantId, int editionId)
+        {
+
+            var tenant = await TenantManager.GetByIdAsync(tenantId);
+
+            return tenant.EditionId == editionId;
+
+        }
+        #endregion
     }
 }

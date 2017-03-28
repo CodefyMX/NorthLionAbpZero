@@ -130,6 +130,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MultiTenancy\Dto\EditionDto.cs" />
+    <Compile Include="MultiTenancy\Dto\EditionsForTenantOutput.cs" />
+    <Compile Include="MultiTenancy\Dto\EditTenantInput.cs" />
+    <Compile Include="MultiTenancy\Dto\FeatureInput.cs" />
+    <Compile Include="MultiTenancy\Dto\FeaturesForTenant.cs" />
+    <Compile Include="MultiTenancy\Dto\SetTenantEditionInput.cs" />
+    <Compile Include="MultiTenancy\Dto\SetTenantValuesForTenantInput.cs" />
+    <Compile Include="MultiTenancy\Dto\TenantsOutput.cs" />
     <Compile Include="PaginatedModel\IPaginableResult.cs" />
     <Compile Include="PaginatedModel\PaginatedInputDto.cs" />
     <Compile Include="PaginatedModel\PaginatedResultDto.cs" />
