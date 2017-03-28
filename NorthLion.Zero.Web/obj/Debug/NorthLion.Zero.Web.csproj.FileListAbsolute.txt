@@ -276,3 +276,4 @@ C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Web\bin\zh\Hangfi
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.csprojResolveAssemblyReference.cache
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.dll
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.pdb
+C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Web\bin\Swashbuckle.Core.dll

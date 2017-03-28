@@ -1,8 +1,9 @@
-﻿using System.Data.Entity;
-using System.Threading.Tasks;
+﻿using NorthLion.Zero.PaginatedModel;
 using NorthLion.Zero.Users;
 using NorthLion.Zero.Users.Dto;
 using Shouldly;
+using System.Data.Entity;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace NorthLion.Zero.Tests.Users
@@ -20,7 +21,7 @@ namespace NorthLion.Zero.Tests.Users
         public async Task GetUsers_Test()
         {
             //Act
-            var output = await _userAppService.GetUsers();
+            var output = await _userAppService.GetUsers(new PaginatedInputDto());
 
             //Assert
             output.Items.Count.ShouldBeGreaterThan(0);

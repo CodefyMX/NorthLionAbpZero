@@ -132,3 +132,4 @@ C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.WebApi\bin\Debug\
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.WebApi\obj\Debug\NorthLion.Zero.WebApi.csprojResolveAssemblyReference.cache
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.WebApi\obj\Debug\NorthLion.Zero.WebApi.dll
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.WebApi\obj\Debug\NorthLion.Zero.WebApi.pdb
+C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.WebApi\bin\Debug\Swashbuckle.Core.dll
