@@ -123,6 +123,9 @@
   <ItemGroup>
     <Compile Include="PaginatedModel\PaginatedInputDto.cs" />
     <Compile Include="PaginatedModel\PaginatedResultDto.cs" />
+    <Compile Include="Roles\Dto\AssignedPermission.cs" />
+    <Compile Include="Roles\Dto\CreateRoleInput.cs" />
+    <Compile Include="Roles\Dto\UpdateRoleInput.cs" />
     <Compile Include="Users\Dto\ChangePasswordInput.cs" />
     <Compile Include="Users\Dto\CurrentUserPermissionsOutput.cs" />
     <Compile Include="Users\Dto\EditProfileInput.cs" />
