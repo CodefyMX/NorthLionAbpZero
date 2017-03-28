@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace NorthLion.Zero.Languages.Dto
 {
-    public class LanguageTextEditInput
+    public class LanguageTextTableElement
     {
-        public string Source { get; set; }
-        public int LanguageName { get; set; }
-        public string Value { get; set; }
         public string Key { get; set; }
+        public string Source { get; set; }
+        public string SourceValue { get; set; }
+        public string TargetValue { get; set; }
     }
 }

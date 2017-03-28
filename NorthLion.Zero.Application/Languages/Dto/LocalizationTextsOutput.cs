@@ -13,5 +13,6 @@ namespace NorthLion.Zero.Languages.Dto
         public int Page { get; set; }
         public int Rows { get; set; }
         public int RemainingPages { get; set; }
+        public List<LanguageTextTableElement> Texts { get; set; }
     }
 }

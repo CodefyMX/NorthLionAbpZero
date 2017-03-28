@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NorthLion.Zero.PaginatedModel;
 
 namespace NorthLion.Zero.Languages.Dto
 {
-    public class LanguageTextEditInput
+    public class GetLocalizationTextInput : PaginatedInputDto
     {
         public string Source { get; set; }
-        public int LanguageName { get; set; }
-        public string Value { get; set; }
-        public string Key { get; set; }
+        public string SourceLang { get; set; }
+        public string TargetLang { get; set; }
     }
 }

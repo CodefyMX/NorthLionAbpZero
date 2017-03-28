@@ -132,10 +132,14 @@
   <ItemGroup>
     <Compile Include="BackUpService\BackUpService.cs" />
     <Compile Include="BackUpService\IBackUpService.cs" />
+    <Compile Include="Languages\Dto\GetLocalizationTextInput.cs" />
     <Compile Include="Languages\Dto\LanguageDto.cs" />
     <Compile Include="Languages\Dto\LanguageInput.cs" />
+    <Compile Include="Languages\Dto\LanguageSelectedObject.cs" />
     <Compile Include="Languages\Dto\LanguagesOutput.cs" />
     <Compile Include="Languages\Dto\LanguageTextEditInput.cs" />
+    <Compile Include="Languages\Dto\LanguageTextEditView.cs" />
+    <Compile Include="Languages\Dto\LanguageTextTableElement.cs" />
     <Compile Include="Languages\Dto\LocalizationTextsOutput.cs" />
     <Compile Include="Languages\ILanguageAppService.cs" />
     <Compile Include="Languages\LanguageAppService.cs" />

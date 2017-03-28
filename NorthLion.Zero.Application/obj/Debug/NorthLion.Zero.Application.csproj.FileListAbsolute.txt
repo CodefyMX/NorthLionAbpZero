@@ -95,3 +95,15 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\System.Ne
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\System.Web.Http.xml
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.Web.Common.dll
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.Web.Common.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\NorthLion.Zero.EntityFramework.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.Zero.EntityFramework.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\EntityFramework.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.EntityFramework.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\EntityFramework.DynamicFilters.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.EntityFramework.Common.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\NorthLion.Zero.EntityFramework.pdb
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\NorthLion.Zero.EntityFramework.dll.config
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.Zero.EntityFramework.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\EntityFramework.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.EntityFramework.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.EntityFramework.Common.xml
