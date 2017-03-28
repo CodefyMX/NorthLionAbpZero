@@ -72,3 +72,5 @@ C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Core\bin\Debug\Sy
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.csprojResolveAssemblyReference.cache
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.dll
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.pdb
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\Abp.Web.Common.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\Abp.Web.Common.xml

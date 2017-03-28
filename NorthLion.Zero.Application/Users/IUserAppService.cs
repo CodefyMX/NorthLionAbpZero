@@ -9,22 +9,49 @@ namespace NorthLion.Zero.Users
 {
     public interface IUserAppService : IApplicationService
     {
-        Task ProhibitPermission(ProhibitPermissionInput input);
-        Task SetUserSpecialPermissions(SetUserSpecialPermissionsInput input);
-        Task RemoveFromRole(long userId, string roleName);
-        Task<UsersOutput> GetUsers(PaginatedInputDto input);
+        /// <summary>
+        /// Creates a new user in the database, users are active by default
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpPost]
         Task CreateUser(CreateUserInput input);
-        Task UpdateProfile(EditProfileInput input);
-        Task EditUser(UpdateUserInput input);
-        Task<UpdateUserInput> GetUserForEdit(long? userId);
-        Task SetUserRoles(SetUserRolesInput input);
-        Task<EditProfileInput> GetUserProfileForEdit();
-        Task UpdateUserProfilePicture(long userId, string profilePicture);
-        Task ChangeUserPassword(ChangePasswordInput input);
+        /// <summary>
+        /// Gets a list of users 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        [HttpGet]
+        Task<UsersOutput> GetUsers(PaginatedInputDto input);
+        [HttpGet]
         Task<CurrentUserPermissionsOutput> GetUserPermissions(long userId);
+        [HttpGet]
+        Task<EditProfileInput> GetUserProfileForEdit();
+        [HttpGet]
+        Task<UpdateUserInput> GetUserForEdit(long? userId);
+        [HttpPut]
+        Task SetUserRoles(SetUserRolesInput input);
+        [HttpPut]
+        Task UpdateUserProfilePicture(long userId, string profilePicture);
+        [HttpPut]
+        Task ChangeUserPassword(ChangePasswordInput input);
+        [HttpPut]
+        Task UpdateUserProfile(EditProfileInput input);
+        [HttpPut]
+        Task EditUser(UpdateUserInput input);
+        [HttpPut]
+        Task ProhibitPermission(ProhibitPermissionInput input);
+        [HttpPut]
+        Task SetUserSpecialPermissions(SetUserSpecialPermissionsInput input);
+        [HttpPut]
+        Task RemoveUserFromRole(long userId, string roleName);
+        [HttpPut]
         Task ResetPermissions(long userId);
+        [HttpPut]
         Task UnlockUser(long userId);
+        [HttpPut]
         Task LockUser(long userId);
+        [HttpDelete]
         Task DeleteUser(long userId);
     }
 }

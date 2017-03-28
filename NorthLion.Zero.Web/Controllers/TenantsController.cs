@@ -1,7 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
 using Abp.Web.Mvc.Authorization;
 using NorthLion.Zero.Authorization;
 using NorthLion.Zero.MultiTenancy;
+using NorthLion.Zero.PaginatedModel;
 
 namespace NorthLion.Zero.Web.Controllers
 {
@@ -15,9 +17,9 @@ namespace NorthLion.Zero.Web.Controllers
             _tenantAppService = tenantAppService;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            var output = _tenantAppService.GetTenants();
+            var output = await _tenantAppService.GetTenants(new PaginatedInputDto());
             return View(output);
         }
     }

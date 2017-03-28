@@ -28,7 +28,7 @@ namespace NorthLion.Zero.Api
             Configuration.Modules.AbpWebApi().HttpConfiguration
                 .EnableSwagger(c =>
                 {
-                    c.SingleApiVersion("v1", "SwaggerIntegrationDemo.WebApi");
+                    c.SingleApiVersion("v1", "MyProject.WebApi");
                     c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 })
                 .EnableSwaggerUi(c =>

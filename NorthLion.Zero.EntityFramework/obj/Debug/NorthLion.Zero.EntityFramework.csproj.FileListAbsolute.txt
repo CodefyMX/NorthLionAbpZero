@@ -103,3 +103,5 @@ C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.EntityFramework\o
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.EntityFramework\obj\Debug\NorthLion.Zero.EntityFramework.csproj.GenerateResource.Cache
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.EntityFramework\obj\Debug\NorthLion.Zero.EntityFramework.dll
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.EntityFramework\obj\Debug\NorthLion.Zero.EntityFramework.pdb
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\bin\Debug\Abp.Web.Common.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\bin\Debug\Abp.Web.Common.xml

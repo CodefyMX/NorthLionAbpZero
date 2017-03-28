@@ -1,7 +1,7 @@
 ﻿@using Abp.MultiTenancy
 @using Abp.Web.Mvc.Extensions
 @using NorthLion.Zero.MultiTenancy
-@model Abp.Application.Services.Dto.ListResultDto<NorthLion.Zero.MultiTenancy.Dto.TenantListDto>
+@model NorthLion.Zero.MultiTenancy.Dto.TenantsOutput
 @{
     ViewBag.ActiveMenu = "Tenants"; //The menu item will be active for this page.
 }
@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var tenant in Model.Items)
+                    @foreach (var tenant in Model.Tenants)
                     {
                         <tr>
                             <td>@tenant.TenancyName</td>

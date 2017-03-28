@@ -130,6 +130,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackUpService\BackUpService.cs" />
+    <Compile Include="BackUpService\IBackUpService.cs" />
+    <Compile Include="Languages\Dto\LanguageDto.cs" />
+    <Compile Include="Languages\Dto\LanguageInput.cs" />
+    <Compile Include="Languages\Dto\LanguagesOutput.cs" />
+    <Compile Include="Languages\Dto\LanguageTextEditInput.cs" />
+    <Compile Include="Languages\Dto\LocalizationTextsOutput.cs" />
+    <Compile Include="Languages\ILanguageAppService.cs" />
+    <Compile Include="Languages\LanguageAppService.cs" />
     <Compile Include="MultiTenancy\Dto\EditionDto.cs" />
     <Compile Include="MultiTenancy\Dto\EditionsForTenantOutput.cs" />
     <Compile Include="MultiTenancy\Dto\EditTenantInput.cs" />
@@ -186,6 +195,10 @@
     <ProjectReference Include="..\NorthLion.Zero.Core\NorthLion.Zero.Core.csproj">
       <Project>{17298ea0-af73-4f30-b6f1-2066100d7d74}</Project>
       <Name>NorthLion.Zero.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NorthLion.Zero.EntityFramework\NorthLion.Zero.EntityFramework.csproj">
+      <Project>{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}</Project>
+      <Name>NorthLion.Zero.EntityFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

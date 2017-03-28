@@ -37,7 +37,7 @@ namespace NorthLion.Zero.Users
         }
 
         //Example for primitive method parameters.
-        public async Task RemoveFromRole(long userId, string roleName)
+        public async Task RemoveUserFromRole(long userId, string roleName)
         {
             CheckErrors(await UserManager.RemoveFromRoleAsync(userId, roleName));
         }
@@ -86,7 +86,7 @@ namespace NorthLion.Zero.Users
             CheckErrors(await UserManager.CreateAsync(user));
         }
 
-        public async Task UpdateProfile(EditProfileInput input)
+        public async Task UpdateUserProfile(EditProfileInput input)
         {
             var userFound = await GetCurrentUserAsync();
             var modified = input.MapTo(userFound);

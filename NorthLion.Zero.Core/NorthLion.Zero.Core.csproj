@@ -39,6 +39,9 @@
       <HintPath>..\packages\Abp.1.5.1\lib\net452\Abp.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Abp.Web.Common, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.Common.1.5.1\lib\net452\Abp.Web.Common.dll</HintPath>
+    </Reference>
     <Reference Include="Abp.Zero, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Abp.Zero.1.5.1\lib\net452\Abp.Zero.dll</HintPath>
       <Private>True</Private>
@@ -113,6 +116,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localization\Helpers\LocalizationSources.cs" />
+    <Compile Include="Localization\Helpers\XmlLocations.cs" />
+    <Compile Include="Localization\ILanguageTextProvider.cs" />
+    <Compile Include="Localization\LanguageTextProvider.cs" />
     <Compile Include="ZeroConsts.cs" />
     <Compile Include="ZeroCoreModule.cs" />
     <Compile Include="Authorization\ZeroAuthorizationProvider.cs" />
