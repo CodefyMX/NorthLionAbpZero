@@ -182,6 +182,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MockHelpers\Users.cs" />
     <Compile Include="ZeroTestModule.cs" />
     <Compile Include="MultiTenantFactAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

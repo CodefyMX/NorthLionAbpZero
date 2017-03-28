@@ -200,7 +200,24 @@ namespace NorthLion.Zero.Users
             await _userRepository.DeleteAsync(userToDelete);
             //Notify admin by email or something
         }
+        public async Task SetUserSpecialPermissions(SetUserSpecialPermissionsInput input)
+        {
+            var user = await UserManager.GetUserByIdAsync(input.UserId);
+            foreach (var inputAssignedPermission in input.AssignedPermissions)
+            {
+                var permission = _permissionManager.GetPermission(inputAssignedPermission.Name);
+                if (inputAssignedPermission.Granted)
+                {
 
+                    await UserManager.GrantPermissionAsync(user, permission);
+                }
+                else
+                {
+                    await UserManager.ProhibitPermissionAsync(user, permission);
+                }
+            }
+            //Notify user by email or something
+        }
         #region Helpers
 
         private IEnumerable<UserAssignedPermission> CheckPermissions(IEnumerable<Permission> allPermissions, ICollection<Permission> userPermissions)
@@ -234,6 +251,9 @@ namespace NorthLion.Zero.Users
 
             permissionsFound.Add(permission);
         }
+
+        
+
         #endregion
     }
 }

@@ -89,3 +89,7 @@ C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Application\bin\D
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Application\bin\Debug\System.Web.Http.dll
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Application\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Application\bin\Debug\System.Web.Http.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\System.Web.Http.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\System.Web.Http.xml

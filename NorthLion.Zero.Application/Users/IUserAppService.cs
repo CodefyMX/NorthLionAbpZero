@@ -11,6 +11,8 @@ namespace NorthLion.Zero.Users
     {
         [HttpPut]
         Task ProhibitPermission(ProhibitPermissionInput input);
+        [HttpPost]
+        Task SetUserSpecialPermissions(SetUserSpecialPermissionsInput input);
         Task RemoveFromRole(long userId, string roleName);
         [HttpGet]
         Task<UsersOutput> GetUsers(PaginatedInputDto input);

@@ -277,3 +277,4 @@ C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Web\obj\Debug\Nor
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.dll
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.pdb
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Web\bin\Swashbuckle.Core.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\bin\Swashbuckle.Core.dll
