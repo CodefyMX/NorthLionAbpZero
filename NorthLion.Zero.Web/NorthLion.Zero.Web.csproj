@@ -333,12 +333,14 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
+    <Content Include="Areas\AdminMpa\Views\Users\Index.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -415,6 +417,9 @@
     <Content Include="Abp\Framework\styles\abp.css.map" />
     <Content Include="Areas\AdminSpa\Views\web.config" />
     <Content Include="Areas\AdminMpa\Views\web.config" />
+    <Content Include="Areas\AdminMpa\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Users\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -550,9 +555,7 @@
     <Folder Include="Areas\AdminMpa\Models\" />
     <Folder Include="Areas\AdminMpa\Views\Languages\" />
     <Folder Include="Areas\AdminMpa\Views\Roles\" />
-    <Folder Include="Areas\AdminMpa\Views\Shared\" />
     <Folder Include="Areas\AdminMpa\Views\Tenants\" />
-    <Folder Include="Areas\AdminMpa\Views\Users\" />
     <Folder Include="Areas\AdminSpa\Controllers\" />
     <Folder Include="Areas\AdminSpa\Models\" />
     <Folder Include="Areas\AdminSpa\Views\Shared\" />

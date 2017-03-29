@@ -17,7 +17,7 @@ namespace NorthLion.Zero.Web.Areas.AdminMpa
             context.MapRoute(
                 "AdminMpa_default",
                 "AdminMpa/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional }, new[] { "NorthLion.Zero.Web.Areas.AdminMpa.Controllers" }
             );
         }
     }
