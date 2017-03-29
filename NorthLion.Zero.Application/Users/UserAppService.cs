@@ -44,6 +44,7 @@ namespace NorthLion.Zero.Users
 
         public async Task<UsersOutput> GetUsers(PaginatedInputDto input)
         {
+            input.Page = input.Page - 1;
             await Task.FromResult(0);
             var pagesToSkip =PaginationHelpers.GetSkipTotal(input.Page,input.RowsPerPage);
             //Might need perf tweaks

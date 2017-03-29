@@ -51,12 +51,11 @@
                 columns: [ //Define Table Columns
                     {
                         title: localize("Name"),
-                        field: "fullName",
+                        field: "FullName",
                         sorter: "string",
                         width: 150
                     },
                 ],
-                paginationDataSent: new CustomTableAjaxRequest(),
                 rowClick: (e, id, data, row) => {
                     //trigger an alert message when the row is clicked
                     alert("Row " + id + " Clicked!!!!");

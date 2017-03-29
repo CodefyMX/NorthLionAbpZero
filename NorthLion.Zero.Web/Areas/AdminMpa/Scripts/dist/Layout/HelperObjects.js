@@ -35,6 +35,8 @@ var TableObject = function () {
 
     return TableObject;
 }();
+//Too complex, is not a good idea
+
 
 var CustomTableAjaxRequest = function CustomTableAjaxRequest() {
     var pageNameProperty = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "page";
@@ -52,6 +54,7 @@ var CustomTableAjaxRequest = function CustomTableAjaxRequest() {
         "sort": sortPropName,
         "sort_dir": directionPropertyName,
         "filter": searchPropertyName,
-        "filter_value": searchPropertyValueName
+        "filter_value": searchPropertyValueName,
+        "data": "result.users"
     };
 };
