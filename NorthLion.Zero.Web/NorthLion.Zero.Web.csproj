@@ -333,7 +333,8 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css" />
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
-    <Content Include="Areas\AdminMpa\Views\Users\Index.js" />
+    <Content Include="Areas\AdminMpa\Scripts\Dev\Users\Index.js" />
+    <Content Include="Areas\AdminMpa\Scripts\Dist\Users\Index.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -553,6 +554,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminMpa\Models\" />
+    <Folder Include="Areas\AdminMpa\Scripts\Dev\Languages\" />
+    <Folder Include="Areas\AdminMpa\Scripts\Dev\Roles\" />
+    <Folder Include="Areas\AdminMpa\Scripts\Dev\Tenants\" />
+    <Folder Include="Areas\AdminMpa\Scripts\Dist\Languages\" />
+    <Folder Include="Areas\AdminMpa\Scripts\Dist\Roles\" />
+    <Folder Include="Areas\AdminMpa\Scripts\Dist\Tenants\" />
     <Folder Include="Areas\AdminMpa\Views\Languages\" />
     <Folder Include="Areas\AdminMpa\Views\Roles\" />
     <Folder Include="Areas\AdminMpa\Views\Tenants\" />

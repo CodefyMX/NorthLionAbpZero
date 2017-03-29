@@ -122,3 +122,4 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+/NorthLion.Zero.Web/Areas/AdminMpa/Scripts/node_modules
