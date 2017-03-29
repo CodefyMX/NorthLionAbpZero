@@ -475,6 +475,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Areas\AdminMpa\AdminMpaAreaRegistration.cs" />
+    <Compile Include="Areas\AdminMpa\Controllers\LanguagesController.cs" />
+    <Compile Include="Areas\AdminMpa\Controllers\RolesController.cs" />
+    <Compile Include="Areas\AdminMpa\Controllers\TenantsController.cs" />
+    <Compile Include="Areas\AdminMpa\Controllers\UsersController.cs" />
     <Compile Include="Areas\AdminSpa\AdminSpaAreaRegistration.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -543,9 +547,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\AdminMpa\Controllers\" />
     <Folder Include="Areas\AdminMpa\Models\" />
+    <Folder Include="Areas\AdminMpa\Views\Languages\" />
+    <Folder Include="Areas\AdminMpa\Views\Roles\" />
     <Folder Include="Areas\AdminMpa\Views\Shared\" />
+    <Folder Include="Areas\AdminMpa\Views\Tenants\" />
+    <Folder Include="Areas\AdminMpa\Views\Users\" />
     <Folder Include="Areas\AdminSpa\Controllers\" />
     <Folder Include="Areas\AdminSpa\Models\" />
     <Folder Include="Areas\AdminSpa\Views\Shared\" />

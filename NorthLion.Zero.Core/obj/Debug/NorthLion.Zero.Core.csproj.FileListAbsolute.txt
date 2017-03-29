@@ -74,3 +74,5 @@ C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Core\obj\Debug\No
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.pdb
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\Abp.Web.Common.dll
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\Abp.Web.Common.xml
+C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Core\bin\Debug\Abp.Web.Common.dll
+C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Core\bin\Debug\Abp.Web.Common.xml
