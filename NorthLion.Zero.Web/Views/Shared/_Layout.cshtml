@@ -60,6 +60,9 @@
     <!-- SignalR scripts -->
     <script src="~/signalr/hubs"></script>
     @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.signalr.js")
+
+    @Html.IncludeScript("~/Areas/AdminMpa/Scripts/dist/Languages/LocalizationHelper.js")
+    @Html.IncludeScript("~/Areas/AdminMpa/Scripts/dist/Layout/HelperObjects.js");
     <!-- View specific scripts -->
     @RenderSection("scripts", required: false)
 </body>

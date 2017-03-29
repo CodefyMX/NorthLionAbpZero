@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel Dev -d Dist"
+    "build": "babel dev -d dist"
   },
   "author": "",
   "license": "ISC",

@@ -4,7 +4,7 @@
     "isShellCommand": true,
     "tasks": [
         {
-            "args": ["Dev", "--out-dir", "Dist", "-w", "--source-maps"],
+            "args": ["dev", "--out-dir", "dist", "-w"],
             "taskName": "watch",
             "suppressTaskName": true,
             "isBuildCommand": true,
