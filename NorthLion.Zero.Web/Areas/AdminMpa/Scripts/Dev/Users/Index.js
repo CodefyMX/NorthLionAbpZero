@@ -44,6 +44,8 @@
     let loadUsers = (input = new TableObject()) => {
         userService.getUsers(input).done((data) => {
             $("#example-table").tabulator({
+                ajaxURL: "/AdminMpa/Users/GetUsers",
+                pagination:"remote",
                 height: "320px", // set height of table (optional)
                 fitColumns: true, //fit columns to width of table (optional)
                 columns: [ //Define Table Columns
@@ -54,15 +56,14 @@
                         width: 150
                     },
                 ],
+                paginationDataSent: new CustomTableAjaxRequest(),
                 rowClick: (e, id, data, row) => {
                     //trigger an alert message when the row is clicked
                     alert("Row " + id + " Clicked!!!!");
                 }
             });
-            $("#example-table").tabulator("setData", data.users);
+            //$("#example-table").tabulator("setData", data.users);
         });
     }
     loadUsers(tableRequest);
-    let properties = new CustomTableAjaxRequest();
-    console.log(properties);
 });
