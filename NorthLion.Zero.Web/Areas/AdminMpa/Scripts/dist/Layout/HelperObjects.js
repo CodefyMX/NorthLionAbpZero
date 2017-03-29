@@ -14,14 +14,16 @@ var TableObject = function () {
         var propertyToOrder = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "";
         var direction = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "Desc";
         var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+        var searchProperty = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : "";
 
         _classCallCheck(this, TableObject);
 
-        this.searchString = searchString;
-        this.rowsPerPage = rowsPerPage;
-        this.propertyToOrder = propertyToOrder;
-        this.direction = direction;
-        this.page = page;
+        searchString = searchString;
+        rowsPerPage = rowsPerPage;
+        propertyToOrder = propertyToOrder;
+        direction = direction;
+        page = page;
+        searchProperty = searchProperty;
     }
 
     _createClass(TableObject, [{
@@ -33,3 +35,23 @@ var TableObject = function () {
 
     return TableObject;
 }();
+
+var CustomTableAjaxRequest = function CustomTableAjaxRequest() {
+    var pageNameProperty = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "page";
+    var rowsPerPageName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "rowsPerPage";
+    var sortPropName = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "propertyToOrder";
+    var directionPropertyName = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "direction";
+    var searchPropertyName = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : "searchProperty";
+    var searchPropertyValueName = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : "searchString";
+
+    _classCallCheck(this, CustomTableAjaxRequest);
+
+    return {
+        "page": pageNameProperty,
+        "size": rowsPerPageName,
+        "sort": sortPropName,
+        "sort_dir": directionPropertyName,
+        "filter": searchPropertyName,
+        "filter_value": searchPropertyValueName
+    };
+};

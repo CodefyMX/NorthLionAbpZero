@@ -6,7 +6,8 @@
 }
 @section scripts
 {
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/2.11.0/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/2.11.0/tabulator.min.js"></script>
     @Html.IncludeScript("~/Areas/AdminMpa/Scripts/Dist/Users/Index.js")
 }
 <div>
@@ -14,27 +15,7 @@
     <div class="row">
         <div class="col-md-12">
             <button data-toggle="modal" data-target="#UserCreateModal" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> @L("CreateNewUser")</button>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>@L("UserName")</th>
-                        <th>@L("FullName")</th>
-                        <th>@L("EmailAddress")</th>
-                        <th>@L("IsActive")</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var user in Model.Users)
-                    {
-                        <tr>
-                            <td>@user.UserName</td>
-                            <td>@user.FullName</td>
-                            <td>@user.EmailAddress</td>
-                            <td>@L(user.IsActive ? "Yes" : "No")</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+            <div id="example-table"></div>
         </div>
     </div>
 </div>

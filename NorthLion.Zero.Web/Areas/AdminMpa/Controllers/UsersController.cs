@@ -20,7 +20,11 @@ namespace NorthLion.Zero.Web.Areas.AdminMpa.Controllers
             var output = await _userAppService.GetUsers(input);
             return View(output);
         }
-
+        public async Task<JsonResult> GetUsers(PaginatedInputDto input)
+        {
+            var output = await _userAppService.GetUsers(input);
+            return Json(output,JsonRequestBehavior.AllowGet);
+        }
         public async Task<ActionResult> EditUser(int id)
         {
             var user = await _userAppService.GetUserForEdit(id);
