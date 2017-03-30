@@ -28,8 +28,6 @@ $(document).ready(function () {
     });
 
     //Main Functions
-
-
     var deleteUser = function deleteUser(id) {
         abp.message.confirm(localize("DeleteUser"), function (response) {
             if (response) {

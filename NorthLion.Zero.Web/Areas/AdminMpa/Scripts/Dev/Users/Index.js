@@ -3,7 +3,7 @@
     const $modal = $("#UserCreateModal");
     const $form = $modal.find("form");
     $form.validate();
-    $form.find('button[type="submit"]').click(function (e) {
+    $form.find('button[type="submit"]').click((e) => {
         e.preventDefault();
 
         if (!$form.valid()) {
@@ -13,11 +13,11 @@
         const user = $form.serializeFormToObject(); //serializeFormToObject is defined in main.js
 
         abp.ui.setBusy($modal);
-        userService.createUser(user).done(function () {
+        userService.createUser(user).done(() => {
             $modal.modal("hide");
             loadUsers();
             //location.reload(true); //reload page to see new user!
-        }).always(function () {
+        }).always(() => {
             abp.ui.clearBusy($modal);
         });
     });
@@ -27,9 +27,6 @@
         });
 
     //Main Functions
-
-
-
     let deleteUser = (id) => {
         abp.message.confirm(localize("DeleteUser"), (response) => {
             if (response) {
