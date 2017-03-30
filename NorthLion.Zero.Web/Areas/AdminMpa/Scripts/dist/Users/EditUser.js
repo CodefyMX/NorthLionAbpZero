@@ -42,12 +42,27 @@ System.register(["Users/Index.min.js"], function (_export, _context) {
                 _createClass(EditUserWindow, [{
                     key: "load",
                     value: function load() {
+                        var userService = abp.services.app.user;
                         $(document).ready(function () {
                             //Gets the UsersWindow modal instance
+                            var $form = $("#userEditForm");
                             var modalInstance = new UsersWindow().getModalInstance();
                             var closeModal = function closeModal() {
                                 modalInstance.modal("hide");
                             };
+                            $form.on("submit", function (e) {
+                                e.preventDefault();
+                                if (!$form.valid()) {
+                                    return;
+                                }
+                                var user = $form.serializeFormToObject(); //serializeFormToObject is defined in main.js
+                                abp.ui.setBusy();
+                                userService.editUser(user).done(function () {
+                                    closeModal();
+                                }).always(function () {
+                                    abp.ui.clearBusy();
+                                });
+                            });
                         });
                     }
                 }]);
