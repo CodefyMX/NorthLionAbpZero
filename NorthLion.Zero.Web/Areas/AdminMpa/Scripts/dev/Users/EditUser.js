@@ -1,4 +1,4 @@
-﻿import { UsersWindow } from "Users/Index.min.js";
+﻿import { UsersWindow } from "Users/Index.js";
 export class EditUserWindow {
     load() {
         const userService = abp.services.app.user;
