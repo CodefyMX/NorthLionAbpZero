@@ -16,22 +16,3 @@ class TableObject {
         page = page + 1;
     }
 }
-//Too complex, is not a good idea
-class CustomTableAjaxRequest {
-    constructor(pageNameProperty = "page",
-        rowsPerPageName = "rowsPerPage",
-        sortPropName = "propertyToOrder",
-        directionPropertyName = "direction",
-        searchPropertyName = "searchProperty",
-        searchPropertyValueName = "searchString") {
-        return {
-            "page": pageNameProperty,
-            "size": rowsPerPageName,
-            "sort": sortPropName,
-            "sort_dir": directionPropertyName,
-            "filter": searchPropertyName,
-            "filter_value":searchPropertyValueName,
-            "data":"result.users"
-        }
-    }
-}

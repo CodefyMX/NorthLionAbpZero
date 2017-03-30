@@ -35,26 +35,3 @@ var TableObject = function () {
 
     return TableObject;
 }();
-//Too complex, is not a good idea
-
-
-var CustomTableAjaxRequest = function CustomTableAjaxRequest() {
-    var pageNameProperty = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "page";
-    var rowsPerPageName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "rowsPerPage";
-    var sortPropName = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "propertyToOrder";
-    var directionPropertyName = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "direction";
-    var searchPropertyName = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : "searchProperty";
-    var searchPropertyValueName = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : "searchString";
-
-    _classCallCheck(this, CustomTableAjaxRequest);
-
-    return {
-        "page": pageNameProperty,
-        "size": rowsPerPageName,
-        "sort": sortPropName,
-        "sort_dir": directionPropertyName,
-        "filter": searchPropertyName,
-        "filter_value": searchPropertyValueName,
-        "data": "result.users"
-    };
-};

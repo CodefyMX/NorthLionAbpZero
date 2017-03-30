@@ -17,14 +17,15 @@
         /// <summary>
         /// A property flag to order the results
         /// </summary>
-        public string PropertyToOrder { get; set; }
+        public string Sort { get; set; }
         /// <summary>
         /// The direction of the order, Asc or Desc
         /// </summary>
-        public string Direction { get; set; } //Desc, Asc
+        public string SortDir { get; set; } //Desc, Asc
         /// <summary>
         /// Property to search into
         /// </summary>
-        public string SearchProperty { get; set; }
+        public string Filter { get; set; }
+        public bool GetAll { get; set; }
     }
 }

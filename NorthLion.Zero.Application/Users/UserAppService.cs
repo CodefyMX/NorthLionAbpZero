@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Collections.Extensions;
@@ -9,10 +5,14 @@ using Abp.Domain.Repositories;
 using Abp.Localization;
 using Abp.UI;
 using Castle.Core.Internal;
-using NorthLion.Zero.Authorization;
-using NorthLion.Zero.Users.Dto;
 using Microsoft.AspNet.Identity;
+using NorthLion.Zero.Authorization;
 using NorthLion.Zero.PaginatedModel;
+using NorthLion.Zero.Users.Dto;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace NorthLion.Zero.Users
 {
@@ -44,36 +44,56 @@ namespace NorthLion.Zero.Users
 
         public async Task<UsersOutput> GetUsers(PaginatedInputDto input)
         {
-            input.Page = input.Page - 1;
-            await Task.FromResult(0);
-            var pagesToSkip =PaginationHelpers.GetSkipTotal(input.Page,input.RowsPerPage);
-            //Might need perf tweaks
-            Func<User, bool> exp = a => a.UserName.ToUpper().Contains(input.SearchString.ToUpper());
-            var users = _userRepository.GetAll()
-                .WhereIf(!input.SearchString.IsNullOrEmpty(), exp);
-            switch (input.PropertyToOrder)
+            //This is only a sample need perf tweaks
+            if (!input.GetAll)
             {
-                case "UserName":
-                    users = input.Direction == "Desc" ? users.OrderByDescending(a => a.UserName) : users.OrderBy(a => a.UserName);
-                    break;
-                default:
-                    users = input.Direction == "Desc" ? users.OrderByDescending(a => a.Name) : users.OrderBy(a => a.Name);
-                    break;
+
+                await Task.FromResult(0);
+                var pagesToSkip = PaginationHelpers.GetSkipTotal(input.Page, input.RowsPerPage);
+                //Might need perf tweaks
+                Func<User, bool> exp = a => a.UserName.ToUpper().Contains(input.SearchString.ToUpper());
+                var users = _userRepository.GetAll()
+                    .WhereIf(!input.SearchString.IsNullOrEmpty(), exp);
+                switch (input.Sort)
+                {
+                    case "UserName":
+                        users = input.SortDir == "desc" ? users.OrderByDescending(a => a.UserName) : users.OrderBy(a => a.UserName);
+                        break;
+                    case "FullName":
+                        users = input.SortDir == "desc" ? users.OrderByDescending(a => a.FullName) : users.OrderBy(a => a.FullName);
+                        break;
+                    default:
+                        users = input.SortDir == "desc" ? users.OrderByDescending(a => a.Name) : users.OrderBy(a => a.Name);
+                        break;
+                }
+
+                var usersListEnum = users as IList<User> ?? users.ToList();
+                var totalPages = PaginationHelpers.GetRemainingPages(usersListEnum.Count(), input.RowsPerPage);
+
+                var usersList = usersListEnum.Skip(pagesToSkip)
+                    .Take(input.RowsPerPage).ToList();
+                return new UsersOutput()
+                {
+                    RemainingPages = totalPages,
+                    Page = input.Page,
+                    Rows = input.RowsPerPage,
+                    SearchString = input.SearchString,
+                    Users = usersList.Select(a => a.MapTo<UserListDto>()).ToList()
+                };
+            }
+            else
+            {
+                return new UsersOutput()
+                {
+                    RemainingPages = 0,
+                    Page = input.Page,
+                    Rows = input.RowsPerPage,
+                    SearchString = input.SearchString,
+                    //This is only a sample
+                    Users = _userRepository.GetAll().ToList().Select(a => a.MapTo<UserListDto>()).ToList()
+                };
             }
 
-            var usersListEnum = users as IList<User> ?? users.ToList();
-            var totalPages = PaginationHelpers.GetRemainingPages(usersListEnum.Count(), input.RowsPerPage);
-
-            var usersList = usersListEnum.Skip(pagesToSkip)
-                .Take(input.RowsPerPage).ToList();
-            return new UsersOutput()
-            {
-                RemainingPages = totalPages,
-                Page = input.Page,
-                Rows = input.RowsPerPage,
-                SearchString = input.SearchString,
-                Users = usersList.Select(a=>a.MapTo<UserListDto>()).ToList()
-            };
         }
 
         public async Task CreateUser(CreateUserInput input)
@@ -253,7 +273,7 @@ namespace NorthLion.Zero.Users
             permissionsFound.Add(permission);
         }
 
-        
+
 
         #endregion
     }

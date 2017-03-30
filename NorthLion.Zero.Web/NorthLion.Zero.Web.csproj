@@ -564,6 +564,7 @@
     <Folder Include="Areas\AdminMpa\Scripts\dev\Tenants\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Roles\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Tenants\" />
+    <Folder Include="Areas\AdminMpa\Scripts\lib\" />
     <Folder Include="Areas\AdminMpa\Views\Languages\" />
     <Folder Include="Areas\AdminMpa\Views\Roles\" />
     <Folder Include="Areas\AdminMpa\Views\Tenants\" />

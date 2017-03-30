@@ -17,7 +17,8 @@ $(document).ready(function () {
         abp.ui.setBusy($modal);
         userService.createUser(user).done(function () {
             $modal.modal("hide");
-            location.reload(true); //reload page to see new user!
+            loadUsers();
+            //location.reload(true); //reload page to see new user!
         }).always(function () {
             abp.ui.clearBusy($modal);
         });
@@ -38,31 +39,26 @@ $(document).ready(function () {
             }
         });
     };
-
+    var table = void 0;
     var tableRequest = new TableObject();
-
     var loadUsers = function loadUsers() {
         var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new TableObject();
 
-        userService.getUsers(input).done(function (data) {
-            $("#example-table").tabulator({
-                ajaxURL: "/AdminMpa/Users/GetUsers",
-                pagination: "remote",
-                height: "320px", // set height of table (optional)
-                fitColumns: true, //fit columns to width of table (optional)
-                columns: [//Define Table Columns
-                {
-                    title: localize("Name"),
-                    field: "FullName",
-                    sorter: "string",
-                    width: 150
-                }],
-                rowClick: function rowClick(e, id, data, row) {
-                    //trigger an alert message when the row is clicked
-                    alert("Row " + id + " Clicked!!!!");
-                }
+        if (table) {
+            table.destroy();
+        }
+        abp.ui.setBusy();
+        userService.getUsers(input).done(function (response) {
+            abp.ui.clearBusy();
+            var data = response.users;
+            var columns = [{ title: "Id", data: "id" }, { title: "Full Name", data: "fullName" }, { title: "Username", data: "userName" }];
+            //I dont want to get in the way with the table plugin you need so i will implement simple data visualization
+            table = $('#users-table').DataTable({
+                data: data,
+                columns: columns
             });
-            //$("#example-table").tabulator("setData", data.users);
+        }).always(function () {
+            abp.ui.clearBusy();
         });
     };
     loadUsers(tableRequest);

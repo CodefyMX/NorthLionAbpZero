@@ -88,13 +88,13 @@ namespace NorthLion.Zero.Roles
             var roles = _roleManager.Roles
                 .Where(a => a.Name.Contains(input.SearchString));
 
-            switch (input.PropertyToOrder)
+            switch (input.Sort)
             {
                 case "Name":
-                    roles = input.Direction == "Desc" ? roles.OrderByDescending(a => a.Name) : roles.OrderBy(a => a.Name);
+                    roles = input.SortDir == "Desc" ? roles.OrderByDescending(a => a.Name) : roles.OrderBy(a => a.Name);
                     break;
                 case "DisplayName":
-                    roles = input.Direction == "Desc" ? roles.OrderByDescending(a => a.DisplayName) : roles.OrderBy(a => a.DisplayName);
+                    roles = input.SortDir == "Desc" ? roles.OrderByDescending(a => a.DisplayName) : roles.OrderBy(a => a.DisplayName);
                     break;
                 default:
                     roles = roles.OrderBy(a => a.Id);

@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using NorthLion.Zero.Web.Controllers;
-using System.Web.Mvc;
-using NorthLion.Zero.PaginatedModel;
+﻿using NorthLion.Zero.PaginatedModel;
 using NorthLion.Zero.Users;
+using NorthLion.Zero.Web.Controllers;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace NorthLion.Zero.Web.Areas.AdminMpa.Controllers
 {
@@ -20,11 +20,15 @@ namespace NorthLion.Zero.Web.Areas.AdminMpa.Controllers
             var output = await _userAppService.GetUsers(input);
             return View(output);
         }
-        public async Task<JsonResult> GetUsers(PaginatedInputDto input)
-        {
-            var output = await _userAppService.GetUsers(input);
-            return Json(output,JsonRequestBehavior.AllowGet);
-        }
+        //[WrapResult(false)]
+        //public async Task<JsonResult> GetUsers(PaginatedInputDto input)
+        //{
+        //    //I DONT WANT TO GET IN THE WAY WITH YOUR TABLE PLUGIN SO...
+        //    input.GetAll = true;
+        //    // input.Page = input.Page - 1;
+        //    var output = await _userAppService.GetUsers(input);
+        //    return Json(new { data = output.Users }, JsonRequestBehavior.AllowGet);
+        //}
         public async Task<ActionResult> EditUser(int id)
         {
             var user = await _userAppService.GetUserForEdit(id);

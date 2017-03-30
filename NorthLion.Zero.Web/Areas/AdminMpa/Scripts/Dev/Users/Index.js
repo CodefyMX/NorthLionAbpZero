@@ -15,7 +15,8 @@
         abp.ui.setBusy($modal);
         userService.createUser(user).done(function () {
             $modal.modal("hide");
-            location.reload(true); //reload page to see new user!
+            loadUsers();
+            //location.reload(true); //reload page to see new user!
         }).always(function () {
             abp.ui.clearBusy($modal);
         });
@@ -38,30 +39,29 @@
             }
         })
     }
-
+    let table;
     let tableRequest = new TableObject();
-
     let loadUsers = (input = new TableObject()) => {
-        userService.getUsers(input).done((data) => {
-            $("#example-table").tabulator({
-                ajaxURL: "/AdminMpa/Users/GetUsers",
-                pagination:"remote",
-                height: "320px", // set height of table (optional)
-                fitColumns: true, //fit columns to width of table (optional)
-                columns: [ //Define Table Columns
-                    {
-                        title: localize("Name"),
-                        field: "FullName",
-                        sorter: "string",
-                        width: 150
-                    },
-                ],
-                rowClick: (e, id, data, row) => {
-                    //trigger an alert message when the row is clicked
-                    alert("Row " + id + " Clicked!!!!");
-                }
+        if (table) {
+            table.destroy();
+        }
+        abp.ui.setBusy();
+        userService.getUsers(input).done((response) => {
+            abp.ui.clearBusy();
+            let data = response.users;
+            let columns = [
+                { title: "Id", data: "id" },
+                { title: "Full Name", data: "fullName" },
+                { title: "Username", data: "userName" }
+            ];
+            //I dont want to get in the way with the table plugin you need so i will implement simple data visualization
+            table = $('#users-table').DataTable({
+                data,
+                columns
             });
-            //$("#example-table").tabulator("setData", data.users);
+
+        }).always(() => {
+            abp.ui.clearBusy();
         });
     }
     loadUsers(tableRequest);
