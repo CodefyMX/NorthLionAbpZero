@@ -2,8 +2,11 @@
 export class EditUserWindow {
     load() {
         $(document).ready(() => {
-            abp.notify.success("Edit user window");
-            console.log(new UsersWindow());
+            //Gets the UsersWindow modal instance
+            let modalInstance = new UsersWindow().getModalInstance();
+            let closeModal = () => {
+                modalInstance.modal("hide");
+            }
         });
     }
 }

@@ -43,8 +43,11 @@ System.register(["Users/Index.js"], function (_export, _context) {
                     key: "load",
                     value: function load() {
                         $(document).ready(function () {
-                            abp.notify.success("Edit user window");
-                            console.log(new UsersWindow());
+                            //Gets the UsersWindow modal instance
+                            var modalInstance = new UsersWindow().getModalInstance();
+                            var closeModal = function closeModal() {
+                                modalInstance.modal("hide");
+                            };
                         });
                     }
                 }]);
