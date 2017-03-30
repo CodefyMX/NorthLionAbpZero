@@ -47,7 +47,6 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                         var localization = new Localization();
                         var logsService = abp.services.app.auditLog;
                         $(document).ready(function () {
-                            abp.notify.success("WindowLoaded");
                             //Table
                             var table = void 0;
                             var loadLogs = function loadLogs() {

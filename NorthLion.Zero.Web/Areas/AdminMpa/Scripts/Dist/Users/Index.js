@@ -3,7 +3,7 @@
 System.register(["Languages/LocalizationHelper.js"], function (_export, _context) {
     "use strict";
 
-    var Localization, _createClass, UsersWindow;
+    var Localization, _createClass, modal, UsersWindow;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -34,12 +34,19 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                 };
             }();
 
+            modal = void 0;
+
             _export("UsersWindow", UsersWindow = function () {
                 function UsersWindow() {
                     _classCallCheck(this, UsersWindow);
                 }
 
                 _createClass(UsersWindow, [{
+                    key: "getModalInstance",
+                    value: function getModalInstance() {
+                        return modal;
+                    }
+                }, {
                     key: "load",
                     value: function load() {
                         var localization = new Localization();
@@ -55,7 +62,6 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                 if (!$form.valid()) {
                                     return;
                                 }
-
                                 var user = $form.serializeFormToObject(); //serializeFormToObject is defined in main.js
 
                                 abp.ui.setBusy($modal);
@@ -100,7 +106,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                     var columnDefs = [{
                                         targets: 0,
                                         render: function render(data, type, full, meta) {
-                                            var btnEdit = "<a class=\"btn btn-primary btn-xs\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-edit\"></i></a>";
+                                            var btnEdit = "<a class=\"btn btn-primary btn-xs js-edit-user\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-edit\"></i></a>";
                                             var btnDelete = "<a class=\"btn btn-danger btn-xs js-delete-user\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-times\"></i></a>";
                                             var btnPermissions = "<a class=\"btn btn-primary btn-xs js-permission-user\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-lock\"></i></a>";
                                             return btnEdit + " " + btnPermissions + " " + btnDelete;
@@ -123,8 +129,16 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             var setPermissions = function setPermissions(e) {
                                 var id = $(e.target).data("id");
                             };
+                            var editUser = function editUser(e) {
+                                var id = $(e.target).data("id");
+                                modal = $("#modal");
+                                modal.load("/AdminMpa/Users/EditUser/" + id, function () {
+                                    modal.modal();
+                                });
+                            };
                             $body.on("click", ".js-delete-user", deleteEvent);
                             $body.on("click", ".js-permission-user", setPermissions);
+                            $body.on("click", ".js-edit-user", editUser);
                             loadUsers();
                         });
                     }

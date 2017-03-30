@@ -336,6 +336,7 @@
     <Content Include="Areas\AdminMpa\Scripts\dev\Layout\LocalizationHelper.js" />
     <Content Include="Areas\AdminMpa\Scripts\dev\Users\EditUser.js" />
     <Content Include="Areas\AdminMpa\Scripts\dev\Users\Index.js" />
+    <Content Include="Areas\AdminMpa\Scripts\dist\AuditLogs\index.js" />
     <Content Include="Areas\AdminMpa\Scripts\dist\Languages\LocalizationHelper.js" />
     <Content Include="Areas\AdminMpa\Scripts\dist\Layout\HelperObjects.js" />
     <Content Include="Areas\AdminMpa\Scripts\dist\Users\EditUser.js" />
@@ -429,6 +430,7 @@
     <Content Include="Areas\AdminMpa\Views\AuditLogs\Index.cshtml" />
     <Content Include="Areas\AdminMpa\Views\AdminPanel\Index.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Shared\_LeftBar.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Users\EditUser.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

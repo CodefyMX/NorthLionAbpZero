@@ -73,6 +73,5 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\Nito.AsyncEx.xml
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\Nito.AsyncEx.Concurrent.xml
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\Nito.AsyncEx.Enlightenment.xml
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\System.Collections.Immutable.xml
-C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.csprojResolveAssemblyReference.cache
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.dll
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.pdb

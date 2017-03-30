@@ -1,5 +1,9 @@
 ﻿import { Localization } from 'Languages/LocalizationHelper.js';
+let modal;
 export class UsersWindow {
+    getModalInstance() {
+        return modal;
+    }
     load() {
         let localization = new Localization();
         $(document).ready(() => {
@@ -14,7 +18,6 @@ export class UsersWindow {
                 if (!$form.valid()) {
                     return;
                 }
-
                 const user = $form.serializeFormToObject(); //serializeFormToObject is defined in main.js
 
                 abp.ui.setBusy($modal);
@@ -65,7 +68,7 @@ export class UsersWindow {
                         {
                             targets: 0,
                             render: (data, type, full, meta) => {
-                                let btnEdit = `<a class="btn btn-primary btn-xs" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-edit"></i></a>`;
+                                let btnEdit = `<a class="btn btn-primary btn-xs js-edit-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-edit"></i></a>`;
                                 let btnDelete = `<a class="btn btn-danger btn-xs js-delete-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-times"></i></a>`;
                                 let btnPermissions = `<a class="btn btn-primary btn-xs js-permission-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-lock"></i></a>`;
                                 return btnEdit + " " + btnPermissions + " " + btnDelete;
@@ -87,13 +90,19 @@ export class UsersWindow {
                 let id = $(e.target).data("id");
                 deleteUser(id);
             }
-            let setPermissions = (e)=>{
+            let setPermissions = (e) => {
                 let id = $(e.target).data("id");
-                
-
+            }
+            let editUser = (e) => {
+                let id = $(e.target).data("id");
+                modal = $("#modal");
+                modal.load("/AdminMpa/Users/EditUser/" + id, () => {
+                    modal.modal();
+                });
             }
             $body.on("click", ".js-delete-user", deleteEvent);
             $body.on("click", ".js-permission-user", setPermissions);
+            $body.on("click", ".js-edit-user", editUser);
             loadUsers();
         });
     }

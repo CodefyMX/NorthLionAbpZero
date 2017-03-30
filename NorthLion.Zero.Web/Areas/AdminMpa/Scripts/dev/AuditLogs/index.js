@@ -5,7 +5,6 @@ export class AuditLogsWindow {
         const localization = new Localization();
         const logsService = abp.services.app.auditLog;
         $(document).ready(() => {
-            abp.notify.success("WindowLoaded");
             //Table
             let table;
             let loadLogs = (input = new TableObject()) => {
