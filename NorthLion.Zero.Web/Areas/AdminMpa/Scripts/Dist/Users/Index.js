@@ -135,11 +135,11 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                 modal.load("/AdminMpa/Users/EditUser/" + id, function () {
                                     modal.modal();
                                 });
-                                //Modal closed
-                                modal.on("hidden.bs.modal", function () {
+                                modal.one("hidden.bs.modal", function () {
                                     abp.notify.warn(localization.localize("ModalClosed"));
                                 });
                             };
+
                             $body.on("click", ".js-delete-user", deleteEvent);
                             $body.on("click", ".js-permission-user", setPermissions);
                             $body.on("click", ".js-edit-user", editUser);

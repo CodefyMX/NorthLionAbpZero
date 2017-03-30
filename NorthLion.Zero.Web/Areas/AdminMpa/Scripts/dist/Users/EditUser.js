@@ -1,6 +1,6 @@
 "use strict";
 
-System.register(["Users/Index.js"], function (_export, _context) {
+System.register(["Users/Index.min.js"], function (_export, _context) {
     "use strict";
 
     var UsersWindow, _createClass, EditUserWindow;
@@ -12,8 +12,8 @@ System.register(["Users/Index.js"], function (_export, _context) {
     }
 
     return {
-        setters: [function (_UsersIndexJs) {
-            UsersWindow = _UsersIndexJs.UsersWindow;
+        setters: [function (_UsersIndexMinJs) {
+            UsersWindow = _UsersIndexMinJs.UsersWindow;
         }],
         execute: function () {
             _createClass = function () {

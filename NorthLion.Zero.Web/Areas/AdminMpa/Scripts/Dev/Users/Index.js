@@ -99,11 +99,11 @@ export class UsersWindow {
                 modal.load("/AdminMpa/Users/EditUser/" + id, () => {
                     modal.modal();
                 });
-                //Modal closed
-                modal.on("hidden.bs.modal", () => {
-                    abp.notify.warn(localization.localize("ModalClosed"))
+                modal.one("hidden.bs.modal", () => {
+                    abp.notify.warn(localization.localize("ModalClosed"));
                 });
             }
+
             $body.on("click", ".js-delete-user", deleteEvent);
             $body.on("click", ".js-permission-user", setPermissions);
             $body.on("click", ".js-edit-user", editUser);
