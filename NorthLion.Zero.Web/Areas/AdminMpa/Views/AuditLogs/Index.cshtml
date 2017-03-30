@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.ActiveMenu = "AuditLogs"; //The menu item will be active for this page.
+}
+@section Styles{
+
+    <link href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section scripts
+{
+
+    <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        SystemJS.import('AuditLogs/Index.js').then(function (d) {
+           new d.AuditLogsWindow().load();
+        });
+    </script>
+}
+<h1>@L("AuditLogs")</h1>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered" id="audit-logs-table"></table>
+
+    </div>
+</div>

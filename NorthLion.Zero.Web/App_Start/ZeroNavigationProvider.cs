@@ -33,9 +33,9 @@ namespace NorthLion.Zero.Web
                         )
                 ).AddItem(
                     new MenuItemDefinition(
-                        "Users",
-                        L("Users"),
-                        url: "AdminMpa/Users",
+                        "Admin",
+                        L("Admin"),
+                        url: "AdminMpa/AdminPanel",
                         icon: "fa fa-users",
                         requiredPermissionName: PermissionNames.Pages_Users
                         )

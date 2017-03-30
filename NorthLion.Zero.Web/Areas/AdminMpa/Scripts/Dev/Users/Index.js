@@ -1,5 +1,4 @@
-﻿import { TableObject } from 'Layout/HelperObjects.js'
-import { Localization } from 'Languages/LocalizationHelper.js';
+﻿import { Localization } from 'Languages/LocalizationHelper.js';
 export class UsersWindow {
     load() {
         let localization = new Localization();
@@ -49,13 +48,12 @@ export class UsersWindow {
                 });
             }
             let table;
-            let tableRequest = new TableObject();
-            let loadUsers = (input = new TableObject()) => {
+            let loadUsers = () => {
                 if (table) {
                     table.destroy();
                 }
                 abp.ui.setBusy();
-                userService.getUsers(input).done((response) => {
+                userService.getUsers({ getAll: true }).done((response) => {
                     abp.ui.clearBusy();
                     let data = response.users;
                     let columns = [
@@ -69,7 +67,8 @@ export class UsersWindow {
                             render: (data, type, full, meta) => {
                                 let btnEdit = `<a class="btn btn-primary btn-xs" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-edit"></i></a>`;
                                 let btnDelete = `<a class="btn btn-danger btn-xs js-delete-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-times"></i></a>`;
-                                return btnEdit + " " + btnDelete;
+                                let btnPermissions = `<a class="btn btn-primary btn-xs js-permission-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-lock"></i></a>`;
+                                return btnEdit + " " + btnPermissions + " " + btnDelete;
                             }
                         }
                     ]
@@ -85,12 +84,16 @@ export class UsersWindow {
                 });
             }
             let deleteEvent = (e) => {
-                let id = $(e).data("id");
+                let id = $(e.target).data("id");
                 deleteUser(id);
             }
-            $body.on("click", ".js-delete-user", (e) => {
-                deleteEvent(e.target);
-            })
+            let setPermissions = (e)=>{
+                let id = $(e.target).data("id");
+                
+
+            }
+            $body.on("click", ".js-delete-user", deleteEvent);
+            $body.on("click", ".js-permission-user", setPermissions);
             loadUsers();
         });
     }

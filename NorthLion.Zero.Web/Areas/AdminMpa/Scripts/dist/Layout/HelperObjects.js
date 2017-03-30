@@ -34,27 +34,29 @@ System.register([], function (_export, _context) {
 
             _export("TableObject", TableObject = function () {
                 function TableObject() {
-                    var searchString = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
-                    var rowsPerPage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
-                    var propertyToOrder = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "";
-                    var direction = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "Desc";
-                    var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
-                    var searchProperty = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : "";
-
                     _classCallCheck(this, TableObject);
-
-                    searchString = searchString;
-                    rowsPerPage = rowsPerPage;
-                    propertyToOrder = propertyToOrder;
-                    direction = direction;
-                    page = page;
-                    searchProperty = searchProperty;
                 }
 
                 _createClass(TableObject, [{
-                    key: "updatePage",
-                    value: function updatePage() {
-                        page = page + 1;
+                    key: "getRequest",
+                    value: function getRequest() {
+                        var searchString = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "";
+                        var rowsPerPage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 10;
+                        var propertyToOrder = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "";
+                        var direction = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "Desc";
+                        var page = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+                        var searchProperty = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : "";
+                        var getAll = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : true;
+
+                        return {
+                            searchString: searchString,
+                            rowsPerPage: rowsPerPage,
+                            propertyToOrder: propertyToOrder,
+                            direction: direction,
+                            page: page,
+                            searchProperty: searchProperty,
+                            getAll: getAll
+                        };
                     }
                 }]);
 

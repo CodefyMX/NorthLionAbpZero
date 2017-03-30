@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], function (_export, _context) {
+System.register(["Languages/LocalizationHelper.js"], function (_export, _context) {
     "use strict";
 
-    var TableObject, Localization, _createClass, UsersWindow;
+    var Localization, _createClass, UsersWindow;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -12,9 +12,7 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
     }
 
     return {
-        setters: [function (_LayoutHelperObjectsJs) {
-            TableObject = _LayoutHelperObjectsJs.TableObject;
-        }, function (_LanguagesLocalizationHelperJs) {
+        setters: [function (_LanguagesLocalizationHelperJs) {
             Localization = _LanguagesLocalizationHelperJs.Localization;
         }],
         execute: function () {
@@ -36,13 +34,13 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                 };
             }();
 
-            _export('UsersWindow', UsersWindow = function () {
+            _export("UsersWindow", UsersWindow = function () {
                 function UsersWindow() {
                     _classCallCheck(this, UsersWindow);
                 }
 
                 _createClass(UsersWindow, [{
-                    key: 'load',
+                    key: "load",
                     value: function load() {
                         var localization = new Localization();
                         $(document).ready(function () {
@@ -90,24 +88,22 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                                 });
                             };
                             var table = void 0;
-                            var tableRequest = new TableObject();
                             var loadUsers = function loadUsers() {
-                                var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new TableObject();
-
                                 if (table) {
                                     table.destroy();
                                 }
                                 abp.ui.setBusy();
-                                userService.getUsers(input).done(function (response) {
+                                userService.getUsers({ getAll: true }).done(function (response) {
                                     abp.ui.clearBusy();
                                     var data = response.users;
                                     var columns = [{ title: "", data: "id" }, { title: "Full Name", data: "fullName" }, { title: "Username", data: "userName" }];
                                     var columnDefs = [{
                                         targets: 0,
                                         render: function render(data, type, full, meta) {
-                                            var btnEdit = '<a class="btn btn-primary btn-xs" data-id="' + full.id + '"><i data-id="' + full.id + '" class="fa fa-edit"></i></a>';
-                                            var btnDelete = '<a class="btn btn-danger btn-xs js-delete-user" data-id="' + full.id + '"><i data-id="' + full.id + '" class="fa fa-times"></i></a>';
-                                            return btnEdit + " " + btnDelete;
+                                            var btnEdit = "<a class=\"btn btn-primary btn-xs\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-edit\"></i></a>";
+                                            var btnDelete = "<a class=\"btn btn-danger btn-xs js-delete-user\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-times\"></i></a>";
+                                            var btnPermissions = "<a class=\"btn btn-primary btn-xs js-permission-user\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-lock\"></i></a>";
+                                            return btnEdit + " " + btnPermissions + " " + btnDelete;
                                         }
                                     }];
                                     //I dont want to get in the way with the table plugin you need so i will implement simple data visualization
@@ -121,12 +117,14 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                                 });
                             };
                             var deleteEvent = function deleteEvent(e) {
-                                var id = $(e).data("id");
+                                var id = $(e.target).data("id");
                                 deleteUser(id);
                             };
-                            $body.on("click", ".js-delete-user", function (e) {
-                                deleteEvent(e.target);
-                            });
+                            var setPermissions = function setPermissions(e) {
+                                var id = $(e.target).data("id");
+                            };
+                            $body.on("click", ".js-delete-user", deleteEvent);
+                            $body.on("click", ".js-permission-user", setPermissions);
                             loadUsers();
                         });
                     }
@@ -135,7 +133,7 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                 return UsersWindow;
             }());
 
-            _export('UsersWindow', UsersWindow);
+            _export("UsersWindow", UsersWindow);
         }
     };
 });
