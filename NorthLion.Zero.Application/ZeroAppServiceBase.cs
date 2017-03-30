@@ -6,6 +6,7 @@ using Abp.Runtime.Session;
 using NorthLion.Zero.MultiTenancy;
 using NorthLion.Zero.Users;
 using Microsoft.AspNet.Identity;
+using NorthLion.Zero.OrganizationUnits.Dto;
 
 namespace NorthLion.Zero
 {

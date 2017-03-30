@@ -53,6 +53,7 @@ namespace NorthLion.Zero.AuditLogs
 
         public async Task<AuditLogOutput> GetAuditLogTable(PaginatedInputDto input)
         {
+            await Task.FromResult(0);
             if (input.GetAll) return AllAuditLogs;
             //Todo:Pagination logic
             throw new NotImplementedException();
@@ -199,8 +200,15 @@ namespace NorthLion.Zero.AuditLogs
             };
         }
 
-        public Task<AuditLogOutput> GetAuditLogTableForTenant(PaginatedInputDto input, int tenantId)
+        public async Task<AuditLogOutput> GetAuditLogTableForTenant(PaginatedInputDto input, int tenantId)
         {
+            await Task.FromResult(0);
+            using (CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant,AbpDataFilters.MustHaveTenant))
+            {
+                if (input.GetAll) return AllAuditLogs;
+            }
+            
+            //Todo:Pagination logic
             throw new NotImplementedException();
         }
 

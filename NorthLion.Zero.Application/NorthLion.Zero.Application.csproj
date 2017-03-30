@@ -164,6 +164,13 @@
     <Compile Include="MultiTenancy\Dto\SetTenantEditionInput.cs" />
     <Compile Include="MultiTenancy\Dto\SetTenantValuesForTenantInput.cs" />
     <Compile Include="MultiTenancy\Dto\TenantsOutput.cs" />
+    <Compile Include="OrganizationUnits\Dto\MoveOrganizationUnitInput.cs" />
+    <Compile Include="OrganizationUnits\Dto\OrganizationUnitDto.cs" />
+    <Compile Include="OrganizationUnits\Dto\OrganizationUnitInput.cs" />
+    <Compile Include="OrganizationUnits\Dto\OrganizationUnitsTreeModel.cs" />
+    <Compile Include="OrganizationUnits\Dto\UpdateOrganizationUnitInput.cs" />
+    <Compile Include="OrganizationUnits\IOrganizationUnitsAppService.cs" />
+    <Compile Include="OrganizationUnits\OrganizationUnitsAppService.cs" />
     <Compile Include="PaginatedModel\IPaginableResult.cs" />
     <Compile Include="PaginatedModel\PaginatedInputDto.cs" />
     <Compile Include="PaginatedModel\PaginatedResultDto.cs" />
