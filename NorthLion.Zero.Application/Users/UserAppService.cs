@@ -44,57 +44,35 @@ namespace NorthLion.Zero.Users
 
         public async Task<UsersOutput> GetUsers(PaginatedInputDto input)
         {
-            //This is only a sample need perf tweaks
-            if (!input.GetAll)
+            //This is only for demonstration purposes need perf tweaks
+            if (input.GetAll) return AllResults;
+            //--------------------------------------------------------
+            await Task.FromResult(0); //Fake Async
+
+            var pagesToSkip = PaginationHelpers.GetSkipTotal(input.Page, input.RowsPerPage);
+            //Possible specification pattern required
+            var users = GetUsersByStringFilter(_userRepository.GetAll(), input.SearchString, input.Filter);
+
+            users = GetSortedUsers(input.Sort, input.SortDir, users);
+            var usersListEnum = users as IList<User> ?? users.ToList();
+
+            var totalPages = PaginationHelpers.GetRemainingPages(usersListEnum.Count(), input.RowsPerPage);
+
+            var usersList = usersListEnum.Skip(pagesToSkip)
+                .Take(input.RowsPerPage).ToList();
+            return new UsersOutput() //Implements IPaginableResult
             {
+                RemainingPages = totalPages,
+                Page = input.Page,
+                Rows = input.RowsPerPage,
+                SearchString = input.SearchString,
+                Users = usersList.Select(a => a.MapTo<UserListDto>()).ToList()
+            };
 
-                await Task.FromResult(0);
-                var pagesToSkip = PaginationHelpers.GetSkipTotal(input.Page, input.RowsPerPage);
-                //Might need perf tweaks
-                Func<User, bool> exp = a => a.UserName.ToUpper().Contains(input.SearchString.ToUpper());
-                var users = _userRepository.GetAll()
-                    .WhereIf(!input.SearchString.IsNullOrEmpty(), exp);
-                switch (input.Sort)
-                {
-                    case "UserName":
-                        users = input.SortDir == "desc" ? users.OrderByDescending(a => a.UserName) : users.OrderBy(a => a.UserName);
-                        break;
-                    case "FullName":
-                        users = input.SortDir == "desc" ? users.OrderByDescending(a => a.FullName) : users.OrderBy(a => a.FullName);
-                        break;
-                    default:
-                        users = input.SortDir == "desc" ? users.OrderByDescending(a => a.Name) : users.OrderBy(a => a.Name);
-                        break;
-                }
-
-                var usersListEnum = users as IList<User> ?? users.ToList();
-                var totalPages = PaginationHelpers.GetRemainingPages(usersListEnum.Count(), input.RowsPerPage);
-
-                var usersList = usersListEnum.Skip(pagesToSkip)
-                    .Take(input.RowsPerPage).ToList();
-                return new UsersOutput()
-                {
-                    RemainingPages = totalPages,
-                    Page = input.Page,
-                    Rows = input.RowsPerPage,
-                    SearchString = input.SearchString,
-                    Users = usersList.Select(a => a.MapTo<UserListDto>()).ToList()
-                };
-            }
-            else
-            {
-                return new UsersOutput()
-                {
-                    RemainingPages = 0,
-                    Page = input.Page,
-                    Rows = input.RowsPerPage,
-                    SearchString = input.SearchString,
-                    //This is only a sample
-                    Users = _userRepository.GetAll().ToList().Select(a => a.MapTo<UserListDto>()).ToList()
-                };
-            }
 
         }
+
+
 
         public async Task CreateUser(CreateUserInput input)
         {
@@ -241,6 +219,52 @@ namespace NorthLion.Zero.Users
         }
         #region Helpers
 
+        private UsersOutput AllResults
+        {
+            get
+            {
+                return new UsersOutput()
+                {
+                    RemainingPages = 0,
+                    Page = 0,
+                    Rows = 0,
+                    SearchString = "",
+                    //This is only a sample
+                    Users = _userRepository.GetAll().ToList().Select(a => a.MapTo<UserListDto>()).ToList()
+                };
+            }
+
+        }
+        private IEnumerable<User> GetUsersByStringFilter(IQueryable<User> users, string searchString, string filterProperty)
+        {
+            Func<User, bool> exp = a => a.UserName.ToUpper().Contains(searchString.ToUpper());
+            var usersResult = users
+                    .WhereIf(!searchString.IsNullOrEmpty(), exp);
+            return usersResult;
+        }
+
+        private IEnumerable<User> GetSortedUsers(string sort, string sortDir, IEnumerable<User> users)
+        {
+            switch (sort)
+            {
+                case "UserName":
+                    users = sortDir == "desc" ?
+                        users.OrderByDescending(a => a.UserName) :
+                        users.OrderBy(a => a.UserName);
+                    break;
+                case "FullName":
+                    users = sortDir == "desc" ?
+                        users.OrderByDescending(a => a.FullName) :
+                        users.OrderBy(a => a.FullName);
+                    break;
+                default:
+                    users = sortDir == "desc" ?
+                        users.OrderByDescending(a => a.Name) :
+                        users.OrderBy(a => a.Name);
+                    break;
+            }
+            return users;
+        }
         private IEnumerable<UserAssignedPermission> CheckPermissions(IEnumerable<Permission> allPermissions, ICollection<Permission> userPermissions)
         {
             var permissionsFound = new List<UserAssignedPermission>();
