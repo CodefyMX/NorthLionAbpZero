@@ -2,7 +2,7 @@
 /**
  * Table object for table search
  */
-class TableObject {
+export class TableObject {
 
     constructor(searchString = "", rowsPerPage = 10, propertyToOrder = "", direction = "Desc", page = 0, searchProperty = "") {
         searchString = searchString;

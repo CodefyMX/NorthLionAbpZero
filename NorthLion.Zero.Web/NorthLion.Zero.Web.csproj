@@ -460,6 +460,7 @@
     <Content Include="Scripts\sweetalert\sweet-alert.html" />
     <Content Include="Scripts\sweetalert\sweet-alert.js" />
     <Content Include="Scripts\sweetalert\sweet-alert.min.js" />
+    <Content Include="Scripts\SystemJs\system.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Views\Account\Login.css">

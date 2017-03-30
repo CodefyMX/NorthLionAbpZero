@@ -12,7 +12,12 @@
 {
 
     <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-    @Html.IncludeScript("~/Areas/AdminMpa/Scripts/Dist/Users/Index.js")
+
+    <script>
+        SystemJS.import('Users/Index.js').then(function (d) {
+            console.log(new d.UsersWindow().load());
+        });
+    </script>
 }
 <h1>@L("Users")</h1>
 
