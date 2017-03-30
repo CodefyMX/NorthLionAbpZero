@@ -44,7 +44,9 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                 _createClass(UsersWindow, [{
                     key: 'load',
                     value: function load() {
+                        var localization = new Localization();
                         $(document).ready(function () {
+                            var $body = $("body");
                             var userService = abp.services.app.user;
                             var $modal = $("#UserCreateModal");
                             var $form = $modal.find("form");
@@ -70,13 +72,19 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                             $modal.on("shown.bs.modal", function () {
                                 $modal.find("input:not([type=hidden]):first").focus();
                             });
-
                             //Main Functions
                             var deleteUser = function deleteUser(id) {
-                                abp.message.confirm(Localization.localize("DeleteUser"), function (response) {
+
+                                abp.message.confirm(localization.localize("DeleteUser"), function (response) {
+
                                     if (response) {
+                                        abp.ui.setBusy();
                                         userService.deleteUser(id).then(function () {
-                                            abp.notify.warn(Localization.localize("Deleted"));
+                                            abp.notify.warn(localization.localize("Deleted"));
+                                            loadUsers();
+                                            abp.ui.clearBusy();
+                                        }).always(function () {
+                                            abp.ui.clearBusy();
                                         });
                                     }
                                 });
@@ -93,17 +101,33 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                                 userService.getUsers(input).done(function (response) {
                                     abp.ui.clearBusy();
                                     var data = response.users;
-                                    var columns = [{ title: "Id", data: "id" }, { title: "Full Name", data: "fullName" }, { title: "Username", data: "userName" }];
+                                    var columns = [{ title: "", data: "id" }, { title: "Full Name", data: "fullName" }, { title: "Username", data: "userName" }];
+                                    var columnDefs = [{
+                                        targets: 0,
+                                        render: function render(data, type, full, meta) {
+                                            var btnEdit = '<a class="btn btn-primary btn-xs" data-id="' + full.id + '"><i data-id="' + full.id + '" class="fa fa-edit"></i></a>';
+                                            var btnDelete = '<a class="btn btn-danger btn-xs js-delete-user" data-id="' + full.id + '"><i data-id="' + full.id + '" class="fa fa-times"></i></a>';
+                                            return btnEdit + " " + btnDelete;
+                                        }
+                                    }];
                                     //I dont want to get in the way with the table plugin you need so i will implement simple data visualization
                                     table = $('#users-table').DataTable({
                                         data: data,
-                                        columns: columns
+                                        columns: columns,
+                                        columnDefs: columnDefs
                                     });
                                 }).always(function () {
                                     abp.ui.clearBusy();
                                 });
                             };
-                            loadUsers(tableRequest);
+                            var deleteEvent = function deleteEvent(e) {
+                                var id = $(e).data("id");
+                                deleteUser(id);
+                            };
+                            $body.on("click", ".js-delete-user", function (e) {
+                                deleteEvent(e.target);
+                            });
+                            loadUsers();
                         });
                     }
                 }]);
