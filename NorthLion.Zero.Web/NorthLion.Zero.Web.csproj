@@ -337,10 +337,25 @@
     <Content Include="Areas\AdminMpa\Scripts\dev\Users\EditUser.js" />
     <Content Include="Areas\AdminMpa\Scripts\dev\Users\Index.js" />
     <Content Include="Areas\AdminMpa\Scripts\dist\AuditLogs\index.js" />
+    <Content Include="Areas\AdminMpa\Scripts\dist\AuditLogs\index.min.js">
+      <DependentUpon>index.js</DependentUpon>
+    </Content>
     <Content Include="Areas\AdminMpa\Scripts\dist\Languages\LocalizationHelper.js" />
+    <Content Include="Areas\AdminMpa\Scripts\dist\Languages\LocalizationHelper.min.js">
+      <DependentUpon>LocalizationHelper.js</DependentUpon>
+    </Content>
     <Content Include="Areas\AdminMpa\Scripts\dist\Layout\HelperObjects.js" />
+    <Content Include="Areas\AdminMpa\Scripts\dist\Layout\HelperObjects.min.js">
+      <DependentUpon>HelperObjects.js</DependentUpon>
+    </Content>
     <Content Include="Areas\AdminMpa\Scripts\dist\Users\EditUser.js" />
+    <Content Include="Areas\AdminMpa\Scripts\dist\Users\EditUser.min.js">
+      <DependentUpon>EditUser.js</DependentUpon>
+    </Content>
     <Content Include="Areas\AdminMpa\Scripts\dist\Users\Index.js" />
+    <Content Include="Areas\AdminMpa\Scripts\dist\Users\Index.min.js">
+      <DependentUpon>Index.js</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -431,6 +446,7 @@
     <Content Include="Areas\AdminMpa\Views\AdminPanel\Index.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Shared\_LeftBar.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Users\EditUser.cshtml" />
+    <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

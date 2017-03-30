@@ -1,0 +1,32 @@
+[
+  {
+    "outputFileName": "Areas/AdminMpa/Scripts/dist/AuditLogs/index.min.js",
+    "inputFiles": [
+      "Areas/AdminMpa/Scripts/dist/AuditLogs/index.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/AdminMpa/Scripts/dist/Languages/LocalizationHelper.min.js",
+    "inputFiles": [
+      "Areas/AdminMpa/Scripts/dist/Languages/LocalizationHelper.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/AdminMpa/Scripts/dist/Layout/HelperObjects.min.js",
+    "inputFiles": [
+      "Areas/AdminMpa/Scripts/dist/Layout/HelperObjects.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/AdminMpa/Scripts/dist/Users/EditUser.min.js",
+    "inputFiles": [
+      "Areas/AdminMpa/Scripts/dist/Users/EditUser.js"
+    ]
+  },
+  {
+    "outputFileName": "Areas/AdminMpa/Scripts/dist/Users/Index.min.js",
+    "inputFiles": [
+      "Areas/AdminMpa/Scripts/dist/Users/Index.js"
+    ]
+  }
+]
