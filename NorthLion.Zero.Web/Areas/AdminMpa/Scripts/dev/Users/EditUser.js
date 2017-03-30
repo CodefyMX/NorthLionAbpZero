@@ -4,7 +4,7 @@ export class EditUserWindow {
         const userService = abp.services.app.user;
         $(document).ready(() => {
             //Gets the UsersWindow modal instance
-            var $form = $("#userEditForm");
+            let $form = $("#userEditForm");
             let modalInstance = new UsersWindow().getModalInstance();
             let closeModal = () => {
                 modalInstance.modal("hide");
