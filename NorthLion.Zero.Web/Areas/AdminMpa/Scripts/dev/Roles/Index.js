@@ -56,6 +56,15 @@ export class RolesWindow {
                     }
                 });
             }
+            let createRole = ()=>{
+                periModal.open("/AdminMpa/Roles/CreateRole/", () => {
+
+                });
+                periModal.setOnClose(() => {
+                    abp.notify.success(localization.localize("RoleCreated"));
+                    loadRoles();
+                });
+            }
             let editRole = (e) => {
                 let id = $(e.target).data("id");
                 periModal.open("/AdminMpa/Roles/Edit/" + id, () => {
@@ -67,6 +76,7 @@ export class RolesWindow {
             }
             $body.on("click", ".js-delete-role", deleteRole);
             $body.on("click", ".js-edit-role", editRole);
+            $body.on("click", ".js-create-role", createRole);
             loadRoles();
         });
     }

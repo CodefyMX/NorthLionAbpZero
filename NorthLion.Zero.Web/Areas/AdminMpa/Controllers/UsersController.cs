@@ -3,9 +3,12 @@ using NorthLion.Zero.Users;
 using NorthLion.Zero.Web.Controllers;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Abp.Web.Mvc.Authorization;
+using NorthLion.Zero.Authorization;
 
 namespace NorthLion.Zero.Web.Areas.AdminMpa.Controllers
 {
+    [AbpMvcAuthorize(PermissionNames.Pages_Users)]
     public class UsersController : ZeroControllerBase
     {
         private readonly IUserAppService _userAppService;

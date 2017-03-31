@@ -7,6 +7,9 @@ namespace NorthLion.Zero.Roles.Dto
     [AutoMap(typeof(Role))]
     public class CreateRoleInput
     {
-        public List<AssignedPermission> Permissions { get; set; }
+        public string Name { get; set; }
+        public string DisplayName { get; set; }
+        public List<AssignedPermission> Permissions { get; set; } = new List<AssignedPermission>();
+        public bool IsDefault { get; set; }
     }
 }

@@ -34,11 +34,22 @@ System.register([], function (_export, _context) {
 
             _export("PeriModalManager", PeriModalManager = function () {
                 function PeriModalManager() {
+                    var _this = this;
+
                     var modalContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "#modal";
 
                     _classCallCheck(this, PeriModalManager);
 
                     this.modal = modalContainer;
+
+                    this.listener = function () {
+                        $(_this.modal).on("hidden.bs.modal", function () {
+                            console.info("Modal closed");
+                            _this.onClose = null;
+                            $(_this.modal).empty();
+                        });
+                    };
+                    this.listener();
                 }
 
                 _createClass(PeriModalManager, [{

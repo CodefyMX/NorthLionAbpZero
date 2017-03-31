@@ -20,6 +20,7 @@ namespace NorthLion.Zero.Roles
         Task UpdateRole(UpdateRoleInput input);
         [HttpDelete]
         Task DeleteRole(int roleId);
-        
+        [HttpGet]
+        CreateRoleInput GetRoleCreateModel();
     }
 }

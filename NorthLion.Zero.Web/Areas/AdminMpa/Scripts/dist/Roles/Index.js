@@ -90,6 +90,13 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                     }
                                 });
                             };
+                            var createRole = function createRole() {
+                                periModal.open("/AdminMpa/Roles/CreateRole/", function () {});
+                                periModal.setOnClose(function () {
+                                    abp.notify.success(localization.localize("RoleCreated"));
+                                    loadRoles();
+                                });
+                            };
                             var editRole = function editRole(e) {
                                 var id = $(e.target).data("id");
                                 periModal.open("/AdminMpa/Roles/Edit/" + id, function () {});
@@ -99,6 +106,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             };
                             $body.on("click", ".js-delete-role", deleteRole);
                             $body.on("click", ".js-edit-role", editRole);
+                            $body.on("click", ".js-create-role", createRole);
                             loadRoles();
                         });
                     }

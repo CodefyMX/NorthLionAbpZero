@@ -2,6 +2,15 @@
 export class PeriModalManager {
     constructor(modalContainer = "#modal") {
         this.modal = modalContainer;
+
+        this.listener = () => {
+            $(this.modal).on("hidden.bs.modal", () => {
+                console.info("Modal closed");
+                this.onClose = null;
+                $(this.modal).empty();
+            });
+        }
+        this.listener();
     }
     setContainer(container) {
         this.modal = container;

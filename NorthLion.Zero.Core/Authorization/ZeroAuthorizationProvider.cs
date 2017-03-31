@@ -16,7 +16,9 @@ namespace NorthLion.Zero.Authorization
             }
 
             var users = pages.CreateChildPermission(PermissionNames.Pages_Users, L("Users"));
-
+            var roles = pages.CreateChildPermission(PermissionNames.Pages_Roles, L("Roles"));
+            var languages = pages.CreateChildPermission(PermissionNames.Pages_Languages, L("Languages"));
+            var auditLogs = pages.CreateChildPermission(PermissionNames.Pages_AuditLogs, L("AuditLogs"));
             //Host permissions
             var tenants = pages.CreateChildPermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
         }

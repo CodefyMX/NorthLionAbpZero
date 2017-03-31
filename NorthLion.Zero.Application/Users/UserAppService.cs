@@ -75,7 +75,7 @@ namespace NorthLion.Zero.Users
 
         }
 
-
+        
 
         public async Task CreateUser(CreateUserInput input)
         {
@@ -86,8 +86,11 @@ namespace NorthLion.Zero.Users
             user.IsEmailConfirmed = true;
 
             CheckErrors(await UserManager.CreateAsync(user));
-        }
+            await CurrentUnitOfWork.SaveChangesAsync();
+            await AssignDefaultRoles(user.Id);
 
+        }
+       
         public async Task UpdateUserProfile(EditProfileInput input)
         {
             var userFound = await GetCurrentUserAsync();
@@ -267,7 +270,13 @@ namespace NorthLion.Zero.Users
                     .WhereIf(!searchString.IsNullOrEmpty(), exp);
             return usersResult;
         }
+        private async Task AssignDefaultRoles(long userId)
+        {
+            var user = await UserManager.GetUserByIdAsync(userId);
+            var roles = _roleManager.Roles.Where(a => a.IsDefault);
 
+            await UserManager.AddToRolesAsync(user.Id, roles.Select(a => a.Name).ToArray());
+        }
         private IEnumerable<User> GetSortedUsers(string sort, string sortDir, IEnumerable<User> users)
         {
             switch (sort)

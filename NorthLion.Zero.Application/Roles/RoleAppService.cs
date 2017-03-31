@@ -119,11 +119,19 @@ namespace NorthLion.Zero.Roles
             {
                 return new RolesOutput()
                 {
-                    Roles = _roleManager.Roles.ToList().Select(a=>a.MapTo<RoleDto>()).ToList()
+                    Roles = _roleManager.Roles.ToList().Select(a => a.MapTo<RoleDto>()).ToList()
                 };
             }
         }
-
+        public CreateRoleInput GetRoleCreateModel()
+        {
+            var allPermissions = _permissionManager.GetAllPermissions().Where(a => a.Parent == null).ToList();
+            var assignedPermissions = CheckPermissions(allPermissions, new List<RolePermissionSetting>());
+            return new CreateRoleInput()
+            {
+                Permissions = assignedPermissions
+            };
+        }
         #region Helpers
 
         private List<AssignedPermission> CheckPermissions(IEnumerable<Permission> allPermissions, ICollection<RolePermissionSetting> rolePermissions)
@@ -158,6 +166,9 @@ namespace NorthLion.Zero.Roles
 
             permissionsFound.Add(permission);
         }
+
+
+
         #endregion
     }
 }
