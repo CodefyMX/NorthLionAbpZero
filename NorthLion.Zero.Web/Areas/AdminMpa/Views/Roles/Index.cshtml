@@ -1,4 +1,19 @@
-﻿<h1>@L("Roles")</h1>
+﻿@section Styles{
+
+    <link href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section scripts
+{
+
+    <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        SystemJS.import('Roles/Index.js').then(function (d) {
+            new d.RolesWindow().load();
+        });
+    </script>
+}
+<h1>@L("Roles")</h1>
 
 <div class="row">
     <div class="col-md-12">
@@ -6,3 +21,8 @@
     </div>
 </div>
 <hr />
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered" id="roles-table"></table>
+    </div>
+</div>

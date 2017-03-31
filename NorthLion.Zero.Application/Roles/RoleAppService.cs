@@ -77,6 +77,7 @@ namespace NorthLion.Zero.Roles
 
         public async Task<RolesOutput> GetRoles(PaginatedInputDto input)
         {
+            if (input.GetAll) return AllRolesOutput;
             await Task.FromResult(0); //WARN Fix
             //Con esto paginamos 
             //La pagina 1 es en realidad la pagina 2, (empezamos desde el indice 0)
@@ -110,6 +111,17 @@ namespace NorthLion.Zero.Roles
                 Rows = input.RowsPerPage,
                 Roles = roles.Select(a => a.MapTo<RoleDto>()).ToList()
             };
+        }
+
+        public RolesOutput AllRolesOutput
+        {
+            get
+            {
+                return new RolesOutput()
+                {
+                    Roles = _roleManager.Roles.ToList().Select(a=>a.MapTo<RoleDto>()).ToList()
+                };
+            }
         }
 
         #region Helpers
