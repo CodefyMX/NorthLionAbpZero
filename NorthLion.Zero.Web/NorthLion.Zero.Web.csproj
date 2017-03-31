@@ -477,6 +477,9 @@
     <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.ttf" />
     <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.woff" />
     <Content Include="Areas\AdminMpa\Views\Users\SetRoles.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Roles\Index.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Languages\Index.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Users\ChangePassword.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -619,8 +622,6 @@
     <Folder Include="Areas\AdminMpa\Scripts\dev\Tenants\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Roles\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Tenants\" />
-    <Folder Include="Areas\AdminMpa\Views\Languages\" />
-    <Folder Include="Areas\AdminMpa\Views\Roles\" />
     <Folder Include="Areas\AdminMpa\Views\Tenants\" />
     <Folder Include="Areas\AdminSpa\Controllers\" />
     <Folder Include="Areas\AdminSpa\Models\" />

@@ -110,7 +110,8 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                             var btnDelete = "<a class=\"btn btn-danger btn-xs js-delete-user\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-times\"></i></a>";
                                             var btnPermissions = "<a class=\"btn btn-warning btn-xs js-permission-user\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-lock\"></i></a>";
                                             var btnRoles = "<a class=\"btn btn-primary btn-xs js-roles-user\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-list\"></i></a>";
-                                            return btnEdit + " " + btnPermissions + " " + btnRoles + " " + btnDelete;
+                                            var btnChangePassword = "<a class=\"btn btn-default btn-xs js-change-password-user\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-key\"></i></a>";
+                                            return btnEdit + " " + btnPermissions + " " + btnChangePassword + " " + btnRoles + " " + btnDelete;
                                         }
                                     }];
                                     //I dont want to get in the way with the table plugin you need so i will implement simple data visualization
@@ -150,12 +151,21 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                     abp.notify.success(localization.localize("UserEdited"));
                                 });
                             };
+                            var changePassword = function changePassword(e) {
+                                var id = $(e.target).data("id");
+
+                                periModal.open("/AdminMpa/Users/ChangePassword/" + id, function () {});
+
+                                periModal.setOnClose(function () {
+                                    abp.notify.warn(localization.localize("PasswordSet"));
+                                });
+                            };
 
                             $body.on("click", ".js-delete-user", deleteEvent);
                             $body.on("click", ".js-permission-user", setPermissions);
                             $body.on("click", ".js-edit-user", editUser);
                             $body.on("click", ".js-roles-user", setRoles);
-
+                            $body.on("click", ".js-change-password-user", changePassword);
                             loadUsers();
                         });
                     }

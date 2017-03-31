@@ -42,6 +42,8 @@ namespace NorthLion.Zero.Users
         [HttpPut]
         Task EditUser(UpdateUserInput input);
         [HttpPut]
+        Task ChangePasswordFromAdmin(ChangePasswordInput input);
+        [HttpPut]
         Task ProhibitPermission(ProhibitPermissionInput input);
         [HttpPut]
         Task SetUserSpecialPermissions(SetUserSpecialPermissionsInput input);

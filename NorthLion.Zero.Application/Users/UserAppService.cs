@@ -234,6 +234,14 @@ namespace NorthLion.Zero.Users
             }
             //Notify user by email or something
         }
+        public async Task ChangePasswordFromAdmin(ChangePasswordInput input)
+        {
+            if(input.NewPassword != input.NewPasswordConfirmation) throw new UserFriendlyException(L("PasswordsNotMatch"));
+            var user = await UserManager.GetUserByIdAsync(input.UserId);
+            var hasher = new PasswordHasher();
+            user.Password = hasher.HashPassword(input.NewPassword);
+            await UserManager.UpdateAsync(user);
+        }
         #region Helpers
 
         private UsersOutput AllResults
@@ -329,6 +337,8 @@ namespace NorthLion.Zero.Users
             }
             return roleDtos;
         }
+
+
 
         #endregion
     }

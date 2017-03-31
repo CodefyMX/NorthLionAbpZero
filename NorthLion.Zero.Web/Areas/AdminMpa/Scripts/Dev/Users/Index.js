@@ -73,7 +73,8 @@ export class UsersWindow {
                                 let btnDelete = `<a class="btn btn-danger btn-xs js-delete-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-times"></i></a>`;
                                 let btnPermissions = `<a class="btn btn-warning btn-xs js-permission-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-lock"></i></a>`;
                                 let btnRoles = `<a class="btn btn-primary btn-xs js-roles-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-list"></i></a>`;
-                                return btnEdit + " " + btnPermissions + " " + btnRoles + " " + btnDelete;
+                                let btnChangePassword = `<a class="btn btn-default btn-xs js-change-password-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-key"></i></a>`;
+                                return btnEdit + " " + btnPermissions + " " + btnChangePassword + " " + btnRoles + " " + btnDelete;
                             }
                         }
                     ]
@@ -122,12 +123,24 @@ export class UsersWindow {
                     abp.notify.success(localization.localize("UserEdited"));
                 });
             }
+            let changePassword = (e) => {
+                let id = $(e.target).data("id");
+
+                periModal.open("/AdminMpa/Users/ChangePassword/" + id, () => {
+
+                });
+
+
+                periModal.setOnClose(() => {
+                    abp.notify.warn(localization.localize("PasswordSet"));
+                });
+            }
 
             $body.on("click", ".js-delete-user", deleteEvent);
             $body.on("click", ".js-permission-user", setPermissions);
             $body.on("click", ".js-edit-user", editUser);
             $body.on("click", ".js-roles-user", setRoles);
-
+            $body.on("click", ".js-change-password-user", changePassword);
             loadUsers();
         });
     }

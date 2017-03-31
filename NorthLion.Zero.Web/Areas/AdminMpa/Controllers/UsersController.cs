@@ -46,5 +46,11 @@ namespace NorthLion.Zero.Web.Areas.AdminMpa.Controllers
             var roles = await _userAppService.GetRolesForUser(id);
             return View(roles);
         }
+
+        public async Task<ActionResult> ChangePassword(int id)
+        {
+            var user = await _userAppService.GetUserForEdit(id);
+            return View(user);
+        }
     }
 }

@@ -55,5 +55,13 @@
     <text name="Yes" value="Yes" />
     <text name="No" value="No" />
     <text name="Optional" value="Optional" />
+    
+     <text name="AdminMenu" value="Admin" />
+    <text name="Roles" value="Roles" />
+    <text name="Languages" value="Languages" />
+    <text name="AuditLogs" value="Audit logs" />
+    <text name="AdminPanel" value="Admin Panel" />
+    <text name="Admin" value="Admin" />
+    
   </texts>
 </localizationDictionary>
