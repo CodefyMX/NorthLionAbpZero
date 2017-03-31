@@ -136,3 +136,5 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.WebApi\bin\Debug\EntityFramewor
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.WebApi\obj\Debug\NorthLion.Zero.WebApi.csprojResolveAssemblyReference.cache
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.WebApi\obj\Debug\NorthLion.Zero.WebApi.dll
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.WebApi\obj\Debug\NorthLion.Zero.WebApi.pdb
+C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.WebApi\bin\Debug\EntityFramework.dll
+C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.WebApi\bin\Debug\EntityFramework.xml

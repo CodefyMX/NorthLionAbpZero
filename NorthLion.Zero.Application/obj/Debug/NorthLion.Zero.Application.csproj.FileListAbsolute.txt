@@ -122,3 +122,5 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.Entit
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\obj\Debug\NorthLion.Zero.Application.csprojResolveAssemblyReference.cache
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\obj\Debug\NorthLion.Zero.Application.dll
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\obj\Debug\NorthLion.Zero.Application.pdb
+C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Application\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Application\bin\Debug\EntityFramework.SqlServer.xml

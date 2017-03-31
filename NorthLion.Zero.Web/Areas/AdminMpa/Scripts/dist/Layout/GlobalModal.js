@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 System.register([], function (_export, _context) {
     "use strict";
 
-    var modal;
+    var _createClass, PeriModalManager;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -14,118 +14,76 @@ System.register([], function (_export, _context) {
     return {
         setters: [],
         execute: function () {
-            _export('modal', modal = function modal(container, options) {
-                _classCallCheck(this, modal);
-
-                var modalTypes = {
-                    MODAL_CANCEL: 'MODAL_CANCEL'
-                };
-                var modalConfig = {
-                    show: true,
-                    backdrop: 'static',
-                    keyboard: false
-                };
-                var modalInstance = {};
-                modalInstance.modalCloseEvent = {};
-                var selfModal = this;
-                if (container) {
-                    var isJquery = container instanceof $;
-                    if (isJquery) {
-                        selfModal.container = container;
-                    } else {
-                        selfModal.container = $(container);
+            _createClass = function () {
+                function defineProperties(target, props) {
+                    for (var i = 0; i < props.length; i++) {
+                        var descriptor = props[i];
+                        descriptor.enumerable = descriptor.enumerable || false;
+                        descriptor.configurable = true;
+                        if ("value" in descriptor) descriptor.writable = true;
+                        Object.defineProperty(target, descriptor.key, descriptor);
                     }
-                } else {
-                    selfModal.container = $('#modal');
                 }
 
-                selfModal.initModal = function () {
-                    selfModal.container.modal(modalConfig);
+                return function (Constructor, protoProps, staticProps) {
+                    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+                    if (staticProps) defineProperties(Constructor, staticProps);
+                    return Constructor;
                 };
-                modalInstance.open = function (url, data) {
-                    if (url) {
-                        options.loadingFunc();
-                        selfModal.container.load(url, data, function (response, status, xhr) {
-                            if (status == "error") {
-                                options.onErrorFunction();
-                                options.loadEndFunc();
-                            } else {
-                                options.loadEndFunc();
-                                selfModal.initModal();
-                            }
+            }();
+
+            _export("PeriModalManager", PeriModalManager = function () {
+                function PeriModalManager() {
+                    var modalContainer = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "#modal";
+
+                    _classCallCheck(this, PeriModalManager);
+
+                    this.modal = modalContainer;
+                }
+                /**
+                 * Opens the modal with the specified parameters
+                 */
+
+
+                _createClass(PeriModalManager, [{
+                    key: "open",
+                    value: function open(url, onload) {
+                        var $modal = $(modal).load(url, function () {
+                            $(modal).modal("show");
+                            onload();
                         });
                     }
-                };
-                modalInstance.close = function (data, modalType) {
+                }, {
+                    key: "close",
+                    value: function close(data) {
 
-                    selfModal.container.modal('hide');
-                    data.modalType = modalType;
-                    var modalCloseEvent = new CustomEvent('modalClose', {
-                        detail: {
-                            info: data
-                        },
-                        bubbles: true,
-                        cancelable: false
-                    });
-                    document.dispatchEvent(modalCloseEvent);
-                };
-                modalInstance.sendCloseEvent = function (data, modalType) {
-                    data.modalType = modalType;
-                    var modalCloseEvent = new CustomEvent('modalClose', {
-                        detail: {
-                            info: data
-                        },
-                        bubbles: true,
-                        cancelable: false
-                    });
-                    document.dispatchEvent(modalCloseEvent);
-                };
-                modalInstance.openInBody = function (url, data) {
-                    if (url) {
-                        options.loadingFunc();
-                        selfModal.container.load(url, data, function (response, status, xhr) {
-                            if (status == "error") {
-                                options.onErrorFunction();
-                                options.loadEndFunc();
-                            } else {
-                                options.loadEndFunc();
-                                selfModal.initModal();
-                            }
-                        });
-                    }
-                };
-                function initListener() {
-                    var _this = this;
-
-                    $('body').on('click', '[data-modal]', function (e) {
-                        var button = $(_this);
-                        e.preventDefault();
-                        var url = $(_this).data('url') || $(_this).attr('href');
-                        if (url) {
-                            options.loadingFunc(button);
-                            selfModal.container.load(url, function (response, status, xhr) {
-                                if (status == "error") {
-                                    options.loadEndFunc();
-
-                                    options.onErrorFunction("Sorry but there was an error: " + xhr.status + " " + xhr.statusText);
-                                } else {
-                                    options.loadEndFunc();
-                                    selfModal.initModal();
-                                }
-                            });
+                        if (!this.onClose) {
+                            throw new Error("On close function not defined");
+                        } else {
+                            $(modal).modal("hide");
+                            this.onClose();
+                            this.onClose = null;
                         }
-                    });
-                    $('body').on('click', '[data-cancel]', function (e) {
-                        e.preventDefault();
-                        modalInstance.close({}, modalTypes.MODAL_CANCEL);
-                    });
-                }
+                    }
+                }, {
+                    key: "setOnClose",
+                    value: function setOnClose(onclose) {
+                        this.onClose = onclose;
+                    }
+                }, {
+                    key: "dismiss",
+                    value: function dismiss(data) {}
+                }, {
+                    key: "getInstance",
+                    value: function getInstance() {
+                        return $(modal);
+                    }
+                }]);
 
-                initListener();
-                return modalInstance;
-            });
+                return PeriModalManager;
+            }());
 
-            _export('modal', modal);
+            _export("PeriModalManager", PeriModalManager);
 
             ;
         }

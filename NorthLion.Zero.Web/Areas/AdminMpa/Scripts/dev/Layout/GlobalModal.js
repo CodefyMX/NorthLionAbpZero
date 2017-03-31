@@ -1,112 +1,39 @@
 ﻿//El Peri!
-export class modal {
-    constructor(container, options) {
-        let modalTypes = {
-            MODAL_CANCEL: 'MODAL_CANCEL'
-        }
-        let modalConfig = {
-            show: true,
-            backdrop: 'static',
-            keyboard: false
-        }
-        let modalInstance = {};
-        modalInstance.modalCloseEvent = {
-        };
-        let selfModal = this;
-        if (container) {
-            let isJquery = container instanceof $;
-            if (isJquery) {
-                selfModal.container = container;
-            } else {
-                selfModal.container = $(container);
-            }
-        } else {
-            selfModal.container = $('#modal');
-        }
+export class PeriModalManager {
+    constructor(modalContainer = "#modal") {
+        this.modal = modalContainer;
+    }
+    /**
+     * Opens the modal with the specified parameters
+     */
+    open(url, onload) {
+        let $modal = $(modal).load(url, () => {
+            $(modal).modal("show");
+            onload();
+        });
+    }
+    /**
+     * Closes the current modal instance
+     * @param {Any} data Data to be send when the modal is closed 
+     */
+    close(data) {
 
-        selfModal.initModal = () => {
-            selfModal.container.modal(modalConfig);
+        if (!this.onClose) {
+            throw new Error("On close function not defined");
         }
-        modalInstance.open = (url, data) => {
-            if (url) {
-                options.loadingFunc();
-                selfModal.container.load(url, data, (response, status, xhr) => {
-                    if (status == "error") {
-                        options.onErrorFunction();
-                        options.loadEndFunc();
-                    } else {
-                        options.loadEndFunc();
-                        selfModal.initModal();
-                    }
-                });
-            }
+        else {
+            $(modal).modal("hide");
+            this.onClose();
+            this.onClose = null;
         }
-        modalInstance.close = (data, modalType) => {
+    }
+    setOnClose(onclose) {
+        this.onClose = onclose;
+    }
+    dismiss(data) {
 
-            selfModal.container.modal('hide');
-            data.modalType = modalType;
-            let modalCloseEvent = new CustomEvent('modalClose', {
-                detail: {
-                    info: data
-                },
-                bubbles: true,
-                cancelable: false
-            });
-            document.dispatchEvent(modalCloseEvent);
-        }
-        modalInstance.sendCloseEvent = (data, modalType) => {
-            data.modalType = modalType;
-            let modalCloseEvent = new CustomEvent('modalClose', {
-                detail: {
-                    info: data
-                },
-                bubbles: true,
-                cancelable: false
-            });
-            document.dispatchEvent(modalCloseEvent);
-        }
-        modalInstance.openInBody = (url, data) => {
-            if (url) {
-                options.loadingFunc();
-                selfModal.container.load(url, data, (response, status, xhr) => {
-                    if (status == "error") {
-                        options.onErrorFunction();
-                        options.loadEndFunc();
-                    } else {
-                        options.loadEndFunc();
-                        selfModal.initModal();
-                    }
-                });
-            }
-        }
-        function initListener() {
-            $('body').on('click', '[data-modal]', (e) => {
-                let button = $(this);
-                e.preventDefault();
-                let url = $(this).data('url') || $(this).attr('href');
-                if (url) {
-                    options.loadingFunc(button);
-                    selfModal.container.load(url, (response, status, xhr) => {
-                        if (status == "error") {
-                            options.loadEndFunc();
-
-                            options.onErrorFunction("Sorry but there was an error: " + xhr.status + " " + xhr.statusText);
-                        } else {
-                            options.loadEndFunc();
-                            selfModal.initModal();
-                        }
-
-                    });
-                }
-            });
-            $('body').on('click', '[data-cancel]', (e) => {
-                e.preventDefault();
-                modalInstance.close({
-                }, modalTypes.MODAL_CANCEL);
-            });
-        }
-
-        initListener();
-        return modalInstance;
+    }
+    getInstance() {
+        return $(modal);
     }
 };

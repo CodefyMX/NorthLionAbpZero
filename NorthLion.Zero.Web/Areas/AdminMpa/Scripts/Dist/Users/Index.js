@@ -131,12 +131,11 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             };
                             var editUser = function editUser(e) {
                                 var id = $(e.target).data("id");
-                                modal = $("#modal");
-                                modal.load("/AdminMpa/Users/EditUser/" + id, function () {
-                                    modal.modal();
-                                });
-                                modal.one("hidden.bs.modal", function () {
-                                    abp.notify.warn(localization.localize("ModalClosed"));
+
+                                periModal.open("/AdminMpa/Users/EditUser/" + id, function () {});
+
+                                periModal.setOnClose(function () {
+                                    abp.notify.success(localization.localize("UserEdited"));
                                 });
                             };
 

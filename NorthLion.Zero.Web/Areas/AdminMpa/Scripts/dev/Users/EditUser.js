@@ -1,13 +1,12 @@
-﻿import { UsersWindow } from "Users/Index.js";
-export class EditUserWindow {
+﻿export class EditUserWindow {
     load() {
         const userService = abp.services.app.user;
         $(document).ready(() => {
             //Gets the UsersWindow modal instance
             let $form = $("#userEditForm");
-            let modalInstance = new UsersWindow().getModalInstance();
+            let modalInstance = periModal;
             let closeModal = () => {
-                modalInstance.modal("hide");
+                modalInstance.close();
             }
             $form.on("submit", (e) => {
                 e.preventDefault();

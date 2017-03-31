@@ -1,6 +1,7 @@
 ﻿import { Localization } from 'Languages/LocalizationHelper.js';
 let modal;
 export class UsersWindow {
+
     getModalInstance() {
         return modal;
     }
@@ -95,12 +96,14 @@ export class UsersWindow {
             }
             let editUser = (e) => {
                 let id = $(e.target).data("id");
-                modal = $("#modal");
-                modal.load("/AdminMpa/Users/EditUser/" + id, () => {
-                    modal.modal();
+
+                periModal.open("/AdminMpa/Users/EditUser/" + id, () => {
+
                 });
-                modal.one("hidden.bs.modal", () => {
-                    abp.notify.warn(localization.localize("ModalClosed"));
+
+
+                periModal.setOnClose(() => {
+                    abp.notify.success(localization.localize("UserEdited"));
                 });
             }
 

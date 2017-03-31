@@ -1,9 +1,9 @@
 "use strict";
 
-System.register(["Users/Index.js"], function (_export, _context) {
+System.register([], function (_export, _context) {
     "use strict";
 
-    var UsersWindow, _createClass, EditUserWindow;
+    var _createClass, EditUserWindow;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -12,9 +12,7 @@ System.register(["Users/Index.js"], function (_export, _context) {
     }
 
     return {
-        setters: [function (_UsersIndexJs) {
-            UsersWindow = _UsersIndexJs.UsersWindow;
-        }],
+        setters: [],
         execute: function () {
             _createClass = function () {
                 function defineProperties(target, props) {
@@ -46,9 +44,9 @@ System.register(["Users/Index.js"], function (_export, _context) {
                         $(document).ready(function () {
                             //Gets the UsersWindow modal instance
                             var $form = $("#userEditForm");
-                            var modalInstance = new UsersWindow().getModalInstance();
+                            var modalInstance = periModal;
                             var closeModal = function closeModal() {
-                                modalInstance.modal("hide");
+                                modalInstance.close();
                             };
                             $form.on("submit", function (e) {
                                 e.preventDefault();
