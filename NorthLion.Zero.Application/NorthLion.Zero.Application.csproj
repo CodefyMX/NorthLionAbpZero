@@ -187,6 +187,8 @@
     <Compile Include="Users\Dto\SetUserSpecialPermissionsInput.cs" />
     <Compile Include="Users\Dto\UpdateUserInput.cs" />
     <Compile Include="Users\Dto\UserAssignedPermission.cs" />
+    <Compile Include="Users\Dto\UserRoleSelectorOutput.cs" />
+    <Compile Include="Users\Dto\UserSelectRoleDto.cs" />
     <Compile Include="Users\Dto\UsersOutput.cs" />
     <Compile Include="ZeroApplicationModule.cs" />
     <Compile Include="ZeroAppServiceBase.cs" />

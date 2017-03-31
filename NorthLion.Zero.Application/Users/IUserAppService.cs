@@ -1,5 +1,4 @@
 using Abp.Application.Services;
-using Abp.Application.Services.Dto;
 using NorthLion.Zero.PaginatedModel;
 using NorthLion.Zero.Users.Dto;
 using System.Threading.Tasks;
@@ -29,6 +28,9 @@ namespace NorthLion.Zero.Users
         Task<EditProfileInput> GetUserProfileForEdit();
         [HttpGet]
         Task<UpdateUserInput> GetUserForEdit(long? userId);
+
+        [HttpGet]
+        Task<UserRoleSelectorOutput> GetRolesForUser(long userId);
         [HttpPut]
         Task SetUserRoles(SetUserRolesInput input);
         [HttpPut]

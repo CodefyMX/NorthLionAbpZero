@@ -476,6 +476,7 @@
     <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.eot" />
     <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.ttf" />
     <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.woff" />
+    <Content Include="Areas\AdminMpa\Views\Users\SetRoles.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

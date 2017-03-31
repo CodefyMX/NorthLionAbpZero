@@ -71,8 +71,9 @@ export class UsersWindow {
                             render: (data, type, full, meta) => {
                                 let btnEdit = `<a class="btn btn-primary btn-xs js-edit-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-edit"></i></a>`;
                                 let btnDelete = `<a class="btn btn-danger btn-xs js-delete-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-times"></i></a>`;
-                                let btnPermissions = `<a class="btn btn-primary btn-xs js-permission-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-lock"></i></a>`;
-                                return btnEdit + " " + btnPermissions + " " + btnDelete;
+                                let btnPermissions = `<a class="btn btn-warning btn-xs js-permission-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-lock"></i></a>`;
+                                let btnRoles = `<a class="btn btn-primary btn-xs js-roles-user" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-list"></i></a>`;
+                                return btnEdit + " " + btnPermissions + " " + btnRoles + " " + btnDelete;
                             }
                         }
                     ]
@@ -100,6 +101,15 @@ export class UsersWindow {
                     abp.notify.success(localization.localize("PermissionsSet"));
                 });
             }
+            let setRoles = (e) => {
+                let id = $(e.target).data("id");
+                periModal.open("/AdminMpa/Users/SetRoles/" + id, () => {
+
+                });
+                periModal.setOnClose(() => {
+                    abp.notify.success(localization.localize("RolesSet"));
+                });
+            }
             let editUser = (e) => {
                 let id = $(e.target).data("id");
 
@@ -116,6 +126,8 @@ export class UsersWindow {
             $body.on("click", ".js-delete-user", deleteEvent);
             $body.on("click", ".js-permission-user", setPermissions);
             $body.on("click", ".js-edit-user", editUser);
+            $body.on("click", ".js-roles-user", setRoles);
+
             loadUsers();
         });
     }

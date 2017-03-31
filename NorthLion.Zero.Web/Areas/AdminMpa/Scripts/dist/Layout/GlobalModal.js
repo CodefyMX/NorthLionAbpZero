@@ -62,7 +62,7 @@ System.register([], function (_export, _context) {
                             throw new Error("On close function not defined");
                         } else {
                             $(modal).modal("hide");
-                            this.onClose();
+                            this.onClose(data);
                             this.onClose = null;
                         }
                     }

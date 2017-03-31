@@ -26,7 +26,7 @@ export class PeriModalManager {
         }
         else {
             $(modal).modal("hide");
-            this.onClose();
+            this.onClose(data);
             this.onClose = null;
         }
     }

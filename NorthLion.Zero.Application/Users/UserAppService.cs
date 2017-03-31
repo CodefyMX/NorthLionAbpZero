@@ -7,6 +7,7 @@ using Abp.UI;
 using Castle.Core.Internal;
 using Microsoft.AspNet.Identity;
 using NorthLion.Zero.Authorization;
+using NorthLion.Zero.Authorization.Roles;
 using NorthLion.Zero.PaginatedModel;
 using NorthLion.Zero.Users.Dto;
 using System;
@@ -21,11 +22,13 @@ namespace NorthLion.Zero.Users
     {
         private readonly IRepository<User, long> _userRepository;
         private readonly IPermissionManager _permissionManager;
+        private readonly RoleManager _roleManager;
 
-        public UserAppService(IRepository<User, long> userRepository, IPermissionManager permissionManager)
+        public UserAppService(IRepository<User, long> userRepository, IPermissionManager permissionManager, RoleManager roleManager)
         {
             _userRepository = userRepository;
             _permissionManager = permissionManager;
+            _roleManager = roleManager;
         }
 
         public async Task ProhibitPermission(ProhibitPermissionInput input)
@@ -107,6 +110,20 @@ namespace NorthLion.Zero.Users
             var input = user.MapTo<UpdateUserInput>();
             return input;
         }
+
+        public async Task<UserRoleSelectorOutput> GetRolesForUser(long userId)
+        {
+            var userRoles = await UserManager.GetRolesAsync(userId);
+            var allRoles = _roleManager.Roles.ToList();
+            var checkRoles = GetActiveAndInactiveRoles(userRoles, allRoles);
+            var user = await UserManager.GetUserByIdAsync(userId);
+            return new UserRoleSelectorOutput()
+            {
+                UserId = user.Id,
+                Roles = checkRoles,
+            };
+        }
+
 
         public async Task SetUserRoles(SetUserRolesInput input)
         {
@@ -297,7 +314,21 @@ namespace NorthLion.Zero.Users
             permissionsFound.Add(permission);
         }
 
-
+        private List<UserSelectRoleDto> GetActiveAndInactiveRoles(IList<string> userRoles, IEnumerable<Role> allRoles)
+        {
+            var roleDtos = new List<UserSelectRoleDto>();
+            foreach (var allRole in allRoles)
+            {
+                roleDtos.Add(new UserSelectRoleDto()
+                {
+                    DisplayName = allRole.DisplayName,
+                    Name = allRole.Name,
+                    IsSelected = userRoles.Any(a => a == allRole.Name),
+                    IsStatic = allRole.IsStatic
+                });
+            }
+            return roleDtos;
+        }
 
         #endregion
     }
