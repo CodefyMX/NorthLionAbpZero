@@ -1,0 +1,61 @@
+﻿@using NorthLion.Zero.Authorization
+@model NorthLion.Zero.Users.Dto.CurrentUserPermissionsOutput
+
+@{ Layout = null;}
+<link href="~/Areas/AdminMpa/Scripts/lib/jstree/themes/proton/style.min.css" rel="stylesheet" />
+
+<form method="POST" id="setPermissions">
+    <div class="modal-dialog modal-lg" id="leaderModal" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title"><i class="fa fa-3x fa-users"></i> </h4>
+            </div>
+            <div class="modal-body">
+                @L("SetSpecialPermissionsForm")
+                @Html.HiddenFor(a => a.UserId)
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <h5>@L("Permissions")</h5>
+
+                        <div id="container">
+                            <ul id="tree">
+                                @foreach (var permission in Model.AssignedPermissions)
+                                {
+                                    <li data-jstree='{ "selected" : @permission.Granted.ToString().ToLower() }' id="@permission.Name">
+                                        @permission.DisplayName
+
+                                        @if (permission.ChildPermissions.Any())
+                                        {
+                                            { Html.RenderPartial("_childPermissions", permission.ChildPermissions); }
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">
+                    @L("Save")
+                </button>
+                <button type="button" class="btn btn-warning js-reset-permissions">
+                    @L("ResetPermissions")
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    @L("Cancel")
+                </button>
+            </div>
+        </div>
+    </div>
+
+</form>
+<script src="~/Areas/AdminMpa/Scripts/lib/jstree/jstree.min.js"></script>
+<script>
+    SystemJS.import('Users/SetPermissions.js').then(function (d) {
+        new d.SetPermissionsWindow().load();
+    });
+</script>

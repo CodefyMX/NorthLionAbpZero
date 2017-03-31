@@ -128,6 +128,10 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             };
                             var setPermissions = function setPermissions(e) {
                                 var id = $(e.target).data("id");
+                                periModal.open("/AdminMpa/Users/SetPermissions/" + id, function () {});
+                                periModal.setOnClose(function () {
+                                    abp.notify.success(localization.localize("PermissionsSet"));
+                                });
                             };
                             var editUser = function editUser(e) {
                                 var id = $(e.target).data("id");

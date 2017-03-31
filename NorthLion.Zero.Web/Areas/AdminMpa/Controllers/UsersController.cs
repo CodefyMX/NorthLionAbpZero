@@ -34,5 +34,11 @@ namespace NorthLion.Zero.Web.Areas.AdminMpa.Controllers
             var user = await _userAppService.GetUserForEdit(id);
             return View(user);
         }
+
+        public async Task<ActionResult> SetPermissions(int id)
+        {
+            var userPermissions = await _userAppService.GetUserPermissions(id);
+            return View(userPermissions);
+        }
     }
 }

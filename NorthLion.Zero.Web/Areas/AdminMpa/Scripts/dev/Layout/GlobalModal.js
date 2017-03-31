@@ -3,6 +3,9 @@ export class PeriModalManager {
     constructor(modalContainer = "#modal") {
         this.modal = modalContainer;
     }
+    setContainer(container) {
+        this.modal = container;
+    }
     /**
      * Opens the modal with the specified parameters
      */
@@ -27,11 +30,12 @@ export class PeriModalManager {
             this.onClose = null;
         }
     }
+    /**
+     * 
+     * @param {function} onclose sets the onClose function 
+     */
     setOnClose(onclose) {
         this.onClose = onclose;
-    }
-    dismiss(data) {
-
     }
     getInstance() {
         return $(modal);

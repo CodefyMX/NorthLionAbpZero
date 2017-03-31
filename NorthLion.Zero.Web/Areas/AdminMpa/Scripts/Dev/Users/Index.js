@@ -93,6 +93,12 @@ export class UsersWindow {
             }
             let setPermissions = (e) => {
                 let id = $(e.target).data("id");
+                periModal.open("/AdminMpa/Users/SetPermissions/" + id, () => {
+
+                });
+                periModal.setOnClose(() => {
+                    abp.notify.success(localization.localize("PermissionsSet"));
+                });
             }
             let editUser = (e) => {
                 let id = $(e.target).data("id");

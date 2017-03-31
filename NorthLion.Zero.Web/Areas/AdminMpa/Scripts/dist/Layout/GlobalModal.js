@@ -40,12 +40,13 @@ System.register([], function (_export, _context) {
 
                     this.modal = modalContainer;
                 }
-                /**
-                 * Opens the modal with the specified parameters
-                 */
-
 
                 _createClass(PeriModalManager, [{
+                    key: "setContainer",
+                    value: function setContainer(container) {
+                        this.modal = container;
+                    }
+                }, {
                     key: "open",
                     value: function open(url, onload) {
                         var $modal = $(modal).load(url, function () {
@@ -70,9 +71,6 @@ System.register([], function (_export, _context) {
                     value: function setOnClose(onclose) {
                         this.onClose = onclose;
                     }
-                }, {
-                    key: "dismiss",
-                    value: function dismiss(data) {}
                 }, {
                     key: "getInstance",
                     value: function getInstance() {

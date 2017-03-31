@@ -356,6 +356,25 @@
     <Content Include="Areas\AdminMpa\Scripts\dist\Users\Index.min.js">
       <DependentUpon>Index.js</DependentUpon>
     </Content>
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\jstree.min.js" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default-dark\32px.png" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default-dark\40px.png" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default-dark\style.css" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default-dark\style.min.css" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default-dark\throbber.gif" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default\32px.png" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default\40px.png" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default\style.css" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default\style.min.css" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\default\throbber.gif" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\30px.png" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\32px.png" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-bold-webfont.svg" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-extralight-webfont.svg" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.svg" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\style.css" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\style.min.css" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\throbber.gif" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -446,6 +465,17 @@
     <Content Include="Areas\AdminMpa\Views\AdminPanel\Index.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Shared\_LeftBar.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Users\EditUser.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Users\SetPermissions.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Shared\_childPermissions.cshtml" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-bold-webfont.eot" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-bold-webfont.ttf" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-bold-webfont.woff" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-extralight-webfont.eot" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-extralight-webfont.ttf" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-extralight-webfont.woff" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.eot" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.ttf" />
+    <Content Include="Areas\AdminMpa\Scripts\lib\jstree\themes\proton\fonts\titillium\titilliumweb-regular-webfont.woff" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -588,7 +618,6 @@
     <Folder Include="Areas\AdminMpa\Scripts\dev\Tenants\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Roles\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Tenants\" />
-    <Folder Include="Areas\AdminMpa\Scripts\lib\" />
     <Folder Include="Areas\AdminMpa\Views\Languages\" />
     <Folder Include="Areas\AdminMpa\Views\Roles\" />
     <Folder Include="Areas\AdminMpa\Views\Tenants\" />

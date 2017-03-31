@@ -40,14 +40,14 @@
 </head>
 <body>
     @Html.Partial("_TopBar")
-<div class="container-fluid">
-    <div class="col-md-3">
-        @Html.Partial("_LeftBar")
+    <div class="container-fluid">
+        <div class="col-md-3">
+            @Html.Partial("_LeftBar")
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
     </div>
-    <div class="col-md-9">
-        @RenderBody()
-    </div>
-</div>
 
     @Scripts.Render("~/Bundles/vendor/js/bottom")
     @Scripts.Render("~/Bundles/js")
@@ -78,7 +78,7 @@
     <!-- View specific scripts -->
     @RenderSection("scripts", required: false)
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModal-label">
-        
+
     </div>
 </body>
 </html>

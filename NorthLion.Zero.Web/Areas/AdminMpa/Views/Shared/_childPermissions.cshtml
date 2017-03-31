@@ -1,0 +1,18 @@
+﻿@using System.Web.Mvc.Html
+@model IEnumerable<NorthLion.Zero.Users.Dto.UserAssignedPermission>
+
+<ul>
+    @foreach (var childPermission in Model)
+    {
+
+        <li data-jstree='{ "selected" : @childPermission.Granted.ToString().ToLower() }' id="@childPermission.Name">
+
+            @childPermission.DisplayName
+
+            @if (childPermission.ChildPermissions.Any())
+            {
+                { Html.RenderPartial("_childPermissions", childPermission.ChildPermissions); }
+            }
+        </li>
+    }
+</ul>
