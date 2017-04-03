@@ -176,14 +176,17 @@ namespace NorthLion.Zero.MultiTenancy
 
         public async Task<TenantsOutput> GetTenants(PaginatedInputDto input)
         {
-            if (input.GetAll) return GetAllTenants;
-            await Task.FromResult(0);
-            var tenants = _tenantManager.Tenants.WhereIf(!input.SearchString.IsNullOrEmpty(),
-                a => a.Name.ToUpper().Contains(input.SearchString.ToUpper())).ToList();
-            return new TenantsOutput()
+            using (CurrentUnitOfWork.DisableFilter(AbpDataFilters.SoftDelete))
             {
-                Tenants = tenants.Select(a => a.MapTo<TenantListDto>())
-            };
+                if (input.GetAll) return GetAllTenants;
+                await Task.FromResult(0);
+                var tenants = _tenantManager.Tenants.WhereIf(!input.SearchString.IsNullOrEmpty(),
+                    a => a.Name.ToUpper().Contains(input.SearchString.ToUpper())).ToList();
+                return new TenantsOutput()
+                {
+                    Tenants = tenants.Select(a => a.MapTo<TenantListDto>())
+                };
+            }
         }
 
         public TenantsOutput GetAllTenants
