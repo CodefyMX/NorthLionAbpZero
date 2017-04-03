@@ -486,6 +486,7 @@
     <Content Include="Areas\AdminMpa\Views\Languages\CreateLanguage.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Languages\EditTexts.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Languages\EditText.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\AuditLogs\GetLogDetails.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

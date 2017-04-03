@@ -1,0 +1,111 @@
+﻿@model NorthLion.Zero.AuditLogs.Dto.AuditLogDto
+@{
+    ViewBag.Title = "GetLogDetails";
+    Layout = null;
+}
+
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModal-label">@L("AuditLogDetails")</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table table-condensed table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>@L("FieldName")</th>
+                                <th>@L("Details")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td>
+                                    @L("ServiceName")
+                                </td>
+                                <td>
+                                    @Model.ServiceName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @L("MethodName")
+                                </td>
+                                <td>
+                                    @Model.MethodName
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @L("BrowserInfo")
+                                </td>
+                                <td>
+                                    @Model.BrowserInfo
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @L("IP")
+                                </td>
+                                <td>
+                                    @Model.ClientIpAddress
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @L("ExecutionTime")
+                                </td>
+                                <td>
+                                    @Model.ExecutionTime.ToUniversalTime()
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @L("ExecutionDuration")
+                                </td>
+                                <td>
+                                    @Model.ExecutionDuration ms
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @L("Parameters")
+                                </td>
+                                <td>
+                                    <pre style="word-wrap: break-word;">@Model.Parameters</pre>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td>
+                                @L("User")
+                            </td>
+                            <td>
+                                @Model.UserName
+                            </td>
+                        </tr>
+                            <tr>
+                                <td>
+                                    @L("Exception")
+                                </td>
+                                <td>
+                                    
+                                        @if (string.IsNullOrEmpty(Model.Exception))
+                                        {
+                                            @Model.Exception
+                                        }
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
