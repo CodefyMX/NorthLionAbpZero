@@ -116,6 +116,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Editions\CustomEditionManager\CustomEditionManager.cs" />
+    <Compile Include="Editions\CustomEditionManager\CustomObj\TenantFeature.cs" />
+    <Compile Include="Editions\CustomEditionManager\ICustomEditionManager.cs" />
     <Compile Include="Localization\Helpers\LocalizationSources.cs" />
     <Compile Include="Localization\Helpers\XmlLocations.cs" />
     <Compile Include="Localization\ILanguageTextProvider.cs" />

@@ -67,10 +67,16 @@ export class TenantsWindow {
                 periModal.open("/AdminMpa/Tenants/SetFeatures/" + id, null, function () {
 
                 });
+                periModal.setOnClose(() => {
+
+                });
             }
             let setEdition = (e) => {
                 let id = $(e.target).data("id");
                 periModal.open("/AdminMpa/Tenants/SetEdition/" + id, null, function () {
+                    
+                });
+                periModal.setOnClose(() => {
 
                 });
             }

@@ -145,6 +145,8 @@
     <Compile Include="AuditLogs\IAuditLogAppService.cs" />
     <Compile Include="BackUpService\BackUpService.cs" />
     <Compile Include="BackUpService\IBackUpService.cs" />
+    <Compile Include="Editions\EditionAppService.cs" />
+    <Compile Include="Editions\IEditionAppService.cs" />
     <Compile Include="Languages\Dto\GetLocalizationTextInput.cs" />
     <Compile Include="Languages\Dto\LanguageDto.cs" />
     <Compile Include="Languages\Dto\LanguageInput.cs" />
@@ -227,7 +229,9 @@
       <Name>NorthLion.Zero.EntityFramework</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Editions\Dto\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

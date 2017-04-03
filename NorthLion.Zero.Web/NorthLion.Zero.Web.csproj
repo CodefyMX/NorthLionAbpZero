@@ -488,6 +488,9 @@
     <Content Include="Areas\AdminMpa\Views\Languages\EditText.cshtml" />
     <Content Include="Areas\AdminMpa\Views\AuditLogs\GetLogDetails.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Tenants\Index.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Editions\Index.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Tenants\SetEdition.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Tenants\SetFeatures.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -552,6 +555,7 @@
     <Compile Include="Areas\AdminMpa\AdminMpaAreaRegistration.cs" />
     <Compile Include="Areas\AdminMpa\Controllers\AdminPanelController.cs" />
     <Compile Include="Areas\AdminMpa\Controllers\AuditLogsController.cs" />
+    <Compile Include="Areas\AdminMpa\Controllers\EditionsController.cs" />
     <Compile Include="Areas\AdminMpa\Controllers\LanguagesController.cs" />
     <Compile Include="Areas\AdminMpa\Controllers\RolesController.cs" />
     <Compile Include="Areas\AdminMpa\Controllers\TenantsController.cs" />

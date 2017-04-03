@@ -97,10 +97,12 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             var setFeatures = function setFeatures(e) {
                                 var id = $(e.target).data("id");
                                 periModal.open("/AdminMpa/Tenants/SetFeatures/" + id, null, function () {});
+                                periModal.setOnClose(function () {});
                             };
                             var setEdition = function setEdition(e) {
                                 var id = $(e.target).data("id");
                                 periModal.open("/AdminMpa/Tenants/SetEdition/" + id, null, function () {});
+                                periModal.setOnClose(function () {});
                             };
                             var editTenant = function editTenant(e) {
                                 var id = $(e.target).data("id");
