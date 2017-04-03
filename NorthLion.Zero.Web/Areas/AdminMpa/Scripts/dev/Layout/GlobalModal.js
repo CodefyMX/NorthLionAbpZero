@@ -18,8 +18,9 @@ export class PeriModalManager {
     /**
      * Opens the modal with the specified parameters
      */
-    open(url, onload) {
-        let $modal = $(modal).load(url, () => {
+    open(url, data = null, onload = function () { }) {
+
+        let $modal = $(modal).load(url, data, () => {
             $(modal).modal("show");
             onload();
         });

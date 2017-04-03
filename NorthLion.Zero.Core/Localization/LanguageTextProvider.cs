@@ -122,7 +122,7 @@ namespace NorthLion.Zero.Localization
                     _languageTextsRepository.Insert(new ApplicationLanguageText()
                     {
                         Key = key.Name,
-                        Value = L(key.Value),
+                        Value = key.Value,
                         LanguageName = langCode,
                         Source = source,
                         TenantId = tenantId,

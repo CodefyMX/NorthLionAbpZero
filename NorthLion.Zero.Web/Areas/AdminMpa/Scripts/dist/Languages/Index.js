@@ -45,7 +45,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                         $(document).ready(function () {
                             var localization = new Localization();
                             var languagesService = abp.services.app.language;
-                            var body = $("body");
+                            var $body = $("body");
 
                             var table = void 0;
                             var loadLanguages = function loadLanguages() {
@@ -69,10 +69,9 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                     var columnDefs = [{
                                         targets: 0,
                                         render: function render(data, type, full, meta) {
-                                            var btnEdit = "<a class=\"btn btn-primary btn-xs js-edit-role\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-edit\"></i></a>";
-                                            var btnDelete = "<a class=\"btn btn-danger btn-xs js-delete-role\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-times\"></i></a>";
-                                            var btnTexts = "<a class=\"btn btn-default btn-xs\"><i class=\"fa fa-book\"></i></a>";
-                                            return btnTexts + " " + btnEdit + " " + btnDelete;
+                                            var btnDelete = "<a class=\"btn btn-danger btn-xs js-delete-language\" data-id=\"" + full.name + "\"><i data-id=\"" + full.name + "\" class=\"fa fa-times\"></i></a>";
+                                            var btnTexts = "<a href=\"/AdminMpa/Languages/EditTexts?name=" + full.name + "&currentLang=" + abp.localization.currentCulture.name + "\" class=\"btn btn-default btn-xs\"><i class=\"fa fa-book\"></i></a>";
+                                            return btnTexts + " " + btnDelete;
                                         }
 
                                     }, {
@@ -89,6 +88,31 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                 });
                             };
                             loadLanguages();
+                            var deleteLanguage = function deleteLanguage(e) {
+                                var id = $(e.target).data("id");
+                                abp.message.confirm(localization.localize("DeleteLanguage"), function (response) {
+                                    if (response) {
+                                        languagesService.deleteLanguage(id).done(function () {
+                                            abp.notify.success(localization.localize("LanguageDeleted"));
+                                            setTimeout(function () {
+                                                window.location.reload(true);
+                                            }, 3000);
+                                        });
+                                    }
+                                });
+                            };
+                            var createLanguage = function createLanguage() {
+                                console.log("Create click");
+                                periModal.open("/AdminMpa/Languages/CreateLanguage", null, function () {});
+                                periModal.setOnClose(function () {
+                                    abp.notify.success(localization.localize("LanguageCreated"));
+                                    setTimeout(function () {
+                                        window.location.reload(true);
+                                    }, 3000);
+                                });
+                            };
+                            $body.on("click", ".js-delete-language", deleteLanguage);
+                            $body.on("click", ".js-create-language", createLanguage);
                         });
                     }
                 }]);

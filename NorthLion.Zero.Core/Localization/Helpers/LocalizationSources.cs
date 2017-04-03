@@ -11,7 +11,7 @@ namespace NorthLion.Zero.Localization.Helpers
         //Add your localization sources
         public static readonly IList<string> LocalizationSourceNames = new List<string>()
         {
-            "AbpModuleZero",
+            "Zero",
             "Abp",
             "AbpWeb",
             "AbpZero",

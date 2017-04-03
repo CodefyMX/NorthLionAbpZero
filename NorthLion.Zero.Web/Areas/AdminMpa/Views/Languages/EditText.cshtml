@@ -1,0 +1,33 @@
+﻿@model NorthLion.Zero.Languages.Dto.LanguageTextEditInput
+@{
+    Layout = null;
+}
+<form id="editTextForm">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModal-label">@L("Modifying") @Model.Key @L("From") @Model.Source @L("Lang") : @Model.LanguageName</h4>
+            </div>
+            @Html.HiddenFor(a=>a.Source)
+            @Html.HiddenFor(a => a.Key)
+            @Html.HiddenFor(a => a.LanguageName)
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="control-label">@L("Value")</label>
+                    @Html.TextBoxFor(a => a.Value, new {@class = "form-control"})
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@L("Cancel")</button>
+                <button type="submit" class="btn btn-primary">@L("Save")</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    SystemJS.import('Languages/EditText.js').then(function (d) {
+        new d.EditTextWindow().load();
+    });
+</script>

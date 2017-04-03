@@ -98,12 +98,16 @@ namespace NorthLion.Zero.Languages
             }
             else
             {
-                languageTextsSourceFromDatabase = languageTextsSourceFromXml.Select(a => new ApplicationLanguageText()
+                if (languageTextsSourceFromXml.Any())
                 {
-                    Key = a.Key,
-                    Value = a.Value,
-                    Source = input.Source
-                }).ToList();
+                    languageTextsSourceFromDatabase = languageTextsSourceFromXml.Select(a => new ApplicationLanguageText()
+                    {
+                        Key = a.Key,
+                        Value = a.Value,
+                        Source = input.Source
+                    }).ToList();
+                }
+                
             }
             //2.-Load all target texts
             //2.1.-If the current tenant has no texts in the database for the target
@@ -199,6 +203,8 @@ namespace NorthLion.Zero.Languages
                 //Much texts, many memory
                 DeleteAllTextsFromLanguage(code);
                 await _applicationLanguageManager.RemoveAsync(AbpSession.TenantId, code);
+                await ClearCache("AbpLocalizationScripts");
+                await ClearCache("AbpZeroLanguages");
             }
         }
 

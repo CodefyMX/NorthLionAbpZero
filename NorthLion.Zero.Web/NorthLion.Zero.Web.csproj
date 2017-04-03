@@ -483,6 +483,9 @@
     <Content Include="Areas\AdminMpa\Views\Roles\CreateRole.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Shared\_childPermissionsForRoleView.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Roles\EditRole.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Languages\CreateLanguage.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Languages\EditTexts.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Languages\EditText.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

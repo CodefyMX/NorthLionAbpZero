@@ -2,7 +2,7 @@
 export class RolesWindow {
     load() {
         $(document).ready(() => {
-            var localization = new Localization();
+            let localization = new Localization();
             const rolesService = abp.services.app.role;
             const $body = $("body");
             console.log("Roles window loaded");

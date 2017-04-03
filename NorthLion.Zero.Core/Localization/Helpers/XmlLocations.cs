@@ -12,15 +12,15 @@ namespace NorthLion.Zero.Localization.Helpers
     public static class XmlLocations
     {
 
-        private const string XmlLocationModuleZero = "NorthLion.ZeroCoreModule.Localization.SourceZero";
+        private const string XmlLocationModuleZero = "NorthLion.Zero.Localization.Source";
         private const string XmlAbp = "Abp.Localization.Sources.AbpXmlSource";
-        private const string XmlAbpZero = "Abp.Zero.Zero.Localization.Source";
-        private const string XmlAbpWeb = "Abp.Web.Common.Web.Localization.AbpWebXmlSource";
+        private const string XmlAbpZero = "Abp.Zero.Localization.Source";
+        private const string XmlAbpWeb = "Abp.Web.Common.Web.Localization.AbpWeb";
         public static LangLocalization GetXmlLocationBySourceName(string source)
         {
             switch (source)
             {
-                case "AbpModuleZero":
+                case "Zero":
                     return new LangLocalization() { Assembly = typeof(ZeroCoreModule), LocalizationNameSpace = XmlLocationModuleZero };
                 case "Abp":
                     return new LangLocalization() { Assembly = typeof(AbpModule), LocalizationNameSpace = XmlAbp };

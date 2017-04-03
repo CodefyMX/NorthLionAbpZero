@@ -9,7 +9,7 @@ namespace NorthLion.Zero.Languages.Dto
     public class LanguageTextEditInput
     {
         public string Source { get; set; }
-        public int LanguageName { get; set; }
+        public string LanguageName { get; set; }
         public string Value { get; set; }
         public string Key { get; set; }
     }

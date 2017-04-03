@@ -59,8 +59,12 @@ System.register([], function (_export, _context) {
                     }
                 }, {
                     key: "open",
-                    value: function open(url, onload) {
-                        var $modal = $(modal).load(url, function () {
+                    value: function open(url) {
+                        var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+                        var onload = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
+
+
+                        var $modal = $(modal).load(url, data, function () {
                             $(modal).modal("show");
                             onload();
                         });

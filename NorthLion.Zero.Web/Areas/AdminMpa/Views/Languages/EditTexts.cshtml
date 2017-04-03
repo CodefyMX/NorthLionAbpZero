@@ -1,0 +1,54 @@
+﻿@using Abp.Zero
+@model NorthLion.Zero.Languages.Dto.LanguageTextEditView
+@{
+    ViewBag.Title = "EditTexts";
+}
+@section Styles{
+
+    <link href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section scripts
+{
+
+    <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        SystemJS.import('Languages/EditTexts.js').then(function (d) {
+            new d.EditTextsWindow().load();
+        });
+    </script>
+}
+<div class="row">
+    
+    <div class="col-md-4">
+        <label class="control-label">
+            @L("SourceLang")
+        </label>
+        @Html.DropDownListFor(a => a.SelectedSourceLanguage,
+            new SelectList(Model.SourceLanguages, "Name", "DisplayName", Model.SelectedSourceLanguage), new { @class = "form-control js-select" })
+    </div>
+    <div class="col-md-4">
+        <label class="control-label">
+            @L("TargetLang")
+        </label>
+        @Html.DropDownListFor(a => a.SelectedTargetLanguage,
+            new SelectList(Model.TargetLanguages, "Name", "DisplayName", Model.SelectedTargetLanguage), new { @class = "form-control js-select" })
+    </div>
+    <div class="col-md-4">
+        <label class="control-label">
+            @L("Source")
+        </label>
+        @Html.DropDownList("Source", new SelectList(Model.Source, AbpZeroConsts.LocalizationSourceName), new {@class = "form-control js-select" })
+
+
+    </div>
+    
+</div>
+<br/>
+<div class="row">
+    <div class="col-xs-12">
+        <table id="languageTextsTable" class="table table-responsive table-condensed">
+            
+        </table>
+    </div>
+</div>
