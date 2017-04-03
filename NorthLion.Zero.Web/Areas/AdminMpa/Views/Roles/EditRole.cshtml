@@ -1,0 +1,62 @@
+﻿@model NorthLion.Zero.Roles.Dto.UpdateRoleInput
+@{
+    Layout = null;
+}
+<link href="~/Areas/AdminMpa/Scripts/lib/jstree/themes/proton/style.min.css" rel="stylesheet" />
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <form id="editRoleForm" role="form" novalidate class="form-validation">
+            @Html.HiddenFor(a=>a.Id)
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <span>@L("EditRole")</span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label class="control-label">@L("Name")</label>
+                            @Html.TextBoxFor(a => a.DisplayName, new {@class = "form-control"})
+                        </div>
+                        <label class="checkbox">
+                            @Html.CheckBoxFor(a => a.IsDefault)
+                            <i></i>@L("IsAssignedByDefault")
+                        </label>
+                    </div>
+                    <div class="col-xs-12">
+                        <h5>@L("Permissions")</h5>
+                        <div id="container">
+                            <ul id="tree">
+                                @foreach (var permission in Model.Permissions)
+                                {
+                                    <li data-jstree='{ "selected" : @permission.Granted.ToString().ToLower() }' id="@permission.Name">
+                                        @permission.DisplayName
+
+                                        @if (permission.ChildPermissions.Any())
+                                        {
+                                            {
+                                                Html.RenderPartial("_childPermissionsForRoleView", permission.ChildPermissions);
+                                            }
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@L("Cancel")</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <span>@L("Save")</span></button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/Areas/AdminMpa/Scripts/lib/jstree/jstree.min.js"></script>
+<script>
+    SystemJS.import('Roles/EditRole.js').then(function (d) {
+        new d.EditRoleWindow().load();
+    });
+</script>

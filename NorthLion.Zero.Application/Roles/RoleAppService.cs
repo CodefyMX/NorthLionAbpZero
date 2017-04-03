@@ -63,7 +63,6 @@ namespace NorthLion.Zero.Roles
             var role = await _roleManager.GetRoleByIdAsync(input.Id);
             var mapped = input.MapTo(role);
             await _roleManager.UpdateAsync(mapped);
-            await CurrentUnitOfWork.SaveChangesAsync();
             await _roleManager.SetGrantedPermissionsAsync(mapped, permissions);
             //Notify role owners or something like that
         }

@@ -3,7 +3,7 @@
 System.register([], function (_export, _context) {
     "use strict";
 
-    var _createClass, CreateRoleWindow;
+    var _createClass, EditRoleWindow;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -32,18 +32,18 @@ System.register([], function (_export, _context) {
                 };
             }();
 
-            _export("CreateRoleWindow", CreateRoleWindow = function () {
-                function CreateRoleWindow() {
-                    _classCallCheck(this, CreateRoleWindow);
+            _export("EditRoleWindow", EditRoleWindow = function () {
+                function EditRoleWindow() {
+                    _classCallCheck(this, EditRoleWindow);
                 }
 
-                _createClass(CreateRoleWindow, [{
+                _createClass(EditRoleWindow, [{
                     key: "load",
                     value: function load() {
                         $(document).ready(function () {
                             var _roleAppService = abp.services.app.role;
                             var $container = $("#container");
-                            var $form = $("#createRoleForm");
+                            var $form = $("#editRoleForm");
                             $container.jstree({
                                 "checkbox": {
                                     keep_selected_style: false,
@@ -93,19 +93,20 @@ System.register([], function (_export, _context) {
 
                                 e.preventDefault();
                                 var data = {
-                                    AssignedPermissions: [],
+                                    Permissions: [],
                                     DisplayName: $("#DisplayName").val(),
                                     Name: $("#DisplayName").val(),
-                                    IsDefault: $("#IsDefault").is(":checked")
+                                    IsDefault: $("#IsDefault").is(":checked"),
+                                    Id: $("#Id").val()
                                 };
                                 var selected = $container.jstree('get_selected');
                                 $(selected).each(function (index, v) {
-                                    data.AssignedPermissions.push({
+                                    data.Permissions.push({
                                         Name: v,
                                         Granted: true
                                     });
                                 });
-                                abp.ui.setBusy($form, _roleAppService.createRole(data).done(function () {
+                                abp.ui.setBusy($form, _roleAppService.updateRole(data).done(function () {
                                     periModal.close();
                                 }));
                             });
@@ -113,10 +114,10 @@ System.register([], function (_export, _context) {
                     }
                 }]);
 
-                return CreateRoleWindow;
+                return EditRoleWindow;
             }());
 
-            _export("CreateRoleWindow", CreateRoleWindow);
+            _export("EditRoleWindow", EditRoleWindow);
         }
     };
 });

@@ -69,11 +69,11 @@
         SystemJS.config({
             baseURL: '/Areas/AdminMpa/Scripts/dist'
         });
-
+        //Modal helper
         SystemJS.import('Layout/GlobalModal.js').then(function (d) {
             window.periModal = new d.PeriModalManager("#modal");
         });
-
+        //Modal helper
     </script>
     <!-- View specific scripts -->
     @RenderSection("scripts", required: false)

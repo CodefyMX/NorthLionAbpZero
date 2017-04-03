@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Abp.Localization;
@@ -41,10 +42,23 @@ namespace NorthLion.Zero.Languages
             await _applicationLanguageManager.AddAsync(newLanguage);
         }
 
-        public LanguagesOutput GetLanguagesForTable(PaginatedInputDto input)
+        public async Task<LanguagesOutput> GetLanguagesForTable(PaginatedInputDto input)
         {
+
+            if (input.GetAll) return (await AllLanguages());
+
             return new LanguagesOutput();
         }
+
+        public async Task<LanguagesOutput> AllLanguages()
+        {
+            return new LanguagesOutput()
+            {
+                Languages = (await _applicationLanguageManager.GetLanguagesAsync(AbpSession.TenantId)).Select(a=>a.MapTo<LanguageDto>()).ToList()
+            };
+
+        }
+
         /// <summary>
         /// This table operation has no server side filter
         /// </summary>

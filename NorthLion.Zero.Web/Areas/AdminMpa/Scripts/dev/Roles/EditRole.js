@@ -1,9 +1,9 @@
-﻿export class CreateRoleWindow {
+﻿export class EditRoleWindow {
     load() {
         $(document).ready(() => {
             const _roleAppService = abp.services.app.role;
             const $container = $("#container");
-            const $form = $("#createRoleForm");
+            const $form = $("#editRoleForm");
             $container
                 .jstree({
                     "checkbox": {
@@ -56,19 +56,20 @@
 
                 e.preventDefault();
                 let data = {
-                    AssignedPermissions: [],
+                    Permissions: [],
                     DisplayName: $("#DisplayName").val(),
                     Name: $("#DisplayName").val(),
-                    IsDefault: $("#IsDefault").is(":checked")
+                    IsDefault: $("#IsDefault").is(":checked"),
+                    Id: $("#Id").val()
                 }
                 let selected = $container.jstree('get_selected');
                 $(selected).each((index, v) => {
-                    data.AssignedPermissions.push({
+                    data.Permissions.push({
                         Name: v,
                         Granted: true
                     });
                 });
-                abp.ui.setBusy($form, _roleAppService.createRole(data).done(() => {
+                abp.ui.setBusy($form, _roleAppService.updateRole(data).done(() => {
                     periModal.close();
                 }));
             });

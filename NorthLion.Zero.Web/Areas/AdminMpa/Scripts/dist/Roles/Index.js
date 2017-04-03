@@ -99,7 +99,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             };
                             var editRole = function editRole(e) {
                                 var id = $(e.target).data("id");
-                                periModal.open("/AdminMpa/Roles/Edit/" + id, function () {});
+                                periModal.open("/AdminMpa/Roles/EditRole/" + id, function () {});
                                 periModal.setOnClose(function () {
                                     abp.notify.success(localization.localize("RoleEdited"));
                                 });

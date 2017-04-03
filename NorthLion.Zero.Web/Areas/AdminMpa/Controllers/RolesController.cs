@@ -27,9 +27,10 @@ namespace NorthLion.Zero.Web.Areas.AdminMpa.Controllers
             return View();
         }
 
-        public ActionResult EditRole()
+        public async Task<ActionResult> EditRole(int id)
         {
-            return View();
+            var roleForEdit =await  _roleAppService.GetRoleForEdit(id);
+            return View(roleForEdit);
         }
 
         public ActionResult CreateRole()

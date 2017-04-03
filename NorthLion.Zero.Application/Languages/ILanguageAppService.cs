@@ -17,7 +17,7 @@ namespace NorthLion.Zero.Languages
         [HttpPost]
         Task CreateLanguage(LanguageInput input);
         [HttpGet]
-        LanguagesOutput GetLanguagesForTable(PaginatedInputDto input);
+        Task<LanguagesOutput> GetLanguagesForTable(PaginatedInputDto input);
         [HttpGet]
         LocalizationTextsOutput GetLocalizationTexts(GetLocalizationTextInput input);
         [HttpGet]

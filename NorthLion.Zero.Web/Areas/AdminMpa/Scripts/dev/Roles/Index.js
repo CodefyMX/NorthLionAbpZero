@@ -67,7 +67,7 @@ export class RolesWindow {
             }
             let editRole = (e) => {
                 let id = $(e.target).data("id");
-                periModal.open("/AdminMpa/Roles/Edit/" + id, () => {
+                periModal.open("/AdminMpa/Roles/EditRole/" + id, () => {
 
                 });
                 periModal.setOnClose(() => {
