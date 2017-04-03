@@ -278,3 +278,4 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\bin\zh\Hangfire.Core.resour
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.csprojResolveAssemblyReference.cache
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.dll
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.pdb
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\bin\Scripts\Swagger-Custom.js

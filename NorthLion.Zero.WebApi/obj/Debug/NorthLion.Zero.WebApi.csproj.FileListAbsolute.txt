@@ -138,3 +138,4 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.WebApi\obj\Debug\NorthLion.Zero
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.WebApi\obj\Debug\NorthLion.Zero.WebApi.pdb
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.WebApi\bin\Debug\EntityFramework.dll
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.WebApi\bin\Debug\EntityFramework.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.WebApi\bin\Debug\Scripts\Swagger-Custom.js

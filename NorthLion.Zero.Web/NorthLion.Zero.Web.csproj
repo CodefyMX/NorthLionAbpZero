@@ -487,6 +487,7 @@
     <Content Include="Areas\AdminMpa\Views\Languages\EditTexts.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Languages\EditText.cshtml" />
     <Content Include="Areas\AdminMpa\Views\AuditLogs\GetLogDetails.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Tenants\Index.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -629,7 +630,6 @@
     <Folder Include="Areas\AdminMpa\Scripts\dev\Tenants\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Roles\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Tenants\" />
-    <Folder Include="Areas\AdminMpa\Views\Tenants\" />
     <Folder Include="Areas\AdminSpa\Controllers\" />
     <Folder Include="Areas\AdminSpa\Models\" />
     <Folder Include="Areas\AdminSpa\Views\Shared\" />
