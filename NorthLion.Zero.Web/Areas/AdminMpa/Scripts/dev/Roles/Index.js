@@ -57,7 +57,7 @@ export class RolesWindow {
                 });
             }
             let createRole = ()=>{
-                periModal.open("/AdminMpa/Roles/CreateRole/", () => {
+                periModal.open("/AdminMpa/Roles/CreateRole/",null, () => {
 
                 });
                 periModal.setOnClose(() => {
@@ -67,7 +67,7 @@ export class RolesWindow {
             }
             let editRole = (e) => {
                 let id = $(e.target).data("id");
-                periModal.open("/AdminMpa/Roles/EditRole/" + id, () => {
+                periModal.open("/AdminMpa/Roles/EditRole/" + id,null, () => {
 
                 });
                 periModal.setOnClose(() => {

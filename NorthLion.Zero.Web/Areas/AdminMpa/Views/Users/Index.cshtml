@@ -5,13 +5,16 @@
     ViewBag.ActiveMenu = "Users"; //The menu item will be active for this page.
 }
 @section Styles{
-
-    <link href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
 }
 @section scripts
 {
 
     <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
 
     <script>
         SystemJS.import('Users/Index.js').then(function (d) {
@@ -26,10 +29,10 @@
         <button data-toggle="modal" data-target="#UserCreateModal" class="btn btn-primary btn-sm "><i class="fa fa-plus"></i> @L("CreateNewUser")</button>
     </div>
 </div>
-<hr/>
+<hr />
 <div class="row">
     <div class="col-md-12">
-        <table class="table table-bordered table-condensed table-striped table-responsive" id="users-table"></table>
+        <table class="table table-condensed table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%" id="users-table"></table>
 
     </div>
 </div>

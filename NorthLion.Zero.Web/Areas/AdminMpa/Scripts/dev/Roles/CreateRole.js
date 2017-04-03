@@ -56,14 +56,14 @@
 
                 e.preventDefault();
                 let data = {
-                    AssignedPermissions: [],
+                    Permissions: [],
                     DisplayName: $("#DisplayName").val(),
                     Name: $("#DisplayName").val(),
                     IsDefault: $("#IsDefault").is(":checked")
                 }
                 let selected = $container.jstree('get_selected');
                 $(selected).each((index, v) => {
-                    data.AssignedPermissions.push({
+                    data.Permissions.push({
                         Name: v,
                         Granted: true
                     });

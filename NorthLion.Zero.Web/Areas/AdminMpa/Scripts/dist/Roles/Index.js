@@ -91,7 +91,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                 });
                             };
                             var createRole = function createRole() {
-                                periModal.open("/AdminMpa/Roles/CreateRole/", function () {});
+                                periModal.open("/AdminMpa/Roles/CreateRole/", null, function () {});
                                 periModal.setOnClose(function () {
                                     abp.notify.success(localization.localize("RoleCreated"));
                                     loadRoles();
@@ -99,7 +99,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             };
                             var editRole = function editRole(e) {
                                 var id = $(e.target).data("id");
-                                periModal.open("/AdminMpa/Roles/EditRole/" + id, function () {});
+                                periModal.open("/AdminMpa/Roles/EditRole/" + id, null, function () {});
                                 periModal.setOnClose(function () {
                                     abp.notify.success(localization.localize("RoleEdited"));
                                 });

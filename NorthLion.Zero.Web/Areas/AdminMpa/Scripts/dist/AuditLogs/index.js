@@ -59,11 +59,11 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                                 logsService.getAuditLogTable({ getAll: true }).done(function (response) {
                                     abp.ui.clearBusy();
                                     var data = response.auditLogs;
-                                    var columns = [{ title: "", data: "id" }, { title: "Service Name", data: "serviceName" }, { title: "Client Name", data: "clientName" }];
+                                    var columns = [{ title: "", data: "id" }, { title: "Service Name", data: "serviceName" }, { title: "Method Name", data: "methodName" }, { title: "IP", data: "clientIpAddress" }, { title: "Execution Time", data: "executionTimeString" }];
                                     var columnDefs = [{
                                         targets: 0,
                                         render: function render(data, type, full, meta) {
-                                            var btnEdit = '<a class="btn btn-primary btn-xs" data-id="' + full.id + '"><i data-id="' + full.id + '" class="fa fa-edit"></i></a>';
+                                            var btnEdit = '<a class="btn btn-primary btn-xs" data-id="' + full.id + '"><i data-id="' + full.id + '" class="fa fa-search"></i></a>';
                                             return btnEdit;
                                         }
                                     }];

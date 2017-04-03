@@ -3,13 +3,16 @@
     ViewBag.Title = "Index";
 }
 @section Styles{
-
-    <link href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
 }
 @section scripts
 {
 
     <script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/responsive.bootstrap.min.js"></script>
 
     <script>
         SystemJS.import('Languages/Index.js').then(function (d) {
@@ -28,6 +31,6 @@
 
 <div class="row">
     <div class="col-xs-12">
-        <table id="languages-table"></table>
+        <table class="table table-condensed table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%" id="languages-table"></table>
     </div>
 </div>

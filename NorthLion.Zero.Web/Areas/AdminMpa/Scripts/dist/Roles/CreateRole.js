@@ -93,14 +93,14 @@ System.register([], function (_export, _context) {
 
                                 e.preventDefault();
                                 var data = {
-                                    AssignedPermissions: [],
+                                    Permissions: [],
                                     DisplayName: $("#DisplayName").val(),
                                     Name: $("#DisplayName").val(),
                                     IsDefault: $("#IsDefault").is(":checked")
                                 };
                                 var selected = $container.jstree('get_selected');
                                 $(selected).each(function (index, v) {
-                                    data.AssignedPermissions.push({
+                                    data.Permissions.push({
                                         Name: v,
                                         Granted: true
                                     });

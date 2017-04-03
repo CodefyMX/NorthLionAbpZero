@@ -1,7 +1,5 @@
 ﻿import { Localization } from 'Languages/LocalizationHelper.js';
-let modal;
 export class UsersWindow {
-
     getModalInstance() {
         return modal;
     }
@@ -15,12 +13,10 @@ export class UsersWindow {
             $form.validate();
             $form.find('button[type="submit"]').click((e) => {
                 e.preventDefault();
-
                 if (!$form.valid()) {
                     return;
                 }
                 const user = $form.serializeFormToObject(); //serializeFormToObject is defined in main.js
-
                 abp.ui.setBusy($modal);
                 userService.createUser(user).done(() => {
                     $modal.modal("hide");
@@ -36,9 +32,7 @@ export class UsersWindow {
                 });
             //Main Functions
             let deleteUser = (id) => {
-
                 abp.message.confirm(localization.localize("DeleteUser"), (response) => {
-
                     if (response) {
                         abp.ui.setBusy();
                         userService.deleteUser(id).then(() => {
@@ -84,7 +78,6 @@ export class UsersWindow {
                         columns,
                         columnDefs
                     });
-
                 }).always(() => {
                     abp.ui.clearBusy();
                 });
@@ -95,8 +88,7 @@ export class UsersWindow {
             }
             let setPermissions = (e) => {
                 let id = $(e.target).data("id");
-                periModal.open("/AdminMpa/Users/SetPermissions/" + id, () => {
-
+                periModal.open("/AdminMpa/Users/SetPermissions/" + id, null, () => {
                 });
                 periModal.setOnClose(() => {
                     abp.notify.success(localization.localize("PermissionsSet"));
@@ -104,8 +96,7 @@ export class UsersWindow {
             }
             let setRoles = (e) => {
                 let id = $(e.target).data("id");
-                periModal.open("/AdminMpa/Users/SetRoles/" + id, () => {
-
+                periModal.open("/AdminMpa/Users/SetRoles/" + id, null, () => {
                 });
                 periModal.setOnClose(() => {
                     abp.notify.success(localization.localize("RolesSet"));
@@ -113,24 +104,17 @@ export class UsersWindow {
             }
             let editUser = (e) => {
                 let id = $(e.target).data("id");
-
-                periModal.open("/AdminMpa/Users/EditUser/" + id, () => {
-
+                periModal.open("/AdminMpa/Users/EditUser/" + id, null, () => {
                 });
-
-
                 periModal.setOnClose(() => {
                     abp.notify.success(localization.localize("UserEdited"));
                 });
             }
             let changePassword = (e) => {
                 let id = $(e.target).data("id");
-
-                periModal.open("/AdminMpa/Users/ChangePassword/" + id, () => {
+                periModal.open("/AdminMpa/Users/ChangePassword/" + id, null, () => {
 
                 });
-
-
                 periModal.setOnClose(() => {
                     abp.notify.warn(localization.localize("PasswordSet"));
                 });

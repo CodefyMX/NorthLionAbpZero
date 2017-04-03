@@ -3,7 +3,7 @@
 System.register(["Languages/LocalizationHelper.js"], function (_export, _context) {
     "use strict";
 
-    var Localization, _createClass, modal, UsersWindow;
+    var Localization, _createClass, UsersWindow;
 
     function _classCallCheck(instance, Constructor) {
         if (!(instance instanceof Constructor)) {
@@ -34,8 +34,6 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                 };
             }();
 
-            modal = void 0;
-
             _export("UsersWindow", UsersWindow = function () {
                 function UsersWindow() {
                     _classCallCheck(this, UsersWindow);
@@ -58,12 +56,10 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             $form.validate();
                             $form.find('button[type="submit"]').click(function (e) {
                                 e.preventDefault();
-
                                 if (!$form.valid()) {
                                     return;
                                 }
                                 var user = $form.serializeFormToObject(); //serializeFormToObject is defined in main.js
-
                                 abp.ui.setBusy($modal);
                                 userService.createUser(user).done(function () {
                                     $modal.modal("hide");
@@ -78,9 +74,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             });
                             //Main Functions
                             var deleteUser = function deleteUser(id) {
-
                                 abp.message.confirm(localization.localize("DeleteUser"), function (response) {
-
                                     if (response) {
                                         abp.ui.setBusy();
                                         userService.deleteUser(id).then(function () {
@@ -130,32 +124,28 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             };
                             var setPermissions = function setPermissions(e) {
                                 var id = $(e.target).data("id");
-                                periModal.open("/AdminMpa/Users/SetPermissions/" + id, function () {});
+                                periModal.open("/AdminMpa/Users/SetPermissions/" + id, null, function () {});
                                 periModal.setOnClose(function () {
                                     abp.notify.success(localization.localize("PermissionsSet"));
                                 });
                             };
                             var setRoles = function setRoles(e) {
                                 var id = $(e.target).data("id");
-                                periModal.open("/AdminMpa/Users/SetRoles/" + id, function () {});
+                                periModal.open("/AdminMpa/Users/SetRoles/" + id, null, function () {});
                                 periModal.setOnClose(function () {
                                     abp.notify.success(localization.localize("RolesSet"));
                                 });
                             };
                             var editUser = function editUser(e) {
                                 var id = $(e.target).data("id");
-
-                                periModal.open("/AdminMpa/Users/EditUser/" + id, function () {});
-
+                                periModal.open("/AdminMpa/Users/EditUser/" + id, null, function () {});
                                 periModal.setOnClose(function () {
                                     abp.notify.success(localization.localize("UserEdited"));
                                 });
                             };
                             var changePassword = function changePassword(e) {
                                 var id = $(e.target).data("id");
-
-                                periModal.open("/AdminMpa/Users/ChangePassword/" + id, function () {});
-
+                                periModal.open("/AdminMpa/Users/ChangePassword/" + id, null, function () {});
                                 periModal.setOnClose(function () {
                                     abp.notify.warn(localization.localize("PasswordSet"));
                                 });

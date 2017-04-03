@@ -18,13 +18,15 @@ export class AuditLogsWindow {
                     let columns = [
                         { title: "", data: "id" },
                         { title: "Service Name", data: "serviceName" },
-                        { title: "Client Name", data: "clientName" }
+                        { title: "Method Name", data: "methodName" },
+                        { title: "IP", data: "clientIpAddress" },
+                        { title: "Execution Time", data: "executionTimeString" }
                     ];
                     let columnDefs = [
                         {
                             targets: 0,
                             render: (data, type, full, meta) => {
-                                let btnEdit = `<a class="btn btn-primary btn-xs" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-edit"></i></a>`;
+                                let btnEdit = `<a class="btn btn-primary btn-xs" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-search"></i></a>`;
                                 return btnEdit;
                             }
                         }
