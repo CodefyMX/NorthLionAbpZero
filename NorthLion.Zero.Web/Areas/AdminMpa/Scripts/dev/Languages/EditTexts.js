@@ -64,7 +64,7 @@ export class EditTextsWindow {
             }
             let currentRowSelected;
             let editText = (e) => {
-                var row = $(e.target).parent().parent();
+                var row = $(e.target).parent().parent().parent();
                 currentRowSelected = {
                     data: table.row(row).data(),
                     row: row
@@ -75,9 +75,10 @@ export class EditTextsWindow {
                     Source: $(e.target).data("source"),
                     Value: $(e.target).data("current")
                 };
-                console.log(data);
                 periModal.open("/AdminMpa/Languages/EditText/", data);
-                periModal.setOnClose(() => {
+                periModal.setOnClose((modalData) => {
+                    currentRowSelected.data.TargetValue = modalData;
+                    table.row(currentRowSelected.row).data(currentRowSelected.data).draw(false);
                     abp.notify.success(localization.localize("TextSet"));
                 });
             }

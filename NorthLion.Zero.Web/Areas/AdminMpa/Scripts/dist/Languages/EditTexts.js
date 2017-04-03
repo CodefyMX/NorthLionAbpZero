@@ -98,7 +98,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             };
                             var currentRowSelected = void 0;
                             var editText = function editText(e) {
-                                var row = $(e.target).parent().parent();
+                                var row = $(e.target).parent().parent().parent();
                                 currentRowSelected = {
                                     data: table.row(row).data(),
                                     row: row
@@ -109,9 +109,10 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                     Source: $(e.target).data("source"),
                                     Value: $(e.target).data("current")
                                 };
-                                console.log(data);
                                 periModal.open("/AdminMpa/Languages/EditText/", data);
-                                periModal.setOnClose(function () {
+                                periModal.setOnClose(function (modalData) {
+                                    currentRowSelected.data.TargetValue = modalData;
+                                    table.row(currentRowSelected.row).data(currentRowSelected.data).draw(false);
                                     abp.notify.success(localization.localize("TextSet"));
                                 });
                             };

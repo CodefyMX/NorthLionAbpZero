@@ -71,7 +71,9 @@ System.register([], function (_export, _context) {
                     }
                 }, {
                     key: "close",
-                    value: function close(data) {
+                    value: function close() {
+                        var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
 
                         if (!this.onClose) {
                             throw new Error("On close function not defined");

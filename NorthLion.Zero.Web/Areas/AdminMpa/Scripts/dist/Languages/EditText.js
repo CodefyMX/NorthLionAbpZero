@@ -52,7 +52,7 @@ System.register([], function (_export, _context) {
                                     Source: $("#Source").val()
                                 };
                                 abp.ui.setBusy($form, languageService.editLocalizationText(data).done(function () {
-                                    periModal.close();
+                                    periModal.close(data.Value);
                                 }));
                             });
                         });

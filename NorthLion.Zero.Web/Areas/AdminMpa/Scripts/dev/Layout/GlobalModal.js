@@ -29,7 +29,7 @@ export class PeriModalManager {
      * Closes the current modal instance
      * @param {Any} data Data to be send when the modal is closed 
      */
-    close(data) {
+    close(data = {}) {
 
         if (!this.onClose) {
             throw new Error("On close function not defined");
