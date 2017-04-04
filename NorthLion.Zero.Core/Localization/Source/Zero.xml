@@ -99,7 +99,7 @@
     <text name="LanguageName" value="Language name"/>
     <text name="Icon" value="Icon"/>
     <text name="Pages" value="Pages"/>
-    <text name="CreateNewLanguage" value="Create new role"/>
+    <text name="CreateNewLanguage" value="Create new language"/>
     <text name="IsDeleted" value="Is Deleted?"/>
     <text name="SetFeatures" value="Set features"/>
     <text name="ResetFeatures" value="Reset features"/>
