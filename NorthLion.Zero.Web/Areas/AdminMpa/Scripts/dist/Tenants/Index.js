@@ -53,7 +53,6 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                 }
                                 abp.ui.setBusy();
                                 tenantService.getTenants({ getAll: true }).done(function (response) {
-
                                     abp.ui.clearBusy();
                                     var data = response.tenants;
                                     var columns = [{ title: "", data: "id" }, { title: localization.localize("Name"), data: "name" }, { title: localization.localize("DisplayName"), data: "tenancyName" }, { title: localization.localize("IsDeleted"), data: "isDeleted" }];
@@ -62,7 +61,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                         render: function render(data, type, full, meta) {
                                             var btnSetEdition = "<a class=\"btn btn-default btn-xs js-set-edition-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-list\"></i></a>";
                                             var btnSetFeatures = "<a class=\"btn btn-warning btn-xs js-set-features-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-cogs\"></i></a>";
-                                            var btnEdit = "<a class=\"btn btn-primary btn-xs js-edit-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-edit\"></i></a>";
+                                            var btnEdit = "<a href=\"/AdminMpa/AuditLogs/Index?tenantId=" + full.id + "\" class=\"btn btn-primary btn-xs js-edit-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-terminal\"></i></a>";
                                             var btnDelete = "<a class=\"btn btn-danger btn-xs js-delete-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-times\"></i></a>";
                                             var allBtns = btnSetFeatures + " " + btnSetEdition + " " + btnEdit;
                                             if (full.isDeleted) {
@@ -132,7 +131,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                             };
                             $body.on("click", ".js-set-edition-tenant", setEdition);
                             $body.on("click", ".js-set-features-tenant", setFeatures);
-                            $body.on("click", ".js-edit-tenant", editTenant);
+                            //$body.on("click", ".js-edit-tenant", editTenant);
                             $body.on("click", ".js-delete-tenant", deleteTenant);
                             $body.on("click", ".js-restore-tenant", restoreTenant);
                             //Create tenant logic

@@ -51,14 +51,17 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                             //Table
                             var table = void 0;
                             var loadLogs = function loadLogs() {
-                                var input = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new TableObject();
-
+                                var tenantId = $("#TenantId").val();
                                 if (table) {
                                     table.destroy();
                                 }
                                 abp.ui.setBusy();
-                                logsService.getAuditLogTable({ getAll: true }).done(function (response) {
+                                logsService.getAuditLogTable({ getAll: true, tenantId: tenantId }).done(function (response) {
                                     abp.ui.clearBusy();
+                                    var label = $("#tenancyName");
+                                    if (response.tenancyName) {
+                                        label.append(localization.localize("Tenant") + ' : ' + response.tenancyName);
+                                    }
                                     var data = response.auditLogs;
                                     var columns = [{ title: "", data: "id" }, { title: "Service Name", data: "serviceName" }, { title: "Method Name", data: "methodName" }, { title: "IP", data: "clientIpAddress" }, { title: "Execution Time", data: "executionTimeString" }];
                                     var columnDefs = [{

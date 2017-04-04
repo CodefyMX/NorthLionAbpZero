@@ -20,9 +20,13 @@
     </script>
 }
 <h1>@L("AuditLogs")</h1>
+@if (ViewBag.TenantId != null)
+{
+    @Html.Hidden("TenantId", (int)ViewBag.TenantId)
+}
 <div class="row">
     <div class="col-md-12">
+        <h2 class="lead" id="tenancyName"></h2>
         <table class="table table-condensed table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%" id="audit-logs-table"></table>
-
     </div>
 </div>

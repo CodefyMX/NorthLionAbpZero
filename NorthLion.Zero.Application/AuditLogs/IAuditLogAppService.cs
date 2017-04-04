@@ -18,7 +18,7 @@ namespace NorthLion.Zero.AuditLogs
         [HttpGet]
         Task<AuditLogOutput> GetLatestAuditLogOutput();
         [HttpGet]
-        Task<AuditLogOutput> GetAuditLogTable(PaginatedInputDto input);
+        Task<AuditLogOutput> GetAuditLogTable(AuditLogPaginableInput input);
         [HttpGet]
         Task<AuditLogDto> GetAuditLogDetails(long id);
         [HttpGet]
@@ -31,5 +31,5 @@ namespace NorthLion.Zero.AuditLogs
         Task<AuditLogDto> GetAuditLogDetailsForTenant(long id, int tenantId);
     }
 
-    
+
 }

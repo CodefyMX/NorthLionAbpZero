@@ -8,13 +8,18 @@ export class AuditLogsWindow {
         $(document).ready(() => {
             //Table
             let table;
-            let loadLogs = (input = new TableObject()) => {
+            let loadLogs = () => {
+                let tenantId = $("#TenantId").val();
                 if (table) {
                     table.destroy();
                 }
                 abp.ui.setBusy();
-                logsService.getAuditLogTable({ getAll: true }).done((response) => {
+                logsService.getAuditLogTable({ getAll: true, tenantId }).done((response) => {
                     abp.ui.clearBusy();
+                    let label = $("#tenancyName");
+                    if (response.tenancyName) {
+                        label.append(`${localization.localize("Tenant")} : ${response.tenancyName}`);
+                    }
                     let data = response.auditLogs;
                     let columns = [
                         { title: "", data: "id" },

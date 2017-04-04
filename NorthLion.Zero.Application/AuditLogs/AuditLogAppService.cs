@@ -8,20 +8,23 @@ using Abp.Auditing;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
+using Abp.MultiTenancy;
 using NorthLion.Zero.AuditLogs.Dto;
+using NorthLion.Zero.MultiTenancy;
 using NorthLion.Zero.PaginatedModel;
 
 namespace NorthLion.Zero.AuditLogs
 {
     [DisableAuditing]
-    public class AuditLogAppService :ZeroAppServiceBase, IAuditLogAppService
+    public class AuditLogAppService : ZeroAppServiceBase, IAuditLogAppService
     {
         private readonly IRepository<AuditLog, long> _auditLogRepository;
+        private readonly TenantManager _tenantManager;
 
-
-        public AuditLogAppService(IRepository<AuditLog, long> auditLogRepository)
+        public AuditLogAppService(IRepository<AuditLog, long> auditLogRepository, TenantManager tenantManager)
         {
             _auditLogRepository = auditLogRepository;
+            _tenantManager = tenantManager;
         }
 
         public async Task<AuditLogOutput> GetLatestAuditLogOutput()
@@ -51,23 +54,33 @@ namespace NorthLion.Zero.AuditLogs
             };
         }
 
-        public async Task<AuditLogOutput> GetAuditLogTable(PaginatedInputDto input)
+        public async Task<AuditLogOutput> GetAuditLogTable(AuditLogPaginableInput input)
         {
             await Task.FromResult(0);
-            if (input.GetAll) return AllAuditLogs;
+            if (input.GetAll) return AllAuditLogs(input.TenantId);
             //Todo:Pagination logic
             throw new NotImplementedException();
         }
 
-        private AuditLogOutput AllAuditLogs
+        private AuditLogOutput AllAuditLogs(int? tenantId)
         {
-            get
+            //This means we are hosts
+            if (tenantId.HasValue && !AbpSession.TenantId.HasValue)
             {
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.MustHaveTenant);
+                CurrentUnitOfWork.DisableFilter(AbpDataFilters.SoftDelete);
+            }
+            if (tenantId != null)
                 return new AuditLogOutput()
                 {
-                    AuditLogs = _auditLogRepository.GetAll().ToList().Select(a=>a.MapTo<AuditLogDto>())
+                    AuditLogs = _auditLogRepository.GetAll().Where(a => a.TenantId == tenantId).ToList().Select(a => a.MapTo<AuditLogDto>()),
+                    TenancyName = _tenantManager.GetById(tenantId.Value).TenancyName
                 };
-            }
+            return new AuditLogOutput()
+            {
+                AuditLogs = _auditLogRepository.GetAll().ToList().Select(a => a.MapTo<AuditLogDto>()),
+            };
         }
         public async Task<AuditLogDto> GetAuditLogDetails(long id)
         {
@@ -203,11 +216,11 @@ namespace NorthLion.Zero.AuditLogs
         public async Task<AuditLogOutput> GetAuditLogTableForTenant(PaginatedInputDto input, int tenantId)
         {
             await Task.FromResult(0);
-            using (CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant,AbpDataFilters.MustHaveTenant))
+            using (CurrentUnitOfWork.DisableFilter(AbpDataFilters.MayHaveTenant, AbpDataFilters.MustHaveTenant))
             {
-                if (input.GetAll) return AllAuditLogs;
+                if (input.GetAll) return AllAuditLogs(null);
             }
-            
+
             //Todo:Pagination logic
             throw new NotImplementedException();
         }

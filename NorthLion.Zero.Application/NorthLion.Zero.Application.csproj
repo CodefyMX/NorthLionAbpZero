@@ -139,6 +139,7 @@
     <Compile Include="AuditLogs\AuditLogAppService.cs" />
     <Compile Include="AuditLogs\Dto\AuditLogDto.cs" />
     <Compile Include="AuditLogs\Dto\AuditLogOutput.cs" />
+    <Compile Include="AuditLogs\Dto\AuditLogPaginableInput.cs" />
     <Compile Include="AuditLogs\Dto\AuditLogTimeOutput.cs" />
     <Compile Include="AuditLogs\Dto\AuditLogTimeOutputDto.cs" />
     <Compile Include="AuditLogs\Dto\AuditLogTimesInput.cs" />

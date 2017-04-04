@@ -20,10 +20,10 @@ namespace NorthLion.Zero.Web.Areas.AdminMpa.Controllers
         {
             _auditLogAppService = auditLogAppService;
         }
-
         // GET: AdminMpa/AuditLogs
-        public ActionResult Index()
+        public ActionResult Index(int? tenantId = null)
         {
+            ViewBag.TenantId = tenantId;
             return View();
         }
 
