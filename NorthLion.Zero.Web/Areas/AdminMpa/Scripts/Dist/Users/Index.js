@@ -96,7 +96,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                 userService.getUsers({ getAll: true }).done(function (response) {
                                     abp.ui.clearBusy();
                                     var data = response.users;
-                                    var columns = [{ title: "", data: "id" }, { title: "Full Name", data: "fullName" }, { title: "Username", data: "userName" }];
+                                    var columns = [{ title: "", data: "id" }, { title: localization.localize("FullName"), data: "fullName" }, { title: localization.localize("Username"), data: "userName" }];
                                     var columnDefs = [{
                                         targets: 0,
                                         render: function render(data, type, full, meta) {

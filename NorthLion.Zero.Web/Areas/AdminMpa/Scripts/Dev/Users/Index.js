@@ -56,8 +56,8 @@ export class UsersWindow {
                     let data = response.users;
                     let columns = [
                         { title: "", data: "id" },
-                        { title: "Full Name", data: "fullName" },
-                        { title: "Username", data: "userName" }
+                        { title: localization.localize("FullName"), data: "fullName" },
+                        { title: localization.localize("Username"), data: "userName" }
                     ];
                     let columnDefs = [
                         {

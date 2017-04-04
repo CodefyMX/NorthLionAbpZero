@@ -63,7 +63,7 @@ System.register(['Layout/HelperObjects.js', 'Languages/LocalizationHelper.js'], 
                                         label.append(localization.localize("Tenant") + ' : ' + response.tenancyName);
                                     }
                                     var data = response.auditLogs;
-                                    var columns = [{ title: "", data: "id" }, { title: "Service Name", data: "serviceName" }, { title: "Method Name", data: "methodName" }, { title: "IP", data: "clientIpAddress" }, { title: "Execution Time", data: "executionTimeString" }];
+                                    var columns = [{ title: "", data: "id" }, { title: localization.localize("ServiceName"), data: "serviceName" }, { title: localization.localize("MethodName"), data: "methodName" }, { title: localization.localize("IP"), data: "clientIpAddress" }, { title: localization.localize("ExecutionTime"), data: "executionTimeString" }];
                                     var columnDefs = [{
                                         targets: 0,
                                         render: function render(data, type, full, meta) {

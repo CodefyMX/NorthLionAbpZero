@@ -23,10 +23,10 @@ export class AuditLogsWindow {
                     let data = response.auditLogs;
                     let columns = [
                         { title: "", data: "id" },
-                        { title: "Service Name", data: "serviceName" },
-                        { title: "Method Name", data: "methodName" },
-                        { title: "IP", data: "clientIpAddress" },
-                        { title: "Execution Time", data: "executionTimeString" }
+                        { title: localization.localize("ServiceName"), data: "serviceName" },
+                        { title: localization.localize("MethodName"), data: "methodName" },
+                        { title: localization.localize("IP"), data: "clientIpAddress" },
+                        { title: localization.localize("ExecutionTime"), data: "executionTimeString" }
                     ];
                     let columnDefs = [
                         {

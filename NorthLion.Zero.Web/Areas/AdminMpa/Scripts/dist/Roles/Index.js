@@ -56,7 +56,7 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                 rolesService.getRoles({ getAll: true }).done(function (response) {
                                     abp.ui.clearBusy();
                                     var data = response.roles;
-                                    var columns = [{ title: "", data: "id" }, { title: "Name", data: "name" }, { title: "DisplayName", data: "displayName" }];
+                                    var columns = [{ title: "", data: "id" }, { title: localization.localize("Name"), data: "name" }, { title: localization.localize("DisplayName"), data: "displayName" }];
                                     var columnDefs = [{
                                         targets: 0,
                                         render: function render(data, type, full, meta) {

@@ -59,11 +59,13 @@ System.register(["Languages/LocalizationHelper.js"], function (_export, _context
                                     var columnDefs = [{
                                         targets: 0,
                                         render: function render(data, type, full, meta) {
+                                            //Needs permission check
                                             var btnSetEdition = "<a class=\"btn btn-default btn-xs js-set-edition-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-list\"></i></a>";
                                             var btnSetFeatures = "<a class=\"btn btn-warning btn-xs js-set-features-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-cogs\"></i></a>";
                                             var btnEdit = "<a href=\"/AdminMpa/AuditLogs/Index?tenantId=" + full.id + "\" class=\"btn btn-primary btn-xs js-edit-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-terminal\"></i></a>";
                                             var btnDelete = "<a class=\"btn btn-danger btn-xs js-delete-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-times\"></i></a>";
-                                            var allBtns = btnSetFeatures + " " + btnSetEdition + " " + btnEdit;
+                                            var loginAsTenant = ""; //`<a class="btn btn-primary btn-xs js-login-tenant" data-id="${full.id}"><i data-id="${full.id}" class="fa fa-external-link"></i></a>`
+                                            var allBtns = btnSetFeatures + " " + btnSetEdition + " " + btnEdit + " " + loginAsTenant;
                                             if (full.isDeleted) {
                                                 var restoreBtn = "<a class=\"btn btn-success btn-xs js-restore-tenant\" data-id=\"" + full.id + "\"><i data-id=\"" + full.id + "\" class=\"fa fa-heart-o\"></i></a>";
                                                 allBtns = allBtns + " " + restoreBtn;

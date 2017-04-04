@@ -17,8 +17,8 @@ export class RolesWindow {
                     let data = response.roles;
                     let columns = [
                         { title: "", data: "id" },
-                        { title: "Name", data: "name" },
-                        { title: "DisplayName", data: "displayName" }
+                        { title: localization.localize("Name"), data: "name" },
+                        { title: localization.localize("DisplayName"), data: "displayName" }
                     ];
                     let columnDefs = [
                         {
