@@ -2,4 +2,46 @@
 @{
     Layout = null;
 }
+<form id="setTenantEdition">
 
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModal-label">@L("SetTenantEdition")</h4>
+            </div>
+            <div class="modal-body">
+                @Html.HiddenFor(a => a.TenantId)
+                @foreach (var modelEdition in Model.Editions)
+            {
+
+                if (modelEdition.IsEnabledForTenant)
+                {
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="edition" value="@modelEdition.Id" checked="checked" /> @modelEdition.DisplayName
+                            </label>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="edition" value="@modelEdition.Id" /> @modelEdition.DisplayName
+                            </label>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">@L("Cancel")</button>
+                <button type="submit" class="btn btn-primary">@L("Save")</button>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    SystemJS.import("Tenants/SetTenantEdition.js").then(function(e) {
+        new e.SetTenantEditionWindow().load();
+    });
+</script>

@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
-using Castle.Components.DictionaryAdapter;
+using Abp.Application.Features;
 
 namespace NorthLion.Zero.MultiTenancy.Dto
 {
     public class FeaturesForTenant
     {
-        public List<EditionDto> Editions { get; set; } = new EditableList<EditionDto>();
         public int TenantId { get; set; }
+        public string DisplayName { get; set; }
+        public List<FeatureDto> Features { get; set; }
+        public decimal Price { get; set; }
+        public string Name { get; set; }
     }
 }

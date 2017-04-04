@@ -2,7 +2,25 @@
 @{
     Layout = null;
 }
-<form id="setFeaturesForm">
+<link href="~/Areas/AdminMpa/Scripts/lib/jstree/themes/proton/style.min.css" rel="stylesheet" />
+<style>
+    .jstree-anchor > .jstree-checkbox-disabled {
+        display: none;
+    }
+
+    .vakata-context, .vakata-context ul {
+        z-index: 10000;
+    }
+
+    .jstree-proton .jstree-open > .jstree-ocl {
+        display: none;
+    }
+
+    .jstree-proton .jstree-closed > .jstree-ocl {
+        display: none;
+    }
+</style>
+<form id="setTenantFeatures">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,7 +29,33 @@
             </div>
             <div class="modal-body">
                 @Html.HiddenFor(a => a.TenantId)
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div id="container">
+                            <ul>
+                                @foreach (var feature in Model.Features)
+                                {
+                                    if (feature.InputType.Name == "CHECKBOX")
+                                    {
+                                        <li data-append-textbox="false" id="@feature.Name" data-value="@feature.DefaultValue" data-jstree='{ "selected" : @feature.Selected.ToString().ToLower() }' data-selected="@feature.Selected">
+                                            <a>@feature.Name</a>
+                                            @{ Html.RenderPartial("_loadChildrens", feature.ChildFeatures); }
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        <li data-append-textbox="true" id="@feature.Name" data-value="@feature.DefaultValue">
+                                            <a>@feature.Name</a>
+                                            @{ Html.RenderPartial("_loadChildrens", feature.ChildFeatures); }
+                                        </li>
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">@L("Cancel")</button>
@@ -20,3 +64,10 @@
         </div>
     </div>
 </form>
+
+<script src="~/Areas/AdminMpa/Scripts/lib/jstree/jstree.min.js"></script>
+<script>
+    SystemJS.import("Tenants/SetTenantFeatures.js").then(function(d) {
+        new d.SetTenantFeaturesWindow().load();
+    });
+</script>

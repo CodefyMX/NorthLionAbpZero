@@ -13,5 +13,7 @@ namespace NorthLion.Zero.MultiTenancy.Dto
     {
         public bool IsEnabledForTenant { get; set; }
         public string DisplayName { get; set; }
+        public int Id { get; set; }
+        public int TenantId { get; set; }
     }
 }

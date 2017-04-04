@@ -13,6 +13,7 @@ using Abp.UI;
 using NorthLion.Zero.Authorization;
 using NorthLion.Zero.Authorization.Roles;
 using NorthLion.Zero.Editions;
+using NorthLion.Zero.Editions.CustomEditionManager;
 using NorthLion.Zero.MultiTenancy.Dto;
 using NorthLion.Zero.PaginatedModel;
 using NorthLion.Zero.Users;
@@ -25,18 +26,20 @@ namespace NorthLion.Zero.MultiTenancy
         private readonly TenantManager _tenantManager;
         private readonly RoleManager _roleManager;
         private readonly EditionManager _editionManager;
+        private readonly ICustomEditionManager _customEditionManager;
         private readonly IAbpZeroDbMigrator _abpZeroDbMigrator;
 
         public TenantAppService(
             TenantManager tenantManager,
             RoleManager roleManager,
             EditionManager editionManager,
-            IAbpZeroDbMigrator abpZeroDbMigrator)
+            IAbpZeroDbMigrator abpZeroDbMigrator, ICustomEditionManager customEditionManager)
         {
             _tenantManager = tenantManager;
             _roleManager = roleManager;
             _editionManager = editionManager;
             _abpZeroDbMigrator = abpZeroDbMigrator;
+            _customEditionManager = customEditionManager;
         }
 
         public async Task CreateTenant(CreateTenantInput input)
@@ -154,7 +157,12 @@ namespace NorthLion.Zero.MultiTenancy
             if (tenant.EditionId == null) throw new UserFriendlyException(L("NoEditionIsSetForTenant"));
 
             var edition = await _editionManager.FindByIdAsync(tenant.EditionId.Value);
-            return new FeaturesForTenant();
+            var features = await _customEditionManager.GetAllFeatures(edition.Id, tenantId);
+            return new FeaturesForTenant()
+            {
+                Features = features.Select(a => a.MapTo<FeatureDto>()).ToList(),
+                TenantId = tenantId
+            };
         }
 
         public async Task ResetFeatures(int tenantId)

@@ -491,6 +491,7 @@
     <Content Include="Areas\AdminMpa\Views\Editions\Index.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Tenants\SetEdition.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Tenants\SetFeatures.cshtml" />
+    <Content Include="Areas\AdminMpa\Views\Shared\_loadChildrens.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />

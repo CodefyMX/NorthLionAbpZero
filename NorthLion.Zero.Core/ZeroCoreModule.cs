@@ -6,6 +6,7 @@ using Abp.Zero;
 using Abp.Zero.Configuration;
 using NorthLion.Zero.Authorization;
 using NorthLion.Zero.Authorization.Roles;
+using NorthLion.Zero.Features;
 using NorthLion.Zero.MultiTenancy;
 using NorthLion.Zero.Users;
 
@@ -17,12 +18,11 @@ namespace NorthLion.Zero
         public override void PreInitialize()
         {
             Configuration.Auditing.IsEnabledForAnonymousUsers = true;
-
+            Configuration.Features.Providers.Add<DefaultFeatureProvider>();
             //Declare entity types
             Configuration.Modules.Zero().EntityTypes.Tenant = typeof(Tenant);
             Configuration.Modules.Zero().EntityTypes.Role = typeof(Role);
             Configuration.Modules.Zero().EntityTypes.User = typeof(User);
-
             //Remove the following line to disable multi-tenancy.
             Configuration.MultiTenancy.IsEnabled = ZeroConsts.MultiTenancyEnabled;
             //Add/remove localization sources here

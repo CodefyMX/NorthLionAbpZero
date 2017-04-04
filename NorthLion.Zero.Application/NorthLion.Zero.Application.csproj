@@ -161,6 +161,7 @@
     <Compile Include="MultiTenancy\Dto\EditionDto.cs" />
     <Compile Include="MultiTenancy\Dto\EditionsForTenantOutput.cs" />
     <Compile Include="MultiTenancy\Dto\EditTenantInput.cs" />
+    <Compile Include="MultiTenancy\Dto\FeatureDto.cs" />
     <Compile Include="MultiTenancy\Dto\FeatureInput.cs" />
     <Compile Include="MultiTenancy\Dto\FeaturesForTenant.cs" />
     <Compile Include="MultiTenancy\Dto\SetTenantEditionInput.cs" />
