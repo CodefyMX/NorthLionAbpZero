@@ -25,14 +25,6 @@ namespace NorthLion.Zero.Web
                         )
                 ).AddItem(
                     new MenuItemDefinition(
-                        "Tenants",
-                        L("Tenants"),
-                        url: "Tenants",
-                        icon: "fa fa-globe",
-                        requiredPermissionName: PermissionNames.Pages_Tenants
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
                         "Admin",
                         L("Admin"),
                         url: "AdminMpa/AdminPanel",
