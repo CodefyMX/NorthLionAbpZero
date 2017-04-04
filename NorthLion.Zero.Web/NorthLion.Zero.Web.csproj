@@ -456,7 +456,6 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
-    <Content Include="Areas\AdminSpa\Views\web.config" />
     <Content Include="Areas\AdminMpa\Views\web.config" />
     <Content Include="Areas\AdminMpa\Views\_ViewStart.cshtml" />
     <Content Include="Areas\AdminMpa\Views\Shared\_Layout.cshtml" />
@@ -564,7 +563,6 @@
     <Compile Include="Areas\AdminMpa\Controllers\RolesController.cs" />
     <Compile Include="Areas\AdminMpa\Controllers\TenantsController.cs" />
     <Compile Include="Areas\AdminMpa\Controllers\UsersController.cs" />
-    <Compile Include="Areas\AdminSpa\AdminSpaAreaRegistration.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -638,9 +636,6 @@
     <Folder Include="Areas\AdminMpa\Scripts\dev\Tenants\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Roles\" />
     <Folder Include="Areas\AdminMpa\Scripts\dist\Tenants\" />
-    <Folder Include="Areas\AdminSpa\Controllers\" />
-    <Folder Include="Areas\AdminSpa\Models\" />
-    <Folder Include="Areas\AdminSpa\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
