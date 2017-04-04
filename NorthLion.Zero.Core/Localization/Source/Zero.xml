@@ -4,7 +4,7 @@
     <text name="HomePage" value="Home page" />
     <text name="About" value="About" />
     <text name="WellcomeMessage" value="Welcome to Zero!" />
-    
+
     <text name="FormIsNotValidMessage" value="Form is not valid. Please check and fix errors." />
     <text name="TenantNameCanNotBeEmpty" value="Tenant name can not be empty" />
 
@@ -55,13 +55,60 @@
     <text name="Yes" value="Yes" />
     <text name="No" value="No" />
     <text name="Optional" value="Optional" />
-    
-     <text name="AdminMenu" value="Admin" />
+
+    <text name="AdminMenu" value="Admin" />
     <text name="Roles" value="Roles" />
     <text name="Languages" value="Languages" />
     <text name="AuditLogs" value="Audit logs" />
     <text name="AdminPanel" value="Admin Panel" />
     <text name="Admin" value="Admin" />
-    
+    <text name="Username" value="Username"/>
+    <text name="Editions" value="Editions"/>
+    <text name="DisplayName" value="Display name"/>
+    <text name="CreateNewRole" value="Create new role"/>
+    <text name="CreateRole" value="Create role"/>
+    <text name="IsAssignedByDefault" value="Is assigned by default?"/>
+    <text name="Permissions" value="Permissions"/>
+    <text name="EditUser" value="Edit user"/>
+    <text name="SetSpecialPermissionsForm" value="Set special permissions"/>
+    <text name="ResetPermissions" value="Reset permissions"/>
+    <text name="ChangePasswordFor" value="Change password for"/>
+    <text name="PasswordConfirmation" value="Password confirmation"/>
+    <text name="SetRoles" value="Set roles"/>
+    <text name="DeleteUser" value="Delete user?"/>
+    <text name="DeleteRole" value="Delete role?"/>
+    <text name="DeleteLanguage" value="Delete language?"/>
+    <text name="EditRole" value="Edit role"/>
+    <text name="SourceLang" value="Source language"/>
+    <text name="TargetLang" value="Target language"/>
+    <text name="Source" value="Source"/>
+    <text name="Modifying" value="Modifying"/>
+    <text name="From" value="From"/>
+    <text name="Lang" value="Language"/>
+    <text name="Value" value="Value"/>
+    <text name="ServiceName" value="Service name"/>
+    <text name="MethodName" value="Method name"/>
+    <text name="ExecutionTime" value="Execution time"/>
+    <text name="BrowserInfo" value="Browser info"/>
+    <text name="IP" value="IP Address"/>
+    <text name="ExecutionDuration" value="Execution duration"/>
+    <text name="Parameters" value="Parameters"/>
+    <text name="User" value="User"/>
+    <text name="Exception" value="Exception"/>
+    <text name="CreateLanguage" value="Create language"/>
+    <text name="LanguageName" value="Language name"/>
+    <text name="Icon" value="Icon"/>
+    <text name="Pages" value="Pages"/>
+    <text name="CreateNewLanguage" value="Create new role"/>
+    <text name="IsDeleted" value="Is Deleted?"/>
+    <text name="SetFeatures" value="Set features"/>
+    <text name="ResetFeatures" value="Reset features"/>
+    <text name="SetTenantEdition" value="Set tenant edition"/>
+    <text name="DeleteTenant" value="Delete tenant?"/>
+    <text name="CreateNewEdition" value="Create new edition"/>
+    <text name="CreateEdition" value="Create edition"/>
+    <text name="EditEdition" value="Edit edition"/>
+    <text name="DeleteEdition" value="Delete edition?"/>
+    <text name="APISwagger" value="Swagger API"/>
   </texts>
 </localizationDictionary>
