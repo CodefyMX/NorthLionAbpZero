@@ -50,7 +50,9 @@ export class EditEditionWindow {
                     let jqueryElement = $(selector);
                     let requiresTextBox = jqueryElement.data("append-textbox");
                     if (requiresTextBox) {
-                        jqueryElement.append("<input type='text' class='input-tree' />");
+                        let defaultValue = jqueryElement.data("value");
+                        jqueryElement.append(`<input value="${defaultValue}" type='text' data-text-id='${jsonObjects[value].id}'  class='input-tree' />`);
+                        removeCheckBoxFromNode(selector, jqueryElement);
                     }
                 }
                 $jsTree.jstree("open_all");

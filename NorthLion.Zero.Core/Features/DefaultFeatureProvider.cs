@@ -12,6 +12,7 @@ namespace NorthLion.Zero.Features
     {
         public override void SetFeatures(IFeatureDefinitionContext context)
         {
+            context.Create("SampleParentText", defaultValue: "Configuration", inputType: new SingleLineStringInputType());
             var sampleBooleanFeature = context.Create("SampleBooleanFeature", defaultValue: "false", inputType: new CheckboxInputType());
             sampleBooleanFeature.CreateChildFeature("SampleNumericFeature", defaultValue: "10", inputType: new SingleLineStringInputType());
             context.Create("SampleSelectionFeature", defaultValue: "B");

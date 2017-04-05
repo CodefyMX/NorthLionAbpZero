@@ -94,7 +94,9 @@ System.register(['Languages/LocalizationHelper.js'], function (_export, _context
                                     var jqueryElement = $(selector);
                                     var requiresTextBox = jqueryElement.data("append-textbox");
                                     if (requiresTextBox) {
-                                        jqueryElement.append("<input type='text' class='input-tree' />");
+                                        var defaultValue = jqueryElement.data("value");
+                                        jqueryElement.append('<input value="' + defaultValue + '" type=\'text\' data-text-id=\'' + jsonObjects[value].id + '\'  class=\'input-tree\' />');
+                                        removeCheckBoxFromNode(selector, jqueryElement);
                                     }
                                 }
                                 $jsTree.jstree("open_all");
