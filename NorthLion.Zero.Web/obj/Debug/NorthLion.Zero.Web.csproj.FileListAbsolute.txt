@@ -279,3 +279,7 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.We
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.dll
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\obj\Debug\NorthLion.Zero.Web.pdb
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\bin\Scripts\Swagger-Custom.js
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\bin\Abp.Zero.Common.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\bin\System.Linq.Dynamic.Core.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\bin\Abp.Zero.Common.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Web\bin\System.Linq.Dynamic.Core.xml

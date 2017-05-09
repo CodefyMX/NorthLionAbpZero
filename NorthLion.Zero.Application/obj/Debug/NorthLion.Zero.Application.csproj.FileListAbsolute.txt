@@ -124,3 +124,7 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\obj\Debug\NorthLion
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\obj\Debug\NorthLion.Zero.Application.pdb
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Application\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Alan\Documents\GitHub\NorthLionAbpZero\NorthLion.Zero.Application\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.Zero.Common.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\System.Linq.Dynamic.Core.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\Abp.Zero.Common.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Application\bin\Debug\System.Linq.Dynamic.Core.xml

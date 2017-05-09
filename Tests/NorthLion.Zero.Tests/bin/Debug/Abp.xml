@@ -984,12 +984,22 @@
             Can be used to store a custom object related to this menu item. Optional.
             </summary>
         </member>
+        <member name="P:Abp.Application.Navigation.MenuItemDefinition.IsEnabled">
+            <summary>
+            Can be used to enable/disable a menu item.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Navigation.MenuItemDefinition.IsVisible">
+            <summary>
+            Can be used to show/hide a menu item.
+            </summary>
+        </member>
         <member name="P:Abp.Application.Navigation.MenuItemDefinition.Items">
             <summary>
             Sub items of this menu item. Optional.
             </summary>
         </member>
-        <member name="M:Abp.Application.Navigation.MenuItemDefinition.#ctor(System.String,Abp.Localization.ILocalizableString,System.String,System.String,System.Boolean,System.String,System.Int32,System.Object,Abp.Application.Features.IFeatureDependency,System.String)">
+        <member name="M:Abp.Application.Navigation.MenuItemDefinition.#ctor(System.String,Abp.Localization.ILocalizableString,System.String,System.String,System.Boolean,System.String,System.Int32,System.Object,Abp.Application.Features.IFeatureDependency,System.String,System.Boolean,System.Boolean)">
             <summary>
             Creates a new <see cref="T:Abp.Application.Navigation.MenuItemDefinition"/> object.
             </summary>
@@ -1121,6 +1131,16 @@
         <member name="P:Abp.Application.Navigation.UserMenuItem.Target">
             <summary>
             Target of the menu item. Can be "_blank", "_self", "_parent", "_top" or a frame name.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Navigation.UserMenuItem.IsEnabled">
+            <summary>
+            Can be used to enable/disable a menu item.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Navigation.UserMenuItem.IsVisible">
+            <summary>
+            Can be used to show/hide a menu item.
             </summary>
         </member>
         <member name="P:Abp.Application.Navigation.UserMenuItem.Items">
@@ -3081,6 +3101,15 @@
             <param name="userId">User id</param>
             <returns>Current value of the setting for the user</returns>
         </member>
+        <member name="M:Abp.Configuration.ISettingManager.GetSettingValueForUserAsync(System.String,Abp.UserIdentifier)">
+            <summary>
+            Gets current value of a setting for a user level.
+            It gets the setting value, overwritten by given tenant and user.
+            </summary>
+            <param name="name">Unique name of the setting</param>
+            <param name="user">User</param>
+            <returns>Current value of the setting for the user</returns>
+        </member>
         <member name="M:Abp.Configuration.ISettingManager.GetAllSettingValuesAsync">
             <summary>
             Gets current values of all settings.
@@ -3455,6 +3484,16 @@
             <param name="userId">User id</param>
             <returns>Current value of the setting for the user</returns>
         </member>
+        <member name="M:Abp.Configuration.SettingManagerExtensions.GetSettingValueForUserAsync``1(Abp.Configuration.ISettingManager,System.String,Abp.UserIdentifier)">
+            <summary>
+            Gets current value of a setting for a user level.
+            It gets the setting value, overwritten by given tenant and user.
+            </summary>
+            <param name="settingManager">Setting manager</param>
+            <param name="name">Unique name of the setting</param>
+            <param name="user">User</param>
+            <returns>Current value of the setting for the user</returns>
+        </member>
         <member name="M:Abp.Configuration.SettingManagerExtensions.GetSettingValue(Abp.Configuration.ISettingManager,System.String)">
             <summary>
             Gets current value of a setting.
@@ -3532,6 +3571,17 @@
             <param name="name">Unique name of the setting</param>
             <param name="tenantId">Tenant id</param>
             <param name="userId">User id</param>
+            <returns>Current value of the setting for the user</returns>
+        </member>
+        <member name="M:Abp.Configuration.SettingManagerExtensions.GetSettingValueForUser``1(Abp.Configuration.ISettingManager,System.String,Abp.UserIdentifier)">
+            <summary>
+            Gets current value of a setting for a user level.
+            It gets the setting value, overwritten by given tenant and user.
+            </summary>
+            <typeparam name="T">Type of the setting to get</typeparam>
+            <param name="settingManager">Setting manager</param>
+            <param name="name">Unique name of the setting</param>
+            <param name="user">User</param>
             <returns>Current value of the setting for the user</returns>
         </member>
         <member name="M:Abp.Configuration.SettingManagerExtensions.GetAllSettingValues(Abp.Configuration.ISettingManager)">
@@ -5631,6 +5681,29 @@
             "tenantId".
             </summary>
         </member>
+        <member name="M:Abp.Domain.Uow.AbpDbConcurrencyException.#ctor">
+            <summary>
+            Creates a new <see cref="T:Abp.Domain.Uow.AbpDbConcurrencyException"/> object.
+            </summary>
+        </member>
+        <member name="M:Abp.Domain.Uow.AbpDbConcurrencyException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new <see cref="T:Abp.AbpException"/> object.
+            </summary>
+        </member>
+        <member name="M:Abp.Domain.Uow.AbpDbConcurrencyException.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:Abp.Domain.Uow.AbpDbConcurrencyException"/> object.
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:Abp.Domain.Uow.AbpDbConcurrencyException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new <see cref="T:Abp.Domain.Uow.AbpDbConcurrencyException"/> object.
+            </summary>
+            <param name="message">Exception message</param>
+            <param name="innerException">Inner exception</param>
+        </member>
         <member name="T:Abp.Domain.Uow.CallContextCurrentUnitOfWorkProvider">
             <summary>
             CallContext implementation of <see cref="T:Abp.Domain.Uow.ICurrentUnitOfWorkProvider"/>. 
@@ -5771,6 +5844,7 @@
         <member name="P:Abp.Domain.Uow.ICurrentUnitOfWorkProvider.Current">
             <summary>
             Gets/sets current <see cref="T:Abp.Domain.Uow.IUnitOfWork"/>.
+            Setting to null returns back to outer unit of work where possible.
             </summary>
         </member>
         <member name="T:Abp.Domain.Uow.InnerUnitOfWorkCompleteHandle">
@@ -7173,11 +7247,12 @@
             Uses string.Split method to split given string by <see cref="P:System.Environment.NewLine"/>.
             </summary>
         </member>
-        <member name="M:Abp.Extensions.StringExtensions.ToCamelCase(System.String)">
+        <member name="M:Abp.Extensions.StringExtensions.ToCamelCase(System.String,System.Boolean)">
             <summary>
             Converts PascalCase string to camelCase string.
             </summary>
             <param name="str">String to convert</param>
+            <param name="invariantCulture">Invariant culture</param>
             <returns>camelCase of the string</returns>
         </member>
         <member name="M:Abp.Extensions.StringExtensions.ToCamelCase(System.String,System.Globalization.CultureInfo)">
@@ -7188,12 +7263,13 @@
             <param name="culture">An object that supplies culture-specific casing rules</param>
             <returns>camelCase of the string</returns>
         </member>
-        <member name="M:Abp.Extensions.StringExtensions.ToSentenceCase(System.String)">
+        <member name="M:Abp.Extensions.StringExtensions.ToSentenceCase(System.String,System.Boolean)">
             <summary>
             Converts given PascalCase/camelCase string to sentence (by splitting words by space).
             Example: "ThisIsSampleSentence" is converted to "This is a sample sentence".
             </summary>
             <param name="str">String to convert.</param>
+            <param name="invariantCulture">Invariant culture</param>
         </member>
         <member name="M:Abp.Extensions.StringExtensions.ToSentenceCase(System.String,System.Globalization.CultureInfo)">
             <summary>
@@ -7220,11 +7296,12 @@
             <param name="ignoreCase">Ignore case</param>
             <returns>Returns enum object</returns>
         </member>
-        <member name="M:Abp.Extensions.StringExtensions.ToPascalCase(System.String)">
+        <member name="M:Abp.Extensions.StringExtensions.ToPascalCase(System.String,System.Boolean)">
             <summary>
             Converts camelCase string to PascalCase string.
             </summary>
             <param name="str">String to convert</param>
+            <param name="invariantCulture">Invariant culture</param>
             <returns>PascalCase of the string</returns>
         </member>
         <member name="M:Abp.Extensions.StringExtensions.ToPascalCase(System.String,System.Globalization.CultureInfo)">
@@ -7382,6 +7459,11 @@
         <member name="T:Abp.Linq.IAsyncQueryableExecuter">
             <summary>
             This interface is intended to be used by ABP.
+            </summary>
+        </member>
+        <member name="M:Abp.Localization.CultureInfoHelper.Get(System.String)">
+            <summary>
+            This method is a temporary solution since CultureInfo.GetCultureInfo() does not exists in netstandard yet.
             </summary>
         </member>
         <member name="T:Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource">
@@ -8062,7 +8144,7 @@
         </member>
         <member name="M:Abp.Localization.Sources.Resource.ResourceFileLocalizationSource.GetAllStrings(System.Globalization.CultureInfo,System.Boolean)">
             <summary>
-            Gets all strings in specified culture.
+            Gets all strings in specified culture. 
             </summary>
         </member>
         <member name="T:Abp.Logging.IHasLogSeverity">
@@ -8560,7 +8642,7 @@
         </member>
         <member name="T:Abp.Net.Mail.Smtp.ISmtpEmailSenderConfiguration">
             <summary>
-            Defines configurations to used by <see cref="T:System.Net.Mail.SmtpClient"/> object.
+            Defines configurations to used by SmtpClient object.
             </summary>
         </member>
         <member name="P:Abp.Net.Mail.Smtp.ISmtpEmailSenderConfiguration.Host">
@@ -9135,7 +9217,7 @@
             Used to distribute notifications to users.
             </summary>
         </member>
-        <member name="M:Abp.Notifications.NotificationDistributer.#ctor(Abp.Notifications.INotificationDefinitionManager,Abp.Notifications.INotificationStore,Abp.Domain.Uow.IUnitOfWorkManager)">
+        <member name="M:Abp.Notifications.NotificationDistributer.#ctor(Abp.Notifications.INotificationDefinitionManager,Abp.Notifications.INotificationStore,Abp.Domain.Uow.IUnitOfWorkManager,Abp.IGuidGenerator)">
             <summary>
             Initializes a new instance of the <see cref="T:Abp.Notifications.NotificationDistributionJob"/> class.
             </summary>
@@ -9421,7 +9503,7 @@
             If it's "0", then indicates to all tenants.
             </summary>
         </member>
-        <member name="M:Abp.Notifications.NotificationInfo.#ctor">
+        <member name="M:Abp.Notifications.NotificationInfo.#ctor(System.Guid)">
             <summary>
             Initializes a new instance of the <see cref="T:Abp.Notifications.NotificationInfo"/> class.
             </summary>
@@ -9452,7 +9534,7 @@
             Reference to ABP session.
             </summary>
         </member>
-        <member name="M:Abp.Notifications.NotificationPublisher.#ctor(Abp.Notifications.INotificationStore,Abp.BackgroundJobs.IBackgroundJobManager,Abp.Notifications.INotificationDistributer)">
+        <member name="M:Abp.Notifications.NotificationPublisher.#ctor(Abp.Notifications.INotificationStore,Abp.BackgroundJobs.IBackgroundJobManager,Abp.Notifications.INotificationDistributer,Abp.IGuidGenerator)">
             <summary>
             Initializes a new instance of the <see cref="T:Abp.Notifications.NotificationPublisher"/> class.
             </summary>
@@ -9579,7 +9661,7 @@
             Initializes a new instance of the <see cref="T:Abp.Notifications.NotificationSubscriptionInfo"/> class.
             </summary>
         </member>
-        <member name="M:Abp.Notifications.NotificationSubscriptionInfo.#ctor(System.Nullable{System.Int32},System.Int64,System.String,Abp.Domain.Entities.EntityIdentifier)">
+        <member name="M:Abp.Notifications.NotificationSubscriptionInfo.#ctor(System.Guid,System.Nullable{System.Int32},System.Int64,System.String,Abp.Domain.Entities.EntityIdentifier)">
             <summary>
             Initializes a new instance of the <see cref="T:Abp.Notifications.NotificationSubscriptionInfo"/> class.
             </summary>
@@ -9599,7 +9681,7 @@
             Implements <see cref="T:Abp.Notifications.INotificationSubscriptionManager"/>.
             </summary>
         </member>
-        <member name="M:Abp.Notifications.NotificationSubscriptionManager.#ctor(Abp.Notifications.INotificationStore,Abp.Notifications.INotificationDefinitionManager)">
+        <member name="M:Abp.Notifications.NotificationSubscriptionManager.#ctor(Abp.Notifications.INotificationStore,Abp.Notifications.INotificationDefinitionManager,Abp.IGuidGenerator)">
             <summary>
             Initializes a new instance of the <see cref="T:Abp.Notifications.NotificationSubscriptionManager"/> class.
             </summary>
@@ -9771,10 +9853,11 @@
             Current state of the user notification.
             </summary>
         </member>
-        <member name="M:Abp.Notifications.UserNotificationInfo.#ctor">
+        <member name="M:Abp.Notifications.UserNotificationInfo.#ctor(System.Guid)">
             <summary>
             Initializes a new instance of the <see cref="T:Abp.Notifications.UserNotificationInfo"/> class.
             </summary>
+            <param name="create"></param>
         </member>
         <member name="T:Abp.Notifications.UserNotificationInfoExtensions">
             <summary>
@@ -10560,7 +10643,7 @@
         </member>
         <member name="T:Abp.Runtime.Caching.Memory.AbpMemoryCacheManager">
             <summary>
-            Implements <see cref="T:Abp.Runtime.Caching.ICacheManager"/> to work with <see cref="T:System.Runtime.Caching.MemoryCache"/>.
+            Implements <see cref="T:Abp.Runtime.Caching.ICacheManager"/> to work with MemoryCache.
             </summary>
         </member>
         <member name="M:Abp.Runtime.Caching.Memory.AbpMemoryCacheManager.#ctor(Abp.Dependency.IIocManager,Abp.Runtime.Caching.Configuration.ICachingConfiguration)">
@@ -10585,12 +10668,6 @@
             Creates a new <see cref="T:Abp.Runtime.Caching.TypedCacheWrapper`2"/> object.
             </summary>
             <param name="internalCache">The actual internal cache</param>
-        </member>
-        <member name="T:Abp.Runtime.Remoting.DataContextAmbientScopeProvider`1">
-            <summary>
-            CallContext implementation of <see cref="T:Abp.Domain.Uow.ICurrentUnitOfWorkProvider"/>. 
-            This is the default implementation.
-            </summary>
         </member>
         <member name="T:Abp.Runtime.Security.AbpClaimTypes">
             <summary>
@@ -10731,7 +10808,7 @@
         </member>
         <member name="T:Abp.Runtime.Session.ClaimsAbpSession">
             <summary>
-            Implements <see cref="T:Abp.Runtime.Session.IAbpSession"/> to get session properties from claims of <see cref="P:System.Threading.Thread.CurrentPrincipal"/>.
+            Implements <see cref="T:Abp.Runtime.Session.IAbpSession"/> to get session properties from current claims.
             </summary>
         </member>
         <member name="T:Abp.Runtime.Session.IAbpSession">
@@ -11870,6 +11947,14 @@
             Maps given windows timezone id to IANA timezone id
             </summary>
             <param name="windowsTimezoneId"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:Abp.Timing.Timezone.TimezoneHelper.IanaToWindows(System.String)">
+            <summary>
+            Maps given IANA timezone id to windows timezone id
+            </summary>
+            <param name="ianaTimezoneId"></param>
             <returns></returns>
             <exception cref="T:System.Exception"></exception>
         </member>

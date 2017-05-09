@@ -44,6 +44,12 @@
             Reference to multi tenancy configuration.
             </summary>
         </member>
+        <member name="P:Abp.EntityFramework.AbpDbContext.SuppressAutoSetTenantId">
+            <summary>
+            Can be used to suppress automatically setting TenantId on SaveChanges.
+            Default: false.
+            </summary>
+        </member>
         <member name="M:Abp.EntityFramework.AbpDbContext.#ctor">
             <summary>
             Constructor.

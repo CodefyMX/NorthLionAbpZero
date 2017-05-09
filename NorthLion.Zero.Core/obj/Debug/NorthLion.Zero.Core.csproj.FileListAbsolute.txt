@@ -76,3 +76,7 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\System.Collectio
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.dll
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.pdb
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\obj\Debug\NorthLion.Zero.Core.csprojResolveAssemblyReference.cache
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\Abp.Zero.Common.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\System.Linq.Dynamic.Core.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\Abp.Zero.Common.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.Core\bin\Debug\System.Linq.Dynamic.Core.xml

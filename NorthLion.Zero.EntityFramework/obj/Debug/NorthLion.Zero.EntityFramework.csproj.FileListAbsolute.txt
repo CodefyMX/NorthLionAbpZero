@@ -105,3 +105,7 @@ C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\obj\Debug\North
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\obj\Debug\NorthLion.Zero.EntityFramework.csproj.GenerateResource.Cache
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\obj\Debug\NorthLion.Zero.EntityFramework.dll
 C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\obj\Debug\NorthLion.Zero.EntityFramework.pdb
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\bin\Debug\Abp.Zero.Common.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\bin\Debug\System.Linq.Dynamic.Core.dll
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\bin\Debug\Abp.Zero.Common.xml
+C:\Users\CINOTAM25\Downloads\Zero\NorthLion.Zero.EntityFramework\bin\Debug\System.Linq.Dynamic.Core.xml

@@ -33,5 +33,11 @@
             <param name="destination">Destination object</param>
             <returns></returns>
         </member>
+        <member name="P:Abp.AutoMapper.IAbpAutoMapperConfiguration.UseStaticMapper">
+            <summary>
+            Use static <see cref="P:AutoMapper.Mapper.Instance"/>.
+            Default: true.
+            </summary>
+        </member>
     </members>
 </doc>
